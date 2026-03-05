@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>喬登AI動漫學院｜孩子不是不乖，是大腦還沒準備好</title>
+
+<style>
+:root{
+--primary:#ff6b6b;
+--soft:#fff4f4;
+--accent:#ffd166;
+--dark:#2b2d42;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:"PingFang TC","Microsoft JhengHei",sans-serif;}
+
+body{
+background:#fff;
+color:#444;
+line-height:1.8;
+}
+
+header{
+background:white;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+position:sticky;top:0;z-index:999;
+}
+
+.logo{
+font-size:26px;
+font-weight:900;
+color:var(--primary);
+}
+
+.hero{
+padding:120px 8%;
+background:linear-gradient(180deg,#fff4f4,#ffffff);
+text-align:center;
+}
+
+.hero h1{
+font-size:2.8rem;
+font-weight:900;
+color:var(--dark);
+margin-bottom:25px;
+}
+
+.hero p{
+font-size:1.2rem;
+max-width:750px;
+margin:auto;
+}
+
+.cta{
+margin-top:40px;
+background:var(--primary);
+color:white;
+padding:18px 45px;
+border:none;
+border-radius:50px;
+font-size:1.1rem;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.cta:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+section{
+padding:100px 8%;
+}
+
+.section-title{
+font-size:2.4rem;
+font-weight:900;
+text-align:center;
+margin-bottom:60px;
+color:var(--dark);
+}
+
+.pain-box{
+background:var(--soft);
+padding:50px;
+border-radius:25px;
+max-width:900px;
+margin:auto;
+font-size:1.1rem;
+}
+
+.highlight{
+color:var(--primary);
+font-weight:900;
+}
+
+.solution{
+background:#fff8e7;
+padding:80px 8%;
+text-align:center;
+}
+
+.price-section{
+background:#f1f7ff;
+text-align:center;
+}
+
+.price{
+font-size:3rem;
+color:var(--primary);
+font-weight:900;
+margin:25px 0;
+}
+
+footer{
+background:#111;
+color:white;
+padding:15px;
+position:fixed;
+bottom:0;
+width:100%;
+overflow:hidden;
+}
+
+.marquee{
+white-space:nowrap;
+animation:scroll 25s linear infinite;
+display:inline-block;
+padding-left:100%;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+@media(max-width:768px){
+.hero h1{font-size:1.8rem;}
+.section-title{font-size:1.6rem;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">喬登AI動漫學院</div>
+<div>媽媽專線 0800-XXX-XXX</div>
+</header>
+
+<section class="hero">
+<h1>
+妳是不是也懷疑過…<br>
+是不是自己沒有教好？
+</h1>
+<p>
+孩子坐不住、寫字歪七扭八、情緒爆炸、叫他三次都沒反應。  
+老師說專心度不足。  
+妳開始焦慮——他是不是跟不上？
+</p>
+
+<button class="cta" onclick="contact()">免費了解孩子狀況</button>
+</section>
+
+<section>
+<h2 class="section-title">孩子不是不乖<br>而是大腦感統基礎還沒成熟</h2>
+
+<div class="pain-box">
+<p>
+如果 <span class="highlight">前庭覺</span> 沒建立好 → 坐不住  
+如果 <span class="highlight">視知覺</span> 不穩 → 抄寫跳行  
+如果 <span class="highlight">聽知覺</span> 弱 → 聽不懂老師指令  
+如果 <span class="highlight">本體覺</span> 不足 → 寫字出力失控  
+如果 <span class="highlight">感覺調適</span> 失衡 → 情緒反覆爆發  
+</p>
+
+<br>
+
+<p>
+這些都不是故意的。  
+是神經網路還沒打好基礎。
+</p>
+
+<p style="margin-top:20px;font-weight:bold;color:#d62828;">
+0-6歲是大腦發育黃金期。  
+錯過，重建會更辛苦。
+</p>
+</div>
+</section>
+
+<section class="solution">
+<h2 class="section-title">用孩子最愛的方式，重建大腦連結</h2>
+<p>
+🎮 動漫闖關遊戲刺激感統發展<br>
+📚 點讀 + 點視雙科技整合<br>
+🌎 沉浸式英文環境自然開口<br><br>
+
+就像童星葉子綺媽媽，從9個月開始打造英文環境。  
+語言不是教出來的，是「泡出來的」。
+</p>
+</section>
+
+<section class="price-section">
+<h2 class="section-title">現在開始，還來得及</h2>
+<div class="price">NT$ 2,XXX / 月</div>
+<p>36期分期零利率</p>
+<p>🎁 12年免費更新</p>
+<p>🎁 14吋AI平板</p>
+<br>
+<button class="cta" onclick="contact()">預約專人說明</button>
+</section>
+
+<div style="height:70px;"></div>
+
+<footer>
+<div class="marquee">
+🌼 別再自責 ｜ 黃金期只有一次 ｜ 孩子不是故意的 ｜ 給他一個重新開始的機會 ｜ 喬登AI動漫學院
+</div>
+</footer>
+
+<script>
+function contact(){
+let phone = prompt("留下電話，我們幫妳評估孩子狀況：");
+if(phone){
+alert("我們會溫柔地與您聯繫，請放心。");
+}
+}
+</script>
+
+</body>
+</html>

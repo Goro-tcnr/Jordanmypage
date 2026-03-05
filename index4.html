@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喬登AI動漫學院 | 0-6歲感統與全英語開發首選</title>
+    <style>
+        :root {
+            --primary: #FF5E62;
+            --secondary: #00D2FF;
+            --dark: #2D3436;
+            --gold: #FFD700;
+            --soft-bg: #F0F7FA;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; }
+        body { background-color: #fff; color: var(--dark); line-height: 1.6; }
+
+        /* --- Header & Logo --- */
+        header {
+            background: white;
+            padding: 10px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-size: 24px; font-weight: 900; color: var(--primary); display: flex; align-items: center; }
+        .logo span { color: var(--secondary); margin-left: 5px; }
+
+        /* --- Banner & Trial --- */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&q=80');
+            background-size: cover; padding: 60px 5%; text-align: center;
+        }
+        .hero h1 { font-size: 2.2rem; margin-bottom: 15px; color: #d63031; }
+        .hero p { font-size: 1.1rem; margin-bottom: 30px; }
+        
+        .trial-nav { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .trial-btn { 
+            background: var(--primary); color: white; border: none; padding: 12px 25px; 
+            border-radius: 50px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .trial-btn.secondary { background: var(--secondary); }
+        .trial-btn:hover { transform: scale(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        /* --- 痛點區塊 --- */
+        .pain-point { padding: 60px 10%; background: var(--soft-bg); text-align: center; }
+        .pain-point h2 { color: #c0392b; margin-bottom: 20px; }
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+        .pain-card { background: white; padding: 30px; border-radius: 15px; border-left: 5px solid #ff7675; text-align: left; }
+        .pain-card b { color: #d63031; }
+
+        /* --- 學習模式 & 案例 --- */
+        .method { padding: 60px 10%; }
+        .case-study { 
+            background: #fff9db; padding: 30px; border-radius: 20px; border: 2px dashed #f1c40f;
+            margin-bottom: 40px; display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+        }
+        .case-img { width: 120px; height: 120px; border-radius: 50%; background: #eee; overflow: hidden; }
+        .case-text { flex: 1; min-width: 250px; }
+
+        /* --- 108課綱區塊 --- */
+        .syllabus { background: var(--dark); color: white; padding: 60px 10%; }
+        .syllabus h2 { color: var(--secondary); margin-bottom: 20px; }
+        .syllabus-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+
+        /* --- 售價方案 --- */
+        .pricing { padding: 80px 10%; text-align: center; }
+        .price-card { 
+            max-width: 600px; margin: 0 auto; border: 3px solid var(--secondary); 
+            border-radius: 30px; padding: 40px; position: relative;
+            background: linear-gradient(145deg, #ffffff, #f0f0f0);
+        }
+        .hot-tag { position: absolute; top: -15px; right: 20px; background: red; color: white; padding: 5px 15px; border-radius: 5px; }
+        .price-amount { font-size: 3rem; font-weight: 900; color: var(--primary); }
+        .gift-box { background: #e3f2fd; padding: 20px; border-radius: 15px; margin: 20px 0; border: 1px solid #bbdefb; }
+
+        /* --- 客服維護 --- */
+        .service { background: #f9f9f9; padding: 40px 10%; display: flex; justify-content: space-around; flex-wrap: wrap; }
+        .service-item { width: 250px; text-align: center; padding: 20px; }
+
+        /* --- Footer 跑馬燈 --- */
+        footer { background: #333; color: white; padding: 15px 0; overflow: hidden; position: fixed; bottom: 0; width: 100%; z-index: 1000; }
+        .marquee { white-space: nowrap; animation: scroll 25s linear infinite; display: inline-block; padding-left: 100%; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .syllabus-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">喬登AI<span>動漫學院</span></div>
+    <div style="font-size: 14px; font-weight: bold;">家長諮詢專線：0800-XXX-XXX</div>
+</header>
+
+<section class="hero">
+    <h1>您的孩子是「不乖」還是「感統失調」？</h1>
+    <p>抓住 0-6 歲大腦發育黃金期，別讓感統問題影響孩子一生的學習功能！</p>
+    <div class="trial-nav">
+        <button class="trial-btn" onclick="startTrial('感統遊戲')">試用感統互動遊戲</button>
+        <button class="trial-btn secondary" onclick="startTrial('動漫英文')">試看全英文動漫</button>
+        <button class="trial-btn" onclick="startTrial('108課綱')">108課綱互動題試做</button>
+    </div>
+</section>
+
+<section class="pain-point">
+    <h2>感統失調，是學習路上的隱形殺手</h2>
+    <p>如果您發現孩子：坐不住、專注力差、手腳不協調、情緒容易崩潰...</p>
+    <div class="pain-grid">
+        <div class="pain-card">
+            <h3>🔴 學習功能受損</h3>
+            <p>感覺統合是所有學習的基礎。基礎沒打好，進入國小後，寫字跳行、讀書坐不住將成為常態，<b>不及時修正將伴隨一生</b>。</p>
+        </div>
+        <div class="pain-card">
+            <h3>🔴 學習態度消極</h3>
+            <p>當孩子無法控制肢體與專注力，挫折感會讓他們產生「厭學」情緒，這不是孩子不努力，是<b>大腦神經需要調整</b>。</p>
+        </div>
+        <div class="pain-card">
+            <h3>🔴 0-6歲黃金修正期</h3>
+            <p>這段期間大腦具備極高可塑性。喬登AI動漫學用孩子最愛的模式，在不知不覺中<b>完成大腦神經網路的修復與開發</b>。</p>
+        </div>
+    </div>
+</section>
+
+<section class="method">
+    <div class="case-study">
+        <div class="case-img">
+            <img src="https://via.placeholder.com/120" alt="葉子綺故事">
+        </div>
+        <div class="case-text">
+            <h3>🌟 金馬童星葉子綺的成功秘訣</h3>
+            <p>金馬童星葉子綺的媽媽分享：從子綺 9 個月大就開始打造全英文環境，透過英文 DVD 讓孩子自然接收。在喬登，我們更進一步！結合<b>點讀筆、點視功能</b>，讓孩子邊玩邊看卡通，自然理解並跟著開口唸出純正美語。</p>
+        </div>
+    </div>
+    <h2 style="text-align: center; margin-bottom: 30px;">用孩子「愛死」的方式學英文</h2>
+    <div style="text-align: center;">
+        <p>不再是死背單字！透過動漫情境與點讀技術，孩子就像在玩「動作冒險遊戲」。<br>
+        視覺、聽覺、觸覺同步刺激，讓英文環境融入生活，就像呼吸一樣自然。</p>
+    </div>
+</section>
+
+<section class="syllabus">
+    <div class="syllabus-grid">
+        <div>
+            <h2>面對 108 課綱，您準備好了嗎？</h2>
+            <p>現在的考題不再只有死板答案，而是強調「素養」與「理解」。</p>
+            <ul style="margin-top: 20px; margin-left: 20px;">
+                <li>收錄幼兒到國三所有版本內容</li>
+                <li>把生硬課文變成有趣互動影片</li>
+                <li>AI 智能分析孩子弱點，自動調整練習難度</li>
+            </ul>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px;">
+            <p style="font-style: italic;">「自從用了喬登，孩子不再問我這題在講什麼，他自己玩遊戲就理解了複雜的物理邏輯！」— 小二家長林小姐</p>
+        </div>
+    </div>
+</section>
+
+<section class="pricing">
+    <div class="price-card">
+        <div class="hot-tag">限時專案</div>
+        <h3>【全智統合三年學習成長計畫】</h3>
+        <p style="margin-top:10px">每日投資不到一份早餐錢，給孩子帶不走的競爭力</p>
+        <div class="price-amount">NT$ 2,XXX <span style="font-size: 1.2rem;">/ 月</span></div>
+        <p>✅ 36 期分期零利率（3年計畫）</p>
+        
+        <div class="gift-box">
+            <h4>🎁 今日簽約加碼贈送：</h4>
+            <ul style="list-style: none; margin-top: 10px;">
+                <li>📍 <b>12 年課程永久免費更新</b> (用到國中畢業！)</li>
+                <li>📍 <b>14 吋 AI 專用高畫質學習平板</b> (乙台)</li>
+                <li>📍 專業點讀筆 + 全套感統教材</li>
+            </ul>
+        </div>
+        <button class="trial-btn" style="width: 100%; font-size: 1.2rem; padding: 20px;" onclick="consult()">立即預約專業感統測驗與諮詢</button>
+    </div>
+</section>
+
+<section class="service">
+    <div class="service-item">
+        <h4>🛠️ 三年硬體保固</h4>
+        <p>平板或點讀筆損壞，專人收送維修，學習不中斷。</p>
+    </div>
+    <div class="service-item">
+        <h4>👩‍🏫 真人線上導師</h4>
+        <p>遇到課業難題或感統疑問，隨時線上詢問專業顧問。</p>
+    </div>
+    <div class="service-item">
+        <h4>📊 學習進度週報</h4>
+        <p>每週發送 AI 分析報告至家長手機，掌握孩子發展現況。</p>
+    </div>
+</section>
+
+<div style="height: 60px;"></div>
+
+<footer>
+    <div class="marquee">
+        🔥 慶祝葉子綺入圍金馬！本月購機即享「英語啟蒙禮包」 &nbsp;&nbsp;&nbsp;&nbsp; 
+        📢 108課綱不怕不怕！喬登AI動漫讓抽象變具體 &nbsp;&nbsp;&nbsp;&nbsp; 
+        🚀 把握 0-6 歲黃金期，感統失調及早修正，孩子未來大不同 &nbsp;&nbsp;&nbsp;&nbsp; 
+        🛡️ 三年分期零利率，12年更新送給你，14吋平板免費帶回家！
+    </div>
+</footer>
+
+<script>
+    function startTrial(title) {
+        alert(`【喬登AI動漫學院】\n\n您已選擇試用：「${title}」\n系統正準備載入互動模組，請確保聲音已開啟！`);
+    }
+
+    function consult() {
+        const phone = prompt("請留下您的聯絡電話，將由專業教育顧問與您聯繫說明分期方案：");
+        if(phone) {
+            alert("預約成功！顧問將於 24 小時內與您聯繫，協助您了解孩子感統狀況。");
+        }
+    }
+
+    // 簡單的入幕動畫效果
+    window.onload = () => {
+        document.querySelector('.hero').style.opacity = '0';
+        setTimeout(() => {
+            document.querySelector('.hero').style.transition = 'opacity 1.5s';
+            document.querySelector('.hero').style.opacity = '1';
+        }, 100);
+    }
+</script>
+
+</body>
+</html>

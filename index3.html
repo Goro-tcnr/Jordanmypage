@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喬登AI動漫學院 | 0-6歲感統黃金期開發</title>
+    <style>
+        :root {
+            --primary-color: #FF6B6B; /* 溫馨暖紅 */
+            --secondary-color: #4ECDC4; /* 專業粉青 */
+            --dark-blue: #2C3E50;
+            --price-gold: #D4AF37;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; }
+        body { background-color: #f9f9f9; color: #333; line-height: 1.6; }
+
+        /* --- Header & Logo --- */
+        header {
+            background: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo { font-size: 24px; font-weight: bold; color: var(--primary-color); display: flex; align-items: center; }
+        .logo img { height: 45px; margin-right: 10px; }
+
+        /* --- Banner & Trial Options --- */
+        .banner {
+            background: linear-gradient(135deg, #FFF5F5 0%, #E6FFFA 100%);
+            padding: 80px 5%;
+            text-align: center;
+            border-bottom: 5px solid var(--secondary-color);
+        }
+        .banner h1 { font-size: 2.5rem; color: var(--dark-blue); margin-bottom: 20px; }
+        .banner p { font-size: 1.2rem; color: #666; margin-bottom: 35px; }
+        
+        .trial-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .trial-option {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            width: 250px;
+            transition: 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .trial-option:hover { border-color: var(--primary-color); transform: translateY(-5px); }
+        .trial-option h3 { color: var(--primary-color); margin-bottom: 10px; }
+        .trial-btn { 
+            background: var(--primary-color); color: white; border: none; 
+            padding: 8px 20px; border-radius: 20px; cursor: pointer; margin-top: 10px;
+        }
+
+        /* --- Pain Point Section (業務說服) --- */
+        .pain-points { padding: 60px 5%; text-align: center; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 40px; }
+        .card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card i { font-size: 40px; color: var(--secondary-color); }
+        .card h4 { margin: 15px 0; font-size: 1.3rem; }
+
+        /* --- Pricing & 3-Year Installment --- */
+        .pricing { 
+            background: var(--dark-blue); color: white; padding: 80px 5%; text-align: center;
+            clip-path: polygon(0 5%, 100% 0%, 100% 95%, 0% 100%);
+        }
+        .installment-card {
+            background: white; color: #333; max-width: 600px; margin: 40px auto;
+            padding: 40px; border-radius: 30px; position: relative; overflow: hidden;
+        }
+        .price-tag { font-size: 3.5rem; color: var(--primary-color); font-weight: bold; }
+        .price-desc { font-size: 1.2rem; color: #7f8c8d; margin-bottom: 20px; }
+        .highlight-box { 
+            background: #fff5f5; padding: 20px; border-radius: 10px; 
+            border-left: 5px solid var(--primary-color); margin: 20px 0;
+            text-align: left;
+        }
+
+        /* --- Maintenance & Service --- */
+        .service { padding: 60px 5%; display: flex; flex-wrap: wrap; justify-content: space-around; background: #fff; }
+        .service-item { width: 300px; margin: 20px; }
+        .service-item h4 { color: var(--secondary-color); margin-bottom: 10px; border-bottom: 2px solid #eee; padding-bottom: 5px; }
+
+        /* --- Footer Marquee --- */
+        footer { background: #333; color: white; padding: 15px 0; position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .marquee { overflow: hidden; white-space: nowrap; width: 100%; }
+        .marquee p { display: inline-block; padding-left: 100%; animation: scroll 20s linear infinite; font-weight: bold; }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .banner h1 { font-size: 1.8rem; }
+            .price-tag { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="https://img.icons8.com/color/96/robot-tatu.png" alt="Jordan AI Logo">
+            喬登AI動漫學院
+        </div>
+        <div class="contact-info">客服專線: 0800-XXX-XXX</div>
+    </header>
+
+    <section class="banner">
+        <h1>別讓「感統失調」困住孩子的天賦</h1>
+        <p>0-6歲是大腦開發黃金期，用AI動漫引導，讓孩子在玩樂中完成感覺統合訓練</p>
+        
+        <div class="trial-container">
+            <div class="trial-option" onclick="startTrial('專注力測驗')">
+                <h3>🎯 專注力挑戰</h3>
+                <p>測測孩子能否跟上動漫角色的節奏</p>
+                <button class="trial-btn">立即試用</button>
+            </div>
+            <div class="trial-option" onclick="startTrial('情緒穩定AI輔導')">
+                <h3>🌈 情緒小學堂</h3>
+                <p>讓AI角色引導孩子識別與控制情緒</p>
+                <button class="trial-btn">立即試用</button>
+            </div>
+            <div class="trial-option" onclick="startTrial('肢體協調互動')">
+                <h3>🤸 肢體大冒險</h3>
+                <p>感應器同步互動，訓練手眼協調</p>
+                <button class="trial-btn">立即試用</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="pain-points">
+        <h2>您是否也面臨這些育兒焦慮？</h2>
+        <div class="grid">
+            <div class="card">
+                <h4>坐不住、愛搗蛋？</h4>
+                <p>這可能不是過動，而是前庭覺尋求刺激。AI動漫精準給予孩子所需感覺刺激。</p>
+            </div>
+            <div class="card">
+                <h4>脾氣暴躁難溝通？</h4>
+                <p>透過AI情境模擬，讓孩子在虛擬動漫世界學會冷靜，轉換現實社交力。</p>
+            </div>
+            <div class="card">
+                <h4>害怕傳統教具？</h4>
+                <p>喬登AI動漫將枯燥的訓練變身為「打怪冒險」，孩子主動要求每天練習！</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <h2>輕鬆投資，給孩子一輩子的競爭力</h2>
+        <div class="installment-card">
+            <div class="price-desc">全方位感統成長方案 (含硬體+AI授權)</div>
+            <div class="price-tag">NT$ 1,980 <span style="font-size: 1rem;">/ 月</span></div>
+            <div class="highlight-box">
+                <p>✅ <strong>3年 (36期) 分期零利率</strong></p>
+                <p>✅ <strong>每日只需 $66 元</strong> (不到一杯咖啡錢)</p>
+                <p>✅ 包含喬登AI智慧主機、感應組件及全套課程</p>
+            </div>
+            <button class="trial-btn" style="width: 100%; padding: 15px; font-size: 1.2rem; border-radius: 10px;" onclick="purchase()">
+                我想了解分期細節
+            </button>
+        </div>
+    </section>
+
+    <section class="service">
+        <div class="service-item">
+            <h4>🛡️ 3年硬體完整保固</h4>
+            <p>分期期間，硬體故障一律「以新換舊」，學習進度不中斷。</p>
+        </div>
+        <div class="service-item">
+            <h4>☁️ AI系統自動更新</h4>
+            <p>教材永久與時俱進，每季自動下載最新動漫感統遊戲，不必再花錢買新版。</p>
+        </div>
+        <div class="service-item">
+            <h4>👩‍🏫 專屬育兒線上顧問</h4>
+            <p>針對孩子AI報告進行1對1分析，解決您在感覺統合上的所有疑惑。</p>
+        </div>
+    </section>
+
+    <div style="height: 60px;"></div> <footer>
+        <div class="marquee">
+            <p>
+                🔥 限時優惠：本月下單即贈「喬登專屬AI互動感測器」一組！ 
+                🎁 0-6歲黃金期不容錯過，已有超過 10,000 名家長選擇喬登AI動漫學院。 
+                🚀 歡迎預約到店免費體驗：台北、台中、高雄據點同步服務中...
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 模擬試用功能
+        function startTrial(type) {
+            alert("正在為您開啟【" + type + "】試用模組...\n\n請確保您的鏡頭已開啟，AI將偵測孩子的互動狀況。");
+        }
+
+        // 購買諮詢
+        function purchase() {
+            const phone = prompt("請留下您的聯絡電話，我們將安排專業諮詢師為您說明3年分期零利率方案：");
+            if(phone) {
+                alert("感謝您的預約！諮詢師將於24小時內聯繫您。");
+            }
+        }
+
+        // 監控滾動動效
+        window.addEventListener('scroll', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if(rect.top < window.innerHeight) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // 初始動畫設置
+        document.querySelectorAll('.card').forEach(c => {
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(30px)';
+            c.style.transition = '0.8s ease-out';
+        });
+    </script>
+
+</body>
+</html>

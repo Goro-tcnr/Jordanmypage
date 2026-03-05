@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>孩子現在的落後，三年後會變成差距</title>
+
+<style>
+:root{
+--danger:#d90429;
+--dark:#1b263b;
+--light:#f8f9fa;
+--warning:#ffbe0b;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft JhengHei",sans-serif;}
+body{line-height:1.8;background:#fff;color:#333;}
+
+header{
+background:#fff;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+position:sticky;top:0;
+}
+
+.logo{
+font-size:26px;
+font-weight:900;
+color:var(--danger);
+}
+
+.hero{
+background:linear-gradient(180deg,#ffe5e5,#ffffff);
+padding:120px 8%;
+text-align:center;
+}
+
+.hero h1{
+font-size:2.8rem;
+color:var(--dark);
+font-weight:900;
+margin-bottom:30px;
+}
+
+.hero p{
+max-width:800px;
+margin:auto;
+font-size:1.2rem;
+}
+
+.cta{
+margin-top:40px;
+background:var(--danger);
+color:white;
+padding:18px 50px;
+border:none;
+border-radius:50px;
+font-size:1.1rem;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.cta:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+section{
+padding:100px 8%;
+}
+
+.section-title{
+font-size:2.4rem;
+font-weight:900;
+text-align:center;
+margin-bottom:60px;
+color:var(--dark);
+}
+
+.alarm-box{
+background:#fff0f0;
+border-left:8px solid var(--danger);
+padding:40px;
+border-radius:20px;
+max-width:900px;
+margin:auto;
+font-size:1.1rem;
+}
+
+.highlight{
+color:var(--danger);
+font-weight:900;
+}
+
+.countdown{
+text-align:center;
+font-size:1.5rem;
+color:var(--danger);
+margin-top:30px;
+}
+
+.solution{
+background:#f1f7ff;
+text-align:center;
+}
+
+.price-section{
+background:#fff7e6;
+text-align:center;
+}
+
+.price{
+font-size:3rem;
+font-weight:900;
+color:var(--danger);
+margin:25px 0;
+}
+
+footer{
+background:#111;
+color:white;
+padding:15px;
+position:fixed;
+bottom:0;
+width:100%;
+overflow:hidden;
+}
+
+.marquee{
+white-space:nowrap;
+animation:scroll 20s linear infinite;
+display:inline-block;
+padding-left:100%;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+@media(max-width:768px){
+.hero h1{font-size:1.8rem;}
+.section-title{font-size:1.6rem;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">喬登AI動漫學院</div>
+<div>立即專線 0800-XXX-XXX</div>
+</header>
+
+<section class="hero">
+<h1>
+孩子現在的落後<br>
+三年後會變成無法追上的差距
+</h1>
+
+<p>
+坐不住、寫字慢、聽不懂指令、情緒容易爆炸。  
+這些不是小問題。  
+這些正在一點一滴拉開他與同齡孩子的距離。
+</p>
+
+<button class="cta" onclick="contact()">立即確認孩子狀況</button>
+
+<div class="countdown">
+黃金發育期正在倒數：<span id="timer"></span>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">如果現在不處理，會發生什麼？</h2>
+
+<div class="alarm-box">
+<p>
+<span class="highlight">前庭覺失衡</span> → 坐不住，被貼上不專心標籤  
+<span class="highlight">視知覺不足</span> → 抄寫錯誤，自信下降  
+<span class="highlight">聽知覺弱</span> → 跟不上老師節奏  
+<span class="highlight">本體覺不穩</span> → 寫字困難、討厭學習  
+<span class="highlight">感覺調適差</span> → 情緒失控、人際退縮  
+</p>
+
+<br>
+
+<p style="font-weight:bold;">
+國小一年級開始，差距會被放大。  
+國小三年級後，很難追回。
+</p>
+</div>
+</section>
+
+<section class="solution">
+<h2 class="section-title">但現在開始，還來得及</h2>
+
+<p>
+🎮 用動漫闖關重建神經連結  
+📚 點讀 × 點視強化視聽整合  
+🌎 沉浸式英文環境自然開口  
+
+不是補習。  
+是把大腦基礎打穩。
+</p>
+</section>
+
+<section class="price-section">
+<h2 class="section-title">三年，換孩子一生學習能力</h2>
+
+<div class="price">NT$ 2,XXX / 月</div>
+<p>36期分期零利率</p>
+<p>🎁 12年免費更新</p>
+<p>🎁 14吋AI學習平板</p>
+
+<br>
+
+<button class="cta" onclick="contact()">搶在差距拉開前開始</button>
+</section>
+
+<div style="height:70px;"></div>
+
+<footer>
+<div class="marquee">
+⚠️ 黃金期只有一次 ｜ 現在不做 三年後更辛苦 ｜ 別等老師提醒才開始 ｜ 喬登AI動漫學院
+</div>
+</footer>
+
+<script>
+function contact(){
+let phone = prompt("請留下電話，我們將安排專人協助：");
+if(phone){
+alert("預約成功，我們將盡快與您聯繫。");
+}
+}
+
+function countdown(){
+let now = new Date().getTime();
+let end = new Date();
+end.setFullYear(end.getFullYear()+1);
+let distance = end - now;
+
+let days = Math.floor(distance/(1000*60*60*24));
+document.getElementById("timer").innerHTML = days + " 天";
+}
+
+countdown();
+</script>
+
+</body>
+</html>

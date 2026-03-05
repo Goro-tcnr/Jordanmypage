@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>喬登AI動漫學院｜專業感統發展檢測</title>
+
+<style>
+*{box-sizing:border-box;}
+body{
+    margin:0;
+    font-family:"Microsoft JhengHei",sans-serif;
+    background:#fffaf3;
+    color:#444;
+}
+
+header{
+    background:#ffd6a5;
+    padding:15px 20px;
+    display:flex;
+    align-items:center;
+}
+header img{
+    height:50px;
+    margin-right:10px;
+}
+
+.banner{
+    background:linear-gradient(to right,#caf0f8,#ade8f4);
+    text-align:center;
+    padding:50px 20px;
+}
+.banner h1{
+    font-size:28px;
+    color:#0077b6;
+}
+
+section{
+    padding:50px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.big-title{
+    font-size:32px;
+    text-align:center;
+    color:#ff6b6b;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+
+.quiz-box{
+    background:#e7f5ff;
+    padding:25px;
+    border-radius:20px;
+    margin-bottom:40px;
+}
+
+.quiz-box h3{
+    margin-top:0;
+    color:#0077b6;
+}
+
+.quiz-box label{
+    display:block;
+    margin:8px 0;
+}
+
+button{
+    margin-top:15px;
+    padding:10px 20px;
+    border:none;
+    border-radius:20px;
+    background:#69db7c;
+    color:white;
+    cursor:pointer;
+}
+
+.result-box{
+    background:white;
+    padding:20px;
+    border-radius:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.bar-container{
+    background:#eee;
+    border-radius:20px;
+    height:20px;
+    margin:10px 0;
+}
+
+.bar{
+    height:100%;
+    border-radius:20px;
+    width:0%;
+    transition:0.5s;
+}
+
+.function-bar{
+    background:#4dabf7;
+}
+
+.attitude-bar{
+    background:#f06595;
+}
+
+@media(max-width:768px){
+    .big-title{
+        font-size:24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo.png" alt="喬登AI動漫學院LOGO">
+    <h2>喬登AI動漫學院</h2>
+</header>
+
+<div class="banner">
+    <h1>🌼 專業感統發展雙區檢測報告</h1>
+</div>
+
+<section>
+
+<div class="big-title">🧠 學習功能評估</div>
+
+<div class="quiz-box">
+    <label><input type="checkbox" class="function" value="1"> 容易暈車或愛轉圈</label>
+    <label><input type="checkbox" class="function" value="1"> 坐不住，專注力不足</label>
+    <label><input type="checkbox" class="function" value="1"> 常看錯字或抄寫困難</label>
+    <label><input type="checkbox" class="function" value="1"> 聽不清指令</label>
+    <label><input type="checkbox" class="function" value="1"> 對觸碰過度敏感</label>
+</div>
+
+<div class="big-title">❤️ 學習態度評估</div>
+
+<div class="quiz-box">
+    <label><input type="checkbox" class="attitude" value="1"> 情緒起伏大</label>
+    <label><input type="checkbox" class="attitude" value="1"> 寫字用力異常</label>
+    <label><input type="checkbox" class="attitude" value="1"> 容易挫折放棄</label>
+    <label><input type="checkbox" class="attitude" value="1"> 不喜歡嘗試新事物</label>
+    <label><input type="checkbox" class="attitude" value="1"> 自信心不足</label>
+</div>
+
+<button onclick="generateReport()">產生專業分析報告</button>
+
+<div id="report" class="result-box" style="display:none; margin-top:30px;">
+    <h3>📊 分析結果</h3>
+
+    <p>學習功能分數：</p>
+    <div class="bar-container">
+        <div id="functionBar" class="bar function-bar"></div>
+    </div>
+    <div id="functionText"></div>
+
+    <p>學習態度分數：</p>
+    <div class="bar-container">
+        <div id="attitudeBar" class="bar attitude-bar"></div>
+    </div>
+    <div id="attitudeText"></div>
+
+    <hr>
+    <div id="advice"></div>
+</div>
+
+</section>
+
+<script>
+function generateReport(){
+    let functionScore = 0;
+    let attitudeScore = 0;
+
+    document.querySelectorAll(".function:checked")
+    .forEach(item => functionScore += parseInt(item.value));
+
+    document.querySelectorAll(".attitude:checked")
+    .forEach(item => attitudeScore += parseInt(item.value));
+
+    let functionPercent = (functionScore / 5) * 100;
+    let attitudePercent = (attitudeScore / 5) * 100;
+
+    document.getElementById("functionBar").style.width = functionPercent + "%";
+    document.getElementById("attitudeBar").style.width = attitudePercent + "%";
+
+    document.getElementById("functionText").innerText =
+        functionScore <= 1 ? "發展穩定，持續觀察即可。" :
+        functionScore <= 3 ? "建議加強專注與感統刺激。" :
+        "建議安排專業感統評估與訓練。";
+
+    document.getElementById("attitudeText").innerText =
+        attitudeScore <= 1 ? "學習態度穩定。" :
+        attitudeScore <= 3 ? "建議加強情緒與本體覺訓練。" :
+        "可能影響學習動機，建議專業引導。";
+
+    document.getElementById("advice").innerHTML =
+        "<strong>專業建議：</strong><br>0-6歲為大腦發展黃金期，若兩區分數偏高，建議透過動畫互動式感統課程進行調整，越早介入效果越好。";
+
+    document.getElementById("report").style.display = "block";
+}
+</script>
+
+</body>
+</html>

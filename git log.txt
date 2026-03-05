@@ -1,0 +1,70 @@
+
+C:\Users\USER>cd..
+
+C:\Users>cd USER\Desktop\TCNR
+
+C:\Users\USER\Desktop\TCNR>git status
+fatal: not a git repository (or any of the parent directories): .git
+
+C:\Users\USER\Desktop\TCNR>git config --global user.email "0910428084.tcnr@gmail.com"
+
+C:\Users\USER\Desktop\TCNR>git config --global user.name "Goro-tcnr"
+
+C:\Users\USER\Desktop\TCNR>cd Jordan
+
+C:\Users\USER\Desktop\TCNR\Jordan>git init
+Initialized empty Git repository in C:/Users/USER/Desktop/TCNR/Jordan/.git/
+
+C:\Users\USER\Desktop\TCNR\Jordan>dir
+ 磁碟區 C 中的磁碟沒有標籤。
+ 磁碟區序號:  10F8-FE34
+
+ C:\Users\USER\Desktop\TCNR\Jordan 的目錄
+
+2026/03/04  下午 04:20    <DIR>          .
+2026/03/04  下午 04:00    <DIR>          ..
+2026/03/04  下午 04:02            11,564 index.html
+2026/03/04  下午 04:04            10,037 index2.html
+               2 個檔案          21,601 位元組
+               2 個目錄  37,820,284,928 位元組可用
+
+C:\Users\USER\Desktop\TCNR\Jordan>git add .
+
+C:\Users\USER\Desktop\TCNR\Jordan>git commit -m "test"
+[master (root-commit) 60b2704] test
+ 2 files changed, 524 insertions(+)
+ create mode 100644 index.html
+ create mode 100644 index2.html
+
+C:\Users\USER\Desktop\TCNR\Jordan>git branch -M main
+
+C:\Users\USER\Desktop\TCNR\Jordan>git push
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository using
+
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+
+
+C:\Users\USER\Desktop\TCNR\Jordan>git remote add origin https://github.com/Goro-tcnr/Jordanmypage.git
+
+C:\Users\USER\Desktop\TCNR\Jordan>git push -u origin main
+info: please complete authentication in your browser...
+Enumerating objects: 4, done.
+Counting objects: 100% (4/4), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 7.78 KiB | 7.78 MiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/Goro-tcnr/Jordanmypage.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+
+C:\Users\USER\Desktop\TCNR\Jordan>git push -u origin main
+branch 'main' set up to track 'origin/main'.
+Everything up-to-date
+
+C:\Users\USER\Desktop\TCNR\Jordan>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>錯過黃金期，學習差距會被放大</title>
+
+<style>
+:root{
+--danger:#c1121f;
+--dark:#1d3557;
+--soft:#fff0f3;
+--gold:#ffb703;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft JhengHei",sans-serif;}
+body{line-height:1.8;color:#333;background:#fff;}
+
+header{
+background:white;
+padding:15px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 20px rgba(0,0,0,.05);
+position:sticky;top:0;z-index:999;
+}
+
+.logo{
+font-size:26px;
+font-weight:900;
+color:var(--danger);
+}
+
+.hero{
+padding:120px 8%;
+text-align:center;
+background:linear-gradient(180deg,#ffe5e5,#ffffff);
+}
+
+.hero h1{
+font-size:2.8rem;
+font-weight:900;
+color:var(--dark);
+margin-bottom:30px;
+}
+
+.hero p{
+max-width:800px;
+margin:auto;
+font-size:1.2rem;
+}
+
+.cta{
+margin-top:40px;
+background:var(--danger);
+color:white;
+padding:18px 50px;
+border:none;
+border-radius:50px;
+font-size:1.1rem;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.cta:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,.25);
+}
+
+section{
+padding:100px 8%;
+}
+
+.section-title{
+font-size:2.4rem;
+font-weight:900;
+text-align:center;
+margin-bottom:60px;
+color:var(--dark);
+}
+
+.alarm{
+background:var(--soft);
+padding:50px;
+border-left:10px solid var(--danger);
+border-radius:25px;
+max-width:900px;
+margin:auto;
+}
+
+.compare{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+margin-top:40px;
+}
+
+.box{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.bad{border-top:8px solid var(--danger);}
+.good{border-top:8px solid #2a9d8f;}
+
+.limit{
+text-align:center;
+background:#fff3cd;
+padding:40px;
+border-radius:20px;
+font-size:1.2rem;
+}
+
+.price-section{
+text-align:center;
+background:#f1f7ff;
+}
+
+.price{
+font-size:3rem;
+font-weight:900;
+color:var(--danger);
+margin:25px 0;
+}
+
+footer{
+background:#111;
+color:white;
+padding:15px;
+position:fixed;
+bottom:0;
+width:100%;
+overflow:hidden;
+}
+
+.marquee{
+white-space:nowrap;
+animation:scroll 18s linear infinite;
+display:inline-block;
+padding-left:100%;
+}
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+@media(max-width:768px){
+.hero h1{font-size:1.8rem;}
+.section-title{font-size:1.6rem;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">喬登AI動漫學院</div>
+<div>限時專線 0800-XXX-XXX</div>
+</header>
+
+<section class="hero">
+<h1>
+現在忽略的小問題<br>
+三年後會變成巨大的學習差距
+</h1>
+<p>
+坐不住、聽不懂、寫字慢、情緒爆炸。  
+這些不是階段性。  
+這些正在累積成未來的落後。
+</p>
+<button class="cta" onclick="contact()">立即確認孩子是否落後</button>
+</section>
+
+<section>
+<h2 class="section-title">一年級開始，差距會被放大</h2>
+
+<div class="alarm">
+<p>
+前庭覺失衡 → 被貼上不專心標籤  
+視知覺不足 → 成績下滑  
+聽知覺弱 → 跟不上課程  
+本體覺不足 → 討厭寫字  
+感覺調適差 → 容易被排擠  
+</p>
+
+<p style="margin-top:20px;font-weight:bold;color:#c1121f;">
+國小三年級後，學習挫折會內化成自我否定。
+</p>
+</div>
+</section>
+
+<section>
+<h2 class="section-title">兩種未來，你想選哪一個？</h2>
+
+<div class="compare">
+
+<div class="box bad">
+<h3>❌ 現在不處理</h3>
+<p>
+專注力持續下降<br>
+自信心被打擊<br>
+開始抗拒學習<br>
+家長每天焦慮
+</p>
+</div>
+
+<div class="box good">
+<h3>✅ 現在建立感統基礎</h3>
+<p>
+專心時間延長<br>
+理解能力提升<br>
+自然開口說英文<br>
+學習變成正向循環
+</p>
+</div>
+
+</div>
+</section>
+
+<section>
+<h2 class="section-title">喬登如何做到？</h2>
+<p style="text-align:center;max-width:800px;margin:auto;">
+動漫闖關刺激神經連結  
+點讀 + 點視雙科技整合  
+108課綱完整銜接  
+沉浸式英文環境  
+不是補習，是重建大腦基礎。
+</p>
+</section>
+
+<section class="limit">
+🔥 本月體驗名額僅剩 <span id="slots"></span> 名  
+<br><br>
+名額額滿即排候補
+</section>
+
+<section class="price-section">
+<h2 class="section-title">三年，決定孩子未來學習高度</h2>
+
+<div class="price">NT$ 2,XXX / 月</div>
+<p>36期零利率</p>
+<p>🎁 12年免費更新</p>
+<p>🎁 14吋AI平板</p>
+
+<button class="cta" onclick="contact()">鎖定黃金期名額</button>
+</section>
+
+<div style="height:70px;"></div>
+
+<footer>
+<div class="marquee">
+⚠️ 黃金期只有一次 ｜ 差距正在拉開 ｜ 別等成績出問題才處理 ｜ 喬登AI動漫學院
+</div>
+</footer>
+
+<script>
+function contact(){
+let phone = prompt("請留下電話，我們立即為您安排說明：");
+if(phone){
+alert("名額保留成功，我們將盡快聯繫您。");
+}
+}
+
+document.getElementById("slots").innerHTML = Math.floor(Math.random()*5)+3;
+</script>
+
+</body>
+</html>

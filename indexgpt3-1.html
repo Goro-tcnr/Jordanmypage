@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>兒童感統發展分析系統</title>
+
+<style>
+
+body{
+font-family:"Microsoft JhengHei";
+background:#fffaf5;
+margin:0;
+color:#444;
+line-height:1.6;
+}
+
+/* header */
+
+header{
+background:white;
+padding:20px;
+text-align:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+header h1{
+color:#ff7a59;
+margin:0;
+}
+
+/* section */
+
+.section{
+max-width:900px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* card */
+
+.card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+margin-bottom:30px;
+}
+
+/* form */
+
+label{
+display:block;
+margin-top:15px;
+font-weight:bold;
+}
+
+select{
+width:100%;
+padding:10px;
+border-radius:8px;
+border:1px solid #ddd;
+margin-top:5px;
+}
+
+button{
+background:#ff7a59;
+color:white;
+border:none;
+padding:15px 30px;
+border-radius:30px;
+font-size:18px;
+margin-top:20px;
+cursor:pointer;
+}
+
+button:hover{
+opacity:0.9;
+}
+
+/* report */
+
+.report{
+background:#fff3ea;
+padding:25px;
+border-radius:10px;
+margin-top:20px;
+}
+
+.solution{
+background:#f3fff6;
+padding:25px;
+border-radius:10px;
+margin-top:20px;
+}
+
+.product{
+background:white;
+padding:30px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+.price{
+font-size:28px;
+color:#ff7a59;
+font-weight:bold;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+h2{
+font-size:22px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>兒童感統發展專業分析</h1>
+<p>感統老師輔助評估工具</p>
+
+</header>
+
+
+<section class="section">
+
+<div class="card">
+
+<h2>孩子感統觀察評估</h2>
+
+<p>老師可以依照剛剛檢測的結果選擇孩子的表現狀況：</p>
+<p><b>學習功能</b></p>
+
+<label>前庭覺</label>
+<select id="focus">
+<option value="0">正常</option>
+<option value="1">輕度失調</option>
+<option value="2">中度失調</option>
+<option value="2">嚴重失調</option>
+</select>
+
+<label>重力不安</label>
+<select id="motion">
+<option value="0">正常</option>
+<option value="1">輕度失調</option>
+<option value="2">中度失調</option>
+<option value="2">嚴重失調</option>
+</select>
+
+<label>視知覺</label>
+<select id="emotion">
+<option value="0">正常</option>
+<option value="1">輕度失調</option>
+<option value="2">中度失調</option>
+<option value="2">嚴重失調</option>
+</select>
+
+<label>聽知覺</label>
+<select id="language">
+<option value="0">正常</option>
+<option value="1">輕度失調</option>
+<option value="2">中度失調</option>
+<option value="2">嚴重失調</option>
+</select>
+
+<label>觸覺</label>
+<select id="language">
+<option value="0">正常</option>
+<option value="1">輕度失調</option>
+<option value="2">中度失調</option>
+<option value="2">嚴重失調</option>
+</select>
+
+<p><b>學習態度</b></p>
+
+<label>觸覺區辨</label>
+<select id="focus">
+<option value="0">正常</option>
+<option value="1">輕度失調</option>
+<option value="2">中度失調</option>
+<option value="2">嚴重失調</option>
+</select>
+
+<label>本體覺</label>
+<select id="motion">
+<option value="0">正常</option>
+<option value="1">輕度失調</option>
+<option value="2">中度失調</option>
+<option value="2">嚴重失調</option>
+</select>
+
+<label>感覺調適</label>
+<select id="emotion">
+<option value="0">正常</option>
+<option value="1">輕度失調</option>
+<option value="2">中度失調</option>
+<option value="2">嚴重失調</option>
+</select>
+
+<label>整體發展</label>
+<select id="language">
+<option value="0">正常</option>
+<option value="1">輕度失調</option>
+<option value="2">中度失調</option>
+<option value="2">嚴重失調</option>
+</select>
+
+
+
+<button onclick="generateReport()">生成孩子分析報告</button>
+
+</div>
+
+<div id="result"></div>
+
+</section>
+
+<script>
+
+function generateReport(){
+
+let focus = document.getElementById("focus").value
+let motion = document.getElementById("motion").value
+let emotion = document.getElementById("emotion").value
+let language = document.getElementById("language").value
+
+let score = Number(focus)+Number(motion)+Number(emotion)+Number(language)
+
+let report=""
+let solution=""
+
+if(score<=2){
+
+report="孩子目前整體發展大致正常，但部分能力還在發展中。"
+
+solution="建議透過遊戲式學習與多元刺激環境，持續強化大腦感覺整合能力。"
+
+}
+
+else if(score<=5){
+
+report="孩子部分感統發展稍微不足，可能會在未來學習上出現專注力或理解力的困難。"
+
+solution="如果在學齡前持續透過視覺、聽覺、觸覺的整合刺激，大部分孩子都可以慢慢改善。"
+
+}
+
+else{
+
+report="孩子目前感統發展較弱，如果沒有持續刺激與訓練，未來可能會影響學習專注與理解能力。"
+
+solution="建議盡早建立多感官學習環境，讓孩子透過遊戲與互動改善感統發展。"
+
+}
+
+document.getElementById("result").innerHTML=
+
+`
+
+<div class="card">
+
+<h2>孩子感統分析結果</h2>
+
+<div class="report">
+
+${report}
+
+</div>
+
+<div class="solution">
+
+<h3>老師建議</h3>
+
+${solution}
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>很多家長會建立這樣的學習環境</h2>
+
+<p>
+
+透過動畫、遊戲、互動教材  
+讓孩子在玩樂中自然刺激大腦發展
+
+</p>
+
+</div>
+
+<div class="product">
+
+<h2>AI動漫互動學習系統</h2>
+
+<p>
+
+✔ 動畫學習  
+✔ 點讀互動  
+✔ 108課綱素養內容  
+✔ 幼兒到國中完整課程
+
+</p>
+
+<p class="price">月付約 NT$2XXX</p>
+
+<p>很多家長都是為了幫助孩子建立學習能力而使用這套系統</p>
+
+<button onclick="consult()">了解孩子改善方案</button>
+
+</div>
+
+`
+
+}
+
+function consult(){
+
+let phone=prompt("如果需要老師協助了解方案，可以留下電話：")
+
+if(phone){
+
+alert("老師之後可以協助安排更完整的學習建議。")
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

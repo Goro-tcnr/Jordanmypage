@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>感統專業建議報告 | 喬登AI動漫學院</title>
+    <style>
+        :root {
+            --teacher-blue: #457b9d; /* 專業、穩定、冷靜的藍 */
+            --danger-red: #e63946;
+            --soft-bg: #f8fafc;
+            --gold: #f4a261;
+            --dark: #1d3557;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; }
+        body { background-color: var(--soft-bg); color: var(--dark); line-height: 1.8; }
+
+        /* --- Header: 強調專業身分 --- */
+        header {
+            background: white; padding: 20px 8%; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid var(--teacher-blue); position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-size: 20px; font-weight: bold; color: var(--teacher-blue); }
+        .tag { background: var(--teacher-blue); color: white; padding: 5px 15px; border-radius: 5px; font-size: 14px; }
+
+        /* --- 1. 測驗後的去責怪與同理 (老師的口吻) --- */
+        .intro-section { padding: 60px 10%; text-align: center; background: white; }
+        .intro-section h1 { font-size: 2rem; margin-bottom: 20px; color: var(--dark); }
+        .prescription-box {
+            max-width: 800px; margin: 30px auto; padding: 30px; border: 2px dashed var(--teacher-blue);
+            background: #f0f7ff; border-radius: 20px; text-align: left; position: relative;
+        }
+        .prescription-box:before { content: "📋 老師的叮嚀"; position: absolute; top: -15px; left: 20px; background: var(--teacher-blue); color: white; padding: 2px 15px; border-radius: 10px; }
+
+        /* --- 試用選項：現場展示用 --- */
+        .nav-options { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 30px; }
+        .nav-btn { background: var(--teacher-blue); color: white; border: none; padding: 12px 25px; border-radius: 10px; cursor: pointer; font-weight: bold; transition: .3s; }
+        .nav-btn:hover { background: var(--dark); }
+
+        /* --- 2. 數據說話：感統與學習的關聯 --- */
+        .impact-section { padding: 60px 10%; }
+        .impact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .impact-card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .impact-card h3 { color: var(--danger-red); margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+
+        /* --- 3. 為什麼推薦這套系統 (第三方視角) --- */
+        .why-recommend { padding: 60px 10%; background: var(--dark); color: white; border-radius: 50px 50px 0 0; }
+        .recommend-item { margin-bottom: 30px; padding-left: 20px; border-left: 4px solid var(--gold); }
+
+        /* --- 4. 葉子綺案例：社會證明 --- */
+        .case-section { padding: 60px 10%; background: white; }
+        .case-content { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; max-width: 900px; margin: auto; }
+        .case-img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--gold); }
+
+        /* --- 5. 簽單轉換：處方建議方案 --- */
+        .pricing-section { padding: 80px 10%; text-align: center; }
+        .price-card {
+            max-width: 550px; margin: auto; padding: 50px 30px; background: white;
+            border: 2px solid var(--teacher-blue); border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .price-title { color: var(--teacher-blue); font-size: 1.5rem; margin-bottom: 10px; }
+        .price-value { font-size: 3rem; font-weight: 900; color: var(--danger-red); margin: 20px 0; }
+        .bonus-list { text-align: left; background: #f1f5f9; padding: 20px; border-radius: 15px; margin-bottom: 30px; }
+        .cta-btn { width: 100%; padding: 20px; background: var(--danger-red); color: white; border: none; border-radius: 15px; font-size: 1.3rem; font-weight: bold; cursor: pointer; }
+
+        /* Footer 跑馬燈 */
+        footer { background: #111; color: #aaa; padding: 12px 0; position: fixed; bottom: 0; width: 100%; overflow: hidden; }
+        .marquee { white-space: nowrap; animation: scroll 20s linear infinite; display: inline-block; padding-left: 100%; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+        @media (max-width: 768px) { .intro-section h1 { font-size: 1.5rem; } }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">喬登AI動漫學院 ｜ 專業教學推薦</div>
+    <div class="tag">專業感統老師認證建議</div>
+</header>
+
+<section class="intro-section">
+    <h1>剛才的測驗數據，已經告訴我們孩子的需求</h1>
+    <div class="prescription-box">
+        <p>媽咪，剛才我們測出的數據顯示，孩子的<b>前庭覺與視知覺</b>確實需要更頻繁的刺激。這不是妳沒教好，而是孩子的大腦正在經歷成長的陣痛。妳不可能每天帶他去職能治療室，所以我會建議妳用這套系統，把「環境」直接搬進家裡。</p>
+    </div>
+    <div class="nav-options">
+        <button class="nav-btn" onclick="openDemo('動漫感統遊戲')">展示：如何在家做感統訓練</button>
+        <button class="nav-btn" onclick="openDemo('葉子綺全英模式')">展示：點讀與點視功能</button>
+        <button class="nav-btn" onclick="openDemo('108課綱銜接')">展示：解決未來的素養題</button>
+    </div>
+</section>
+
+<section class="impact-section">
+    <h2 style="text-align: center; margin-bottom: 40px;">如果不介入，測驗中的弱項會如何影響學習？</h2>
+    <div class="impact-grid">
+        <div class="impact-card">
+            <h3>📉 學習功能失調</h3>
+            <p>視知覺不足會導致寫字慢、漏字、左右顛倒；聽知覺弱會讓孩子在教室「聽而不聞」，成績差距會從小三開始被無限放大。</p>
+        </div>
+        <div class="impact-card">
+            <h3>😠 學習態度惡化</h3>
+            <p>因為身體跟不上大腦，孩子會產生強烈挫折感。這不是不乖，是他在用逃避（坐不住）來保護受傷的自尊心。</p>
+        </div>
+    </div>
+</section>
+
+<section class="why-recommend">
+    <h2>為什麼身為老師，我推薦這套喬登系統？</h2>
+    <div style="margin-top: 40px;">
+        <div class="recommend-item">
+            <h4>1. 重建大腦路徑而非死背</h4>
+            <p>它利用動漫與闖關，讓孩子在玩樂中反覆訓練感覺調適，這是最自然的神經修正方式。</p>
+        </div>
+        <div class="recommend-item">
+            <h4>2. 解決 108 課綱的「理解難題」</h4>
+            <p>這套系統涵蓋幼兒到國三，把枯燥的題目變成動漫互動。孩子現在練習感統，以後直接銜接高難度的素養題。</p>
+        </div>
+        <div class="recommend-item">
+            <h4>3. 全英文環境的「自動接收」</h4>
+            <p>不需要媽咪陪讀。點讀筆與點視功能讓孩子像呼吸一樣學英文，這對語言感統發展極有幫助。</p>
+        </div>
+    </div>
+</section>
+
+<section class="case-section">
+    <div class="case-content">
+        <img src="https://via.placeholder.com/120" alt="葉子綺案例" class="case-img">
+        <div>
+            <h3>金馬童星葉子綺的啟蒙路</h3>
+            <p>葉子綺媽媽從她 9 個月大就打造全英環境。喬登將這種成功模式數位化，入圍金馬的表現證明了：正確的工具比辛苦的補習更重要。</p>
+        </div>
+    </div>
+</section>
+
+<section class="pricing-section">
+    <div class="price-card">
+        <div class="badge">老師特別爭取方案</div>
+        <p class="price-title">【感統與全智發展三年處方計畫】</p>
+        <div class="price-value">NT$ 2,XXX / 月</div>
+        <p style="font-weight: bold; color: var(--teacher-blue); margin-bottom: 20px;">36 期分期零利率 ｜ 每日投資不到一杯咖啡</p>
+        
+        <div class="bonus-list">
+            <p>✨ <b>贈送 12 年全版本免費更新</b> (用到國三畢業)</p>
+            <p>✨ <b>贈送 14 吋 AI 學習專用平板</b> (護眼防藍光)</p>
+            <p>✨ <b>含 1 對 1 專業客服與軟硬體維護</b></p>
+        </div>
+        
+        <button class="cta-btn" onclick="apply()">確認處方建議 (預約領取贈品)</button>
+        <p style="margin-top: 15px; font-size: 13px; color: #888;">*註：本建議僅限今日測驗後之家庭申請*</p>
+    </div>
+</section>
+
+<div style="height: 60px;"></div>
+
+<footer>
+    <div class="marquee">
+        💡 專業老師提醒：0-6 歲黃金期稍縱即逝 ｜ 感統穩，學習就穩 ｜ 108 課綱不再是壓力 ｜ 分期零利率，12 年學習內容免費送給你！
+    </div>
+</footer>
+
+<script>
+    function openDemo(t) {
+        alert(`【專業演示模式】\n\n媽咪妳看，這就是剛才提到的「${t}」...\n這能針對孩子剛才測驗中的弱項進行修正。`);
+    }
+
+    function apply() {
+        const p = prompt("為了幫您保留平板贈品與 12 年更新名額，請留下您的電話：");
+        if(p) {
+            alert("名額已初步保留。您可以再考慮一下，稍後我會將今日測驗報告與這套處方建議一併整理給您。");
+        }
+    }
+</script>
+
+</body>
+</html>

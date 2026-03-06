@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>孩子感統發展支持系統</title>
+
+<style>
+
+body{
+margin:0;
+font-family:"Microsoft JhengHei";
+background:#FFF8F2;
+color:#444;
+line-height:1.7;
+}
+
+/* LOGO */
+
+header{
+text-align:center;
+padding:20px;
+background:white;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+header img{
+height:70px;
+}
+
+/* BANNER */
+
+.banner{
+background:linear-gradient(120deg,#FFE6D9,#FFF4E9);
+text-align:center;
+padding:60px 20px;
+}
+
+.banner h1{
+font-size:34px;
+color:#ff6b6b;
+}
+
+.banner p{
+font-size:18px;
+margin-top:10px;
+}
+
+.btn{
+display:inline-block;
+background:#ff8a65;
+color:white;
+padding:14px 30px;
+border-radius:30px;
+margin-top:20px;
+font-size:18px;
+text-decoration:none;
+}
+
+/* SECTION */
+
+.section{
+max-width:1100px;
+margin:auto;
+padding:60px 20px;
+}
+
+.section h2{
+text-align:center;
+font-size:30px;
+color:#ff7f50;
+margin-bottom:40px;
+}
+
+/* 痛點 */
+
+.pain{
+background:white;
+padding:30px;
+border-radius:15px;
+margin-bottom:30px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+}
+
+.pain h3{
+font-size:26px;
+color:#ff6b6b;
+}
+
+.pain ul{
+margin-top:15px;
+}
+
+/* 學習區塊 */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 動畫影片 */
+
+.video{
+text-align:center;
+}
+
+.video iframe{
+width:100%;
+max-width:700px;
+height:380px;
+border-radius:15px;
+}
+
+/* 商品 */
+
+.product{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+}
+
+.item{
+background:white;
+padding:25px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* 價格 */
+
+.price{
+background:#FFF0E6;
+text-align:center;
+padding:60px 20px;
+}
+
+.price h2{
+font-size:32px;
+}
+
+.price p{
+font-size:20px;
+}
+
+/* 老師推薦 */
+
+.teacher{
+background:white;
+padding:50px;
+text-align:center;
+border-radius:15px;
+max-width:900px;
+margin:auto;
+box-shadow:0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* footer */
+
+footer{
+background:#333;
+color:white;
+padding:15px;
+overflow:hidden;
+}
+
+.marquee{
+white-space:nowrap;
+animation:scroll 15s linear infinite;
+}
+
+@keyframes scroll{
+0%{transform:translateX(100%)}
+100%{transform:translateX(-100%)}
+}
+
+/* 手機 */
+
+@media(max-width:768px){
+
+.banner h1{
+font-size:26px;
+}
+
+.section h2{
+font-size:24px;
+}
+
+.video iframe{
+height:220px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<img src="logo.png" alt="喬登AI動漫學院">
+</header>
+
+<section class="banner">
+
+<h1>孩子現在的小問題<br>可能影響未來的學習能力</h1>
+
+<p>
+剛剛的感統檢測<br>
+其實只是幫助我們了解孩子的大腦發展狀態
+</p>
+
+<a class="btn" href="#solution">看看可以怎麼幫助孩子</a>
+
+</section>
+
+
+<section class="section">
+
+<h2>很多家長其實都遇過這些情況</h2>
+
+<div class="pain">
+
+<h3>⚠ 影響學習功能</h3>
+
+<ul>
+<li>前庭覺發展不穩定 → 容易坐不住</li>
+<li>重力不安 → 容易焦慮沒有安全感</li>
+<li>視知覺弱 → 閱讀寫字困難</li>
+<li>聽知覺弱 → 聽不懂老師說話</li>
+<li>觸覺敏感 → 不喜歡學習環境</li>
+</ul>
+
+</div>
+
+
+<div class="pain">
+
+<h3>⚠ 影響學習態度</h3>
+
+<ul>
+<li>觸覺區辨不足 → 不喜歡寫字</li>
+<li>本體覺不足 → 動作協調差</li>
+<li>感覺調適差 → 情緒起伏大</li>
+<li>整體發展慢 → 自信心不足</li>
+</ul>
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>其實孩子不是不努力</h2>
+
+<div class="teacher">
+
+<p>
+
+很多時候  
+孩子不是不認真  
+
+而是 **大腦的感覺整合還沒有成熟**
+
+如果在 **0-6歲黃金發展期**
+
+透過正確的方式刺激  
+
+孩子的大腦其實可以慢慢改善
+
+</p>
+
+</div>
+
+</section>
+
+
+<section id="solution" class="section">
+
+<h2>現在很多家長會用這樣的方式</h2>
+
+<div class="product">
+
+<div class="item">
+
+<h3>AI動漫學習</h3>
+
+<p>孩子透過卡通學習<br>降低學習抗拒</p>
+
+</div>
+
+<div class="item">
+
+<h3>點讀 + 點視</h3>
+
+<p>孩子自己探索<br>增加學習興趣</p>
+
+</div>
+
+<div class="item">
+
+<h3>遊戲式互動</h3>
+
+<p>在玩樂中學習<br>自然建立能力</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section class="section video">
+
+<h2>打造孩子的學習環境</h2>
+
+<iframe src="https://www.youtube.com/embed/VIDEOID"></iframe>
+
+<p>很多成功案例都是透過環境讓孩子自然學習</p>
+
+</section>
+
+
+<section class="section">
+
+<h2>喬登AI動漫學院</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>完整課程</h3>
+<p>幼兒到國中三年級完整課程</p>
+</div>
+
+<div class="card">
+<h3>108課綱</h3>
+<p>素養題互動動畫教學</p>
+</div>
+
+<div class="card">
+<h3>互動學習</h3>
+<p>動畫 + 遊戲式理解</p>
+</div>
+
+<div class="card">
+<h3>反覆學習</h3>
+<p>打造孩子自然學習環境</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="price">
+
+<h2>很多家長一開始也擔心費用</h2>
+
+<p>
+
+系統可以 **3年分期** 完成  
+
+並包含  
+
+✔ 14吋平板  
+✔ 12年免費更新  
+✔ 完整客服與維護  
+
+</p>
+
+<a class="btn">了解孩子改善計畫</a>
+
+</section>
+
+
+<section class="section">
+
+<div class="teacher">
+
+<h2>老師的建議</h2>
+
+<p>
+
+身為感統老師  
+
+我只是希望孩子有機會進步  
+
+這套系統只是我看到很多家長使用後  
+覺得不錯的一個工具  
+
+如果你覺得適合孩子  
+再考慮就好
+
+</p>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="marquee">
+
+🎁 限時提供家長體驗 ｜ AI動漫互動學習 ｜ 0-6歲大腦發展支持 ｜ 108課綱素養學習 ｜ 免費諮詢
+
+</div>
+
+</footer>
+
+
+<script>
+
+document.querySelectorAll(".btn").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+alert("老師可以協助您了解孩子是否適合這套學習系統");
+
+})
+
+})
+
+</script>
+
+</body>
+</html>

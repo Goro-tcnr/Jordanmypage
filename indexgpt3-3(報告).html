@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兒童感統發展專業分析系統</title>
+    <style>
+        :root {
+            --primary: #ff7a59;
+            --secondary: #4A90E2;
+            --success: #2ecc71;
+            --bg-soft: #fffaf5;
+            --text-dark: #444;
+        }
+
+        body {
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background: var(--bg-soft);
+            margin: 0;
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        header {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        header h1 { color: var(--primary); margin: 0; font-size: 26px; }
+        header p { margin: 10px 0 0; color: #777; font-size: 16px; }
+
+        .section {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px 20px 100px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            border: 1px solid #eee;
+        }
+
+        .assessment-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .assessment-item {
+            display: flex;
+            flex-direction: column;
+            background: #fdfdfd;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px solid #f0f0f0;
+        }
+        .assessment-item label { font-weight: bold; margin-bottom: 5px; color: #555; }
+        .assessment-item select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+            background: white;
+        }
+
+        .btn-main {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        #report-result {
+            display: none;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .report-box {
+            background: #fff3ea;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 6px solid var(--primary);
+            margin: 20px 0;
+        }
+
+        .home-training-box {
+            background: #eef7ff;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 6px solid var(--secondary);
+            margin-bottom: 20px;
+        }
+        .home-training-box h4 { margin-top: 0; color: var(--secondary); }
+
+        .solution-box {
+            background: #f3fff6;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 6px solid var(--success);
+        }
+
+        .status-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: white;
+            margin-left: 8px;
+        }
+        .tag-severe { background: #e63946; }
+        .tag-moderate { background: #f4a261; }
+        .tag-mild { background: #a8dadc; color: #1d3557; }
+
+        .product-card {
+            text-align: center;
+            border: 2px solid var(--secondary);
+        }
+        .price { font-size: 32px; color: var(--primary); font-weight: 900; margin: 15px 0; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>兒童感統發展專業分析</h1>
+    <p>感統老師專用輔助工具 ｜ 專業診斷 ｜ 居家建議</p>
+</header>
+
+<section class="section">
+    <div class="card">
+        <h2 style="text-align:center;">📋 老師觀察評估表</h2>
+        
+        <h3 style="color: var(--secondary); border-bottom: 2px solid #f0f0f0; padding-bottom: 5px;">學習功能</h3>
+        <div class="assessment-group">
+            <div class="assessment-item">
+                <label>前庭覺發展</label>
+                <select id="vestibular">
+                    <option value="0">正常</option>
+                    <option value="1">輕度失調 (注意力短暫)</option>
+                    <option value="2">中度失調 (坐不住、好動)</option>
+                    <option value="3">嚴重失調 (平衡差、極度好動)</option>
+                </select>
+            </div>
+            <div class="assessment-item">
+                <label>重力不安感</label>
+                <select id="gravity">
+                    <option value="0">正常</option>
+                    <option value="1">輕度失調 (膽小怕高)</option>
+                    <option value="2">中度失調 (不愛雙腳離地)</option>
+                    <option value="3">嚴重失調 (極度缺乏安全感)</option>
+                </select>
+            </div>
+            <div class="assessment-item">
+                <label>視知覺辨識</label>
+                <select id="visual">
+                    <option value="0">正常</option>
+                    <option value="1">輕度 (寫字較慢)</option>
+                    <option value="2">中度 (閱讀跳行漏字)</option>
+                    <option value="3">嚴重 (空間符號理解困惑)</option>
+                </select>
+            </div>
+            <div class="assessment-item">
+                <label>聽知覺過濾</label>
+                <select id="auditory">
+                    <option value="0">正常</option>
+                    <option value="1">輕度 (理解指令慢)</option>
+                    <option value="2">中度 (易受環境音干擾)</option>
+                    <option value="3">嚴重 (聽而不聞、接收率低)</option>
+                </select>
+            </div>
+        </div>
+
+        <h3 style="color: #FF7F50; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px;">學習態度</h3>
+        <div class="assessment-group">
+            <div class="assessment-item">
+                <label>觸覺防禦/區辨</label>
+                <select id="tactile">
+                    <option value="0">正常</option>
+                    <option value="1">輕度 (不愛嘗試新事物)</option>
+                    <option value="2">中度 (情緒易波動敏感)</option>
+                    <option value="3">嚴重 (人際退縮、固執)</option>
+                </select>
+            </div>
+            <div class="assessment-item">
+                <label>本體覺計畫</label>
+                <select id="proprioception">
+                    <option value="0">正常</option>
+                    <option value="1">輕度 (動作稍笨拙)</option>
+                    <option value="2">中度 (力道控制不佳)</option>
+                    <option value="3">嚴重 (手腳不協調)</option>
+                </select>
+            </div>
+            <div class="assessment-item">
+                <label>情緒感官調適</label>
+                <select id="regulation">
+                    <option value="0">正常</option>
+                    <option value="1">輕度 (愛哭鬧、依賴)</option>
+                    <option value="2">中度 (挫折容忍度低)</option>
+                    <option value="3">嚴重 (易爆發衝突情緒)</option>
+                </select>
+            </div>
+            <div class="assessment-item">
+                <label>整體發展評估</label>
+                <select id="overall">
+                    <option value="0">符合年齡發展</option>
+                    <option value="1">發展稍緩 (需警覺)</option>
+                    <option value="2">明顯落後 (需介入)</option>
+                    <option value="3">急需黃金期搶救</option>
+                </select>
+            </div>
+        </div>
+
+        <button class="btn-main" onclick="processAnalysis()">生成孩子專屬分析報告</button>
+    </div>
+
+    <div id="report-result">
+        <div class="card" style="border: 2px solid var(--primary);">
+            <h2 style="margin-top:0;">📊 孩子感統分析結果報告</h2>
+            <div class="report-box" id="analysis-list"></div>
+            
+            <div class="home-training-box" id="home-advice">
+                <h4>🏠 專業居家日常訓練建議</h4>
+                <div id="home-advice-content"></div>
+            </div>
+
+            <div class="solution-box">
+                <h3 style="color: var(--success); margin-top: 0;">🌟 老師專業建議</h3>
+                <p id="teacher-advice"></p>
+            </div>
+        </div>
+
+        <div class="card product-card" id="solution">
+            <h2 style="color: var(--secondary);">喬登AI動漫互動學習系統</h2>
+            <p>將「感統復健」轉化為「居家玩樂」的最佳方案</p>
+            <div style="text-align:left; display:inline-block; margin:10px 0;">
+                <div>✅ <b>AI 動漫引導：</b> 視覺追蹤與專注力訓練</div>
+                <div>✅ <b>多感官互動：</b> 點讀點視同步強化聽視知覺</div>
+                <div>✅ <b>108 課綱：</b> 提前建立大腦對素養題的理解力</div>
+                <div>✅ <b>黃金期搶救：</b> 每天15分鐘，建立正確神經路徑</div>
+            </div>
+            <p class="price">月付投資約 NT$ 2,XXX</p>
+            <p style="font-size:13px; color:#888;">( 含 AI 平板、教材、12 年免費更新服務 )</p>
+            <button class="btn-main" style="background: var(--secondary);" onclick="consult()">了解孩子改善計畫</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    function processAnalysis() {
+        const fields = {
+            vestibular: { 
+                name: "前庭覺", 
+                msg: ["穩定", "注意力稍散漫", "坐不住且好動", "影響教室規則守法"],
+                home: "<b>前庭覺：</b>常帶孩子玩盪鞦韆、溜滑梯。在家可抱著孩子原地轉圈（左右各5圈），給大腦高速刺激。"
+            },
+            gravity: { 
+                name: "重力感", 
+                msg: ["穩定", "較缺乏勇氣", "容易焦慮退縮", "空間探索受限"],
+                home: "<b>重力感：</b>練習從低處跳下（如階梯），或多玩攀爬架，增加腳部離地的經驗與安全感。"
+            },
+            visual: { 
+                name: "視知覺", 
+                msg: ["良好", "寫字易疲勞", "閱讀易跳行漏字", "對符號理解困惑"],
+                home: "<b>視知覺：</b>玩大家來找碴、走迷宮圖冊。用手電筒在牆上移動讓孩子眼球追蹤，強化眼球掃視力。"
+            },
+            auditory: { 
+                name: "聽知覺", 
+                msg: ["敏銳", "理解指令慢", "易受雜音干擾", "聽而不聞"],
+                home: "<b>聽知覺：</b>玩「傳聲筒」或背景放音樂時下簡單指令，練習從雜音中過濾關鍵語言訊息。"
+            },
+            tactile: { 
+                name: "觸覺", 
+                msg: ["正常", "環境適應稍慢", "對新事物抗拒", "敏感影響情緒"],
+                home: "<b>觸覺：</b>讓孩子玩沙、玩黏土。洗澡時用毛巾搓揉四肢，或用不同材質布料刷過皮膚降低敏感。"
+            },
+            proprioception: { 
+                name: "本體覺", 
+                msg: ["協調", "動作稍笨拙", "書寫力道控制差", "手腳不協調"],
+                home: "<b>本體覺：</b>多做負重練習（如提水袋）。玩學螃蟹走路，增加關節擠壓感讓大腦掌握肢體位置。"
+            },
+            regulation: { 
+                name: "情緒調適", 
+                msg: ["穩定", "耐性不足", "挫折容忍力弱", "易爆發衝突"],
+                home: "<b>情緒調適：</b>建立情緒預告制，轉換活動前5分鐘先提醒。教導深呼吸，降低感覺過載的焦慮。"
+            },
+            overall: { 
+                name: "整體發展", 
+                msg: ["正常", "發展趨勢稍緩", "發展差距已拉開", "急需黃金期搶救"],
+                home: "<b>整體建議：</b>每日至少60分鐘大肌肉運動，並搭配視覺節奏訓練（如喬登AI課程）。"
+            }
+        };
+
+        let reportHtml = "<ul>";
+        let homeAdviceHtml = "<ul>";
+        let scoreCount = 0;
+        let hasIssue = false;
+
+        for (let key in fields) {
+            const val = parseInt(document.getElementById(key).value);
+            scoreCount += val;
+            
+            if (val > 0) {
+                hasIssue = true;
+                let tagClass = "tag-mild";
+                let tagName = "輕度";
+                if(val === 2) { tagClass = "tag-moderate"; tagName = "中度"; }
+                if(val === 3) { tagClass = "tag-severe"; tagName = "嚴重"; }
+
+                reportHtml += `<li><b>${fields[key].name}：</b> ${fields[key].msg[val]} <span class="status-tag ${tagClass}">${tagName}</span></li>`;
+                homeAdviceHtml += `<li style="margin-bottom:8px;">${fields[key].home}</li>`;
+            }
+        }
+        reportHtml += "</ul>";
+        homeAdviceHtml += "</ul>";
+
+        if (!hasIssue) {
+            reportHtml = "<p>孩子目前各項感統指標表現優良！</p>";
+            document.getElementById("home-advice").style.display = "none";
+        } else {
+            document.getElementById("home-advice").style.display = "block";
+            document.getElementById("home-advice-content").innerHTML = homeAdviceHtml;
+        }
+
+        // 處方邏輯
+        let advice = "";
+        if (scoreCount <= 3) {
+            advice = "目前孩子表現尚可，居家訓練可作為輔助。但考慮到未來 108 課綱對素養理解的高要求，建議可利用 AI 動漫互動，在不給孩子壓力的情況下，微量增加視覺與語言的統合刺激。";
+        } else {
+            advice = "數據顯示孩子在特定感官區塊需要立即介入。居家運動效果雖好但難以量化頻率，建議透過「喬登AI動漫系統」補足，每天固定給予正確的大腦路徑刺激，把握黃金期進行神經路徑的修正。";
+        }
+
+        document.getElementById("analysis-list").innerHTML = reportHtml;
+        document.getElementById("teacher-advice").innerText = advice;
+        document.getElementById("report-result").style.display = "block";
+        
+        setTimeout(() => {
+            document.getElementById("report-result").scrollIntoView({ behavior: 'smooth' });
+        }, 150);
+    }
+
+    function consult() {
+        let phone = prompt("為了協助您保留專案平板贈品與 12 年內容名額，請留下電話：");
+        if (phone) {
+            alert("已為您記錄。建議您先與家人討論，稍後我會將今日測驗報告一併整理給您。");
+        }
+    }
+</script>
+
+</body>
+</html>

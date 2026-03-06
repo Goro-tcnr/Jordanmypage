@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>孩子感統發展支持系統 | 專業建議報告</title>
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #4A90E2;
+            --soft-bg: #FFF8F2;
+            --dark-text: #444;
+            --teacher-blue: #1D3557;
+        }
+
+        body {
+            margin: 0;
+            font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background: var(--soft-bg);
+            color: var(--dark-text);
+            line-height: 1.8;
+        }
+
+        /* LOGO */
+        header {
+            text-align: center;
+            padding: 25px;
+            background: white;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 1000;
+        }
+        header img { height: 60px; }
+
+        /* BANNER (情緒出口) */
+        .banner {
+            background: linear-gradient(135deg, #FFE6D9 0%, #FFF4E9 100%);
+            text-align: center;
+            padding: 80px 20px;
+        }
+        .banner h1 { font-size: 32px; color: #D63031; margin-bottom: 20px; }
+        .banner p { font-size: 19px; max-width: 700px; margin: auto; color: #555; }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 16px 40px;
+            border-radius: 50px;
+            margin-top: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255,107,107,0.4); }
+
+        /* SECTION通用 */
+        .section { max-width: 1000px; margin: auto; padding: 70px 20px; }
+        .section h2 { text-align: center; font-size: 28px; color: var(--teacher-blue); margin-bottom: 45px; position: relative; }
+        .section h2::after { content: ""; display: block; width: 50px; height: 3px; background: var(--primary); margin: 15px auto; }
+
+        /* 痛點 (去責怪化) */
+        .pain-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .pain-box {
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border-left: 6px solid var(--primary);
+        }
+        .pain-box h3 { font-size: 22px; color: var(--primary); margin-bottom: 15px; }
+        .pain-box ul { padding-left: 20px; }
+        .pain-box li { margin-bottom: 10px; }
+
+        /* 老師建議區 */
+        .teacher-note {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            border: 2px dashed #A8DADC;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .teacher-note b { color: var(--danger-red); font-size: 1.2rem; }
+
+        /* 產品優勢 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .card {
+            background: white; padding: 30px; border-radius: 20px; text-align: center;
+            transition: 0.3s; border-bottom: 5px solid #eee;
+        }
+        .card:hover { border-bottom-color: var(--secondary); transform: translateY(-5px); }
+        .card h3 { color: var(--secondary); margin-bottom: 15px; }
+
+        /* 權威與案例 */
+        .case-study {
+            background: #EBF2FA; padding: 40px; border-radius: 20px;
+            display: flex; align-items: center; gap: 30px; flex-wrap: wrap;
+        }
+        .case-study img { width: 120px; height: 120px; border-radius: 50%; border: 4px solid white; }
+        .case-study div { flex: 1; min-width: 250px; }
+
+        /* 價格與分期 (無壓力建議) */
+        .price-section { background: white; text-align: center; padding: 80px 20px; border-radius: 50px 50px 0 0; }
+        .price-card {
+            max-width: 600px; margin: auto; padding: 40px;
+            background: #FFF9F5; border: 2px solid #FFE0CC; border-radius: 30px;
+        }
+        .price-tag { font-size: 36px; font-weight: 900; color: var(--primary); margin: 20px 0; }
+        .checklist { text-align: left; display: inline-block; margin-bottom: 30px; }
+        .checklist div { margin-bottom: 10px; }
+
+        /* Footer */
+        footer { background: #333; color: white; padding: 15px 0; overflow: hidden; position: fixed; bottom: 0; width: 100%; z-index: 100; }
+        .marquee { white-space: nowrap; animation: scroll 20s linear infinite; display: inline-block; padding-left: 100%; }
+        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+        @media(max-width:768px){
+            .banner h1 { font-size: 26px; }
+            .section h2 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="font-size: 24px; font-weight: 900; color: #FF6B6B;">喬登AI動漫學院</div>
+</header>
+
+<section class="banner">
+    <h1>深夜的焦慮，是因為妳還沒找到「接住孩子」的方法</h1>
+    <p>剛才的感統檢測數據，不是為了證明孩子落後，<br>而是要告訴我們：<b>孩子的大腦正在發出求救訊號。</b></p>
+    <a class="btn" href="#solution">了解專業處方建議</a>
+</section>
+
+<section class="section">
+    <h2>為什麼孩子總是讓妳精疲力竭？</h2>
+    <div class="pain-container">
+        <div class="pain-box">
+            <h3>⚠ 影響學習功能</h3>
+            <ul>
+                <li>前庭覺不穩 → <b>坐不住、分心</b></li>
+                <li>視知覺不足 → <b>寫字慢、漏字</b></li>
+                <li>聽知覺弱 → <b>聽不懂指令</b></li>
+            </ul>
+        </div>
+        <div class="pain-box">
+            <h3>⚠ 影響學習態度</h3>
+            <ul>
+                <li>感統失調 → <b>挫折感重、厭學</b></li>
+                <li>調適能力差 → <b>情緒起伏劇烈</b></li>
+                <li>長期落後 → <b>自信心徹底喪失</b></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="teacher-note">
+        <h2>老師的真心話：這不是妳的錯</h2>
+        <p>
+            很多家長會自責沒教好。其實，孩子不是不努力，而是<b>大腦神經網路還沒準備好。</b><br>
+            在 0-6 歲黃金期，我們不需要逼他寫字，而是要給他正確的環境刺激。<br>
+            當神經連結暢通了，學習自然會像玩遊戲一樣輕鬆。
+        </p>
+    </div>
+</section>
+
+<section id="solution" class="section">
+    <h2>用孩子愛的方式，重建大腦基礎</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>AI 動漫引導</h3>
+            <p>將感統訓練融入卡通，孩子不再抗拒練習。</p>
+        </div>
+        <div class="card">
+            <h3>點讀 / 點視</h3>
+            <p>打造全英文環境，讓大腦自然反覆吸收語言。</p>
+        </div>
+        <div class="card">
+            <h3>108 課綱銜接</h3>
+            <p>從幼兒到國三，將素養題變成互動影片。</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="case-study">
+        <img src="https://via.placeholder.com/150" alt="葉子綺故事">
+        <div>
+            <h3>🌟 金馬童星葉子綺的啟蒙路</h3>
+            <p>子綺媽媽從她 9 個月大就開始利用環境薰陶。喬登系統正是結合這種成功的模式，透過「反覆接收」與「快樂學習」，讓孩子在無壓力下建立超強的語言與邏輯能力。</p>
+        </div>
+    </div>
+</section>
+
+<section class="price-section">
+    <div class="price-card">
+        <h2>給孩子一個改寫未來的機會</h2>
+        <p>這是一份長達 12 年的學習支持計畫</p>
+        <div class="price-tag">NT$ 2,XXX / 月</div>
+        <div class="checklist">
+            <div>✅ <b>36 期分期零利率</b> (減輕家庭負擔)</div>
+            <div>✅ <b>贈送 14 吋 AI 專用平板</b> (護眼學習)</div>
+            <div>✅ <b>12 年課程永久免費更新</b> (涵蓋至國三)</div>
+            <div>✅ <b>專業客服與硬體售後維護</b></div>
+        </div>
+        <button class="btn" style="width:100%; border:none; cursor:pointer;" onclick="consult()">預約專業建議與名額保留</button>
+    </div>
+</section>
+
+<section class="section">
+    <div class="teacher-note" style="border:none; background: #f1f5f9;">
+        <h2>感統老師的專業建議</h2>
+        <p>
+            我推薦這套系統，是因為它解決了家長「沒時間、沒教具」的痛點。<br>
+            如果您覺得剛才測驗的結果讓您擔心，這是一個很棒的居家輔助工具。<br>
+            <b>孩子進步的關鍵，在於我們現在是否願意接住他。</b>
+        </p>
+    </div>
+</section>
+
+<div style="height: 80px;"></div>
+
+<footer>
+    <div class="marquee">
+        🎁 專業老師真心推薦 ｜ 0-6 歲黃金期不容錯過 ｜ 3 年分期零利率 ｜ 贈送 14 吋平板 ｜ 12 年內容永久更新 ｜ 讓孩子在動漫中成長
+    </div>
+</footer>
+
+<script>
+    function consult() {
+        const phone = prompt("為了協助您了解孩子是否適合此系統，請留下您的電話，我將為您記錄預約名額：");
+        if(phone) {
+            alert("已為您記錄。建議您先與家人討論，我稍後也會整理今日的檢測報告給您參考。");
+        }
+    }
+
+    // 簡單的入軌動畫
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.pain-box, .card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = '0.6s ease-out';
+            observer.observe(el);
+        });
+    });
+</script>
+
+</body>
+</html>

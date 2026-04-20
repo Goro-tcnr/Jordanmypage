@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兒童感覺統合發展支持系統 - 專業評估版</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        /* 融合程式碼 1 的美觀樣式 */
+        :root {
+            --primary-blue: #0061ff;
+            --secondary-blue: #60efff;
+            --report-bg: #2d3436;
+            --green: #2ecc71;
+            --yellow: #f1c40f;
+            --red: #e74c3c;
+        }
+
+        body { font-family: "Microsoft JhengHei", sans-serif; overflow-x: hidden; }
+
+        .bg-cover {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-position: center center;
+            background-size: cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-padding { padding: 100px 0; }
+
+        /* 程式碼 2 的核心：報告指標組件 */
+        .report-card {
+            background: var(--report-bg);
+            border-radius: 24px;
+            padding: 40px;
+            color: #fff;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .report-item {
+            display: flex;
+            align-items: flex-start;
+            background: rgba(255,255,255,0.05);
+            margin-bottom: 15px;
+            padding: 20px;
+            border-radius: 15px;
+            border-left: 6px solid transparent;
+            transition: 0.3s;
+        }
+
+        .report-item:hover { background: rgba(255,255,255,0.1); }
+
+        .report-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 20px;
+            margin-top: 5px;
+            box-shadow: 0 0 12px currentColor;
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-brain me-2"></i>感覺統合支持系統
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">關於系統</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#report">指標報告</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#features">系統特色</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer">聯絡資訊</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-cover text-white">
+        <div class="container text-center">
+            <h1 class="display-3 fw-bold animate__animated animate__fadeInDown">專注兒童發展潛能</h1>
+            <p class="lead animate__animated animate__fadeInUp animate__delay-1s">
+                結合感覺統合指標與 AI 分析，為每個孩子量身打造發展支持計畫
+            </p>
+            <a href="#report" class="btn btn-primary btn-lg mt-4 rounded-pill px-5">查看評估結果</a>
+        </div>
+    </header>
+
+    <section id="about" class="section-padding bg-light text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold mb-4">為什麼選擇我們的支持系統？</h2>
+                    <p class="text-muted lead">我們不只是提供數據，我們更在乎數據背後代表的孩子成長契機。透過結構化的感覺統合評估，讓家長與老師能同步掌握發展節奏。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="report" class="section-padding bg-dark">
+        <div class="container">
+            <div class="text-center mb-5 text-white">
+                <h2 class="fw-bold">專業發展指標報告</h2>
+                <div class="text-secondary">SENSORY INTEGRATION INDICATORS</div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-9">
+                    <div class="report-card animate__animated animate__fadeIn">
+                        <div class="mb-4">
+                            <h4 class="text-info"><i class="fas fa-search me-2"></i> 需要關注的指標</h4>
+                            <hr class="opacity-25">
+                        </div>
+
+                        <div class="report-list">
+                            <div class="report-item" style="border-left-color: var(--red);">
+                                <div class="report-dot" style="background: var(--red); color: var(--red);"></div>
+                                <div class="flex-grow-1">
+                                    <span class="fw-bold">前庭平衡：</span>
+                                    <span style="color: var(--red);">顯著敏感。建議加強搖擺活動，降低環境視覺干擾。</span>
+                                </div>
+                            </div>
+
+                            <div class="report-item" style="border-left-color: var(--yellow);">
+                                <div class="report-dot" style="background: var(--yellow); color: var(--yellow);"></div>
+                                <div class="flex-grow-1">
+                                    <span class="fw-bold">觸覺防禦：</span>
+                                    <span style="color: var(--yellow);">輕微遲緩。需增加多樣化材質接觸，如玩沙或觸覺球練習。</span>
+                                </div>
+                            </div>
+
+                            <div class="report-item" style="border-left-color: var(--green);">
+                                <div class="report-dot" style="background: var(--green); color: var(--green);"></div>
+                                <div class="flex-grow-1">
+                                    <span class="fw-bold">本體覺：</span>
+                                    <span style="color: var(--green);">發展良好。對身體重心控制穩定，能精確完成大肢體動作。</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-5 p-4 rounded bg-black border border-secondary text-center">
+                            <div class="text-info-emphasis fw-bold">總結建議：</div>
+                            <div class="text-white-50">建議持續維持每日 15 分鐘的居家平衡練習，並觀察觸覺減敏的進展。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section-padding">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-5">專業服務項目</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="p-5 border rounded-4 shadow-sm h-100 animate__animated animate__fadeInLeft">
+                        <i class="fas fa-fingerprint service-icon"></i>
+                        <h4 class="fw-bold">皮紋檢測</h4>
+                        <p class="text-muted">運用指紋分析技術，了解孩子先天的學習風格與大腦優勢。</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-5 border rounded-4 shadow-sm h-100 animate__animated animate__fadeInUp">
+                        <i class="fas fa-running service-icon"></i>
+                        <h4 class="fw-bold">感統居家指導</h4>
+                        <p class="text-muted">提供具體可執行的居家活動建議，讓發展訓練融入日常生活。</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-5 border rounded-4 shadow-sm h-100 animate__animated animate__fadeInRight">
+                        <i class="fas fa-file-medical-alt service-icon"></i>
+                        <h4 class="fw-bold">數位成長報表</h4>
+                        <p class="text-muted">完整的雲端紀錄系統，隨時追蹤各項發展指標的變化趨勢。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <h3 class="fw-bold mb-4">兒童感覺統合發展支持系統</h3>
+            <p class="text-secondary mb-4">技術支援：喬丹 AI 動畫學院</p>
+            <div class="d-flex justify-content-center gap-4 text-2xl">
+                <a href="#" class="text-white"><i class="fab fa-line"></i></a>
+                <a href="#" class="text-white"><i class="fas fa-envelope"></i></a>
+            </div>
+            <hr class="my-4 opacity-25">
+            <p class="small text-secondary">&copy; 2026 Sensory Integration System. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

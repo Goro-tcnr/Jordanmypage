@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>喬登AI動漫學院｜感統評測報告</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+/* ════════════════════════════════════════
+   ROOT & BASE
+════════════════════════════════════════ */
+:root {
+  --red:    #e63946;
+  --orange: #f4801a;
+  --gold:   #d4af37;
+  --blue:   #4a90e2;
+  --teal:   #2ec4b6;
+  --green:  #52b788;
+  --dark:   #0d0d0d;
+  --ink:    #1a1a2e;
+  --cream:  #fdf6ec;
+  --serif:  'Noto Serif TC', serif;
+  --sans:   'Noto Sans TC', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--dark);
+  color: #eee;
+  overflow-x: hidden;
+}
+
+/* ════════════════════════════════════════
+   STICKY NAV
+════════════════════════════════════════ */
+#topnav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+  background: rgba(13,13,13,0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 10px 0;
+}
+.nav-brand { font-family: var(--serif); font-size: 1.1rem; color: var(--gold); font-weight: 700; }
+.nav-steps { display: flex; gap: 6px; flex-wrap: wrap; }
+.nav-step {
+  font-size: 11px; padding: 4px 10px; border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.4);
+  cursor: pointer; transition: all 0.3s;
+}
+.nav-step.active, .nav-step:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ════════════════════════════════════════
+   SECTION BASE
+════════════════════════════════════════ */
+section { padding: 80px 0; position: relative; }
+.section-label {
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px; display: block;
+}
+.display-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+/* ════════════════════════════════════════
+   S01 — HERO HEADER (評測說明)
+════════════════════════════════════════ */
+#s01 {
+  min-height: 100vh; display: flex; align-items: center;
+  background: radial-gradient(ellipse at 30% 50%, #1a1a3e 0%, #0d0d0d 70%);
+  padding-top: 100px;
+}
+#s01::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.35);
+  padding: 6px 16px; border-radius: 30px; font-size: 13px; color: var(--gold);
+  margin-bottom: 24px;
+}
+.hero-score-ring {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  border: 6px solid var(--red);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: rgba(230,57,70,0.1);
+  position: relative;
+  box-shadow: 0 0 40px rgba(230,57,70,0.3);
+}
+.hero-score-ring.moderate { border-color: var(--orange); background: rgba(244,128,26,0.1); box-shadow: 0 0 40px rgba(244,128,26,0.3); }
+.hero-score-ring.mild { border-color: var(--gold); background: rgba(212,175,55,0.1); box-shadow: 0 0 40px rgba(212,175,55,0.3); }
+.hero-score-ring.good { border-color: var(--green); background: rgba(82,183,136,0.1); box-shadow: 0 0 40px rgba(82,183,136,0.3); }
+
+/* ════════════════════════════════════════
+   S02 — T180 評測表單
+════════════════════════════════════════ */
+#s02 { background: #111118; }
+.form-section-title {
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; padding: 8px 16px; border-radius: 6px;
+  display: inline-block; margin-bottom: 20px;
+}
+.form-section-title.blue { background: rgba(74,144,226,0.15); color: var(--blue); }
+.form-section-title.orange { background: rgba(244,128,26,0.15); color: var(--orange); }
+
+.assess-row {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px; margin-bottom: 28px;
+}
+.assess-item label {
+  display: block; font-size: 13px; font-weight: 600;
+  color: rgba(255,255,255,0.6); margin-bottom: 6px;
+}
+.assess-item select {
+  width: 100%; padding: 10px 14px; border-radius: 10px;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+  color: #fff; font-size: 14px; font-family: var(--sans);
+  appearance: none; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23888' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center;
+  transition: border-color 0.2s;
+}
+.assess-item select:focus { outline: none; border-color: var(--blue); }
+.assess-item select option { background: #1a1a2e; }
+
+.btn-generate {
+  width: 100%; padding: 18px; border-radius: 14px; border: none;
+  font-size: 18px; font-weight: 700; font-family: var(--serif);
+  background: linear-gradient(135deg, #e63946, #f4801a);
+  color: white; cursor: pointer;
+  box-shadow: 0 8px 30px rgba(230,57,70,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 1px;
+}
+.btn-generate:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(230,57,70,0.5); }
+
+/* 報告區 */
+#report-zone { display: none; margin-top: 40px; animation: fadeUp 0.7s ease-out; }
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+
+.report-card {
+  border-radius: 16px; padding: 28px;
+  border-left: 5px solid var(--red);
+  background: linear-gradient(135deg, rgba(230,57,70,0.08), rgba(244,128,26,0.05));
+}
+.report-item {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.report-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  margin-top: 5px; flex-shrink: 0;
+}
+.rx-card {
+  background: rgba(74,144,226,0.08); border: 1px solid rgba(74,144,226,0.2);
+  border-radius: 16px; padding: 24px; margin-top: 20px;
+}
+.rx-item { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 14px; color: rgba(255,255,255,0.75); }
+.score-summary {
+  display: flex; align-items: center; gap: 20px;
+  background: rgba(255,255,255,0.04); border-radius: 14px; padding: 20px; margin-bottom: 20px;
+}
+.score-circle {
+  width: 80px; height: 80px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border: 4px solid var(--red); flex-shrink: 0;
+  font-family: var(--serif);
+}
+.scroll-cta {
+  display: block; text-align: center; margin-top: 28px;
+  padding: 16px 32px; border-radius: 50px;
+  background: rgba(212,175,55,0.1); border: 1px solid var(--gold);
+  color: var(--gold); font-weight: 700; cursor: pointer;
+  transition: background 0.2s;
+  font-size: 16px;
+}
+.scroll-cta:hover { background: rgba(212,175,55,0.2); }
+
+/* ════════════════════════════════════════
+   S03 — 恐怖故事 / 危機案例
+════════════════════════════════════════ */
+#s03 {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(230,57,70,0.2);
+}
+.horror-card {
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(230,57,70,0.2);
+  border-radius: 16px; padding: 28px; position: relative; overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.horror-card:hover { border-color: rgba(230,57,70,0.6); transform: translateY(-4px); }
+.horror-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--red), transparent);
+}
+.quote-mark { font-size: 60px; line-height: 1; color: rgba(230,57,70,0.2); font-family: serif; }
+.case-tag {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 20px;
+  background: rgba(230,57,70,0.15); color: var(--red); display: inline-block; margin-bottom: 12px;
+}
+
+/* ════════════════════════════════════════
+   S04 — 黃金期倒數
+════════════════════════════════════════ */
+#s04 {
+  background: radial-gradient(ellipse at center, #1a0a00 0%, #0d0d0d 70%);
+  text-align: center;
+}
+.golden-timeline {
+  display: flex; justify-content: center; gap: 0; flex-wrap: wrap;
+  margin: 48px 0; position: relative;
+}
+.golden-timeline::before {
+  content: '';
+  position: absolute; top: 28px; left: 10%; right: 10%;
+  height: 3px; background: linear-gradient(90deg, var(--green), var(--gold), var(--orange), var(--red));
+}
+.age-node {
+  display: flex; flex-direction: column; align-items: center;
+  width: 80px; position: relative; cursor: pointer;
+}
+.age-circle {
+  width: 56px; height: 56px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 15px; font-family: var(--serif);
+  border: 3px solid; position: relative; z-index: 1; transition: transform 0.3s;
+}
+.age-node:hover .age-circle { transform: scale(1.2); }
+.age-circle.g { background: rgba(82,183,136,0.15); border-color: var(--green); color: var(--green); }
+.age-circle.y { background: rgba(212,175,55,0.15); border-color: var(--gold); color: var(--gold); }
+.age-circle.o { background: rgba(244,128,26,0.15); border-color: var(--orange); color: var(--orange); }
+.age-circle.r { background: rgba(230,57,70,0.15); border-color: var(--red); color: var(--red); }
+.age-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
+
+.brain-stat {
+  background: rgba(255,255,255,0.04); border-radius: 16px; padding: 24px;
+  border: 1px solid rgba(255,255,255,0.08); text-align: center;
+}
+.brain-number { font-family: var(--serif); font-size: 3.5rem; font-weight: 900; }
+
+/* ════════════════════════════════════════
+   S05 — 好奇心 / 遊戲 / 卡通
+════════════════════════════════════════ */
+#s05 {
+  background: linear-gradient(180deg, #0d0d0d 0%, #0a1a0a 100%);
+}
+.game-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: 50px; margin: 6px;
+  font-size: 14px; font-weight: 600; transition: transform 0.2s;
+  cursor: default;
+}
+.game-pill:hover { transform: scale(1.07); }
+.pill-green { background: rgba(82,183,136,0.15); border: 1px solid rgba(82,183,136,0.35); color: var(--green); }
+.pill-blue  { background: rgba(74,144,226,0.15);  border: 1px solid rgba(74,144,226,0.35);  color: var(--blue); }
+.pill-gold  { background: rgba(212,175,55,0.15);  border: 1px solid rgba(212,175,55,0.35);  color: var(--gold); }
+.pill-teal  { background: rgba(46,196,182,0.15);  border: 1px solid rgba(46,196,182,0.35);  color: var(--teal); }
+
+.confidence-path {
+  display: flex; flex-direction: column; gap: 0; margin: 40px 0;
+}
+.path-step {
+  display: flex; align-items: flex-start; gap: 20px; padding: 20px 0;
+  border-left: 2px solid rgba(255,255,255,0.08); padding-left: 24px; margin-left: 12px;
+  position: relative;
+}
+.path-step::before {
+  content: '';
+  position: absolute; left: -7px; top: 24px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--green); border: 2px solid #0a1a0a;
+}
+.path-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px; flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════
+   S06 — 對比區：有地基 vs 沒地基
+════════════════════════════════════════ */
+#s06 { background: #0d0d0d; }
+.compare-split {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+}
+.compare-panel {
+  border-radius: 20px; padding: 32px; position: relative; overflow: hidden;
+}
+.compare-panel.bad {
+  background: rgba(230,57,70,0.06); border: 1px solid rgba(230,57,70,0.25);
+}
+.compare-panel.good {
+  background: rgba(82,183,136,0.06); border: 1px solid rgba(82,183,136,0.25);
+}
+.compare-panel.bad::after,
+.compare-panel.good::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+}
+.compare-panel.bad::after { background: linear-gradient(90deg, var(--red), transparent); }
+.compare-panel.good::after { background: linear-gradient(90deg, var(--green), transparent); }
+.compare-list li {
+  padding: 8px 0; font-size: 14px; color: rgba(255,255,255,0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex; gap: 10px; align-items: flex-start;
+}
+@media (max-width: 640px) { .compare-split { grid-template-columns: 1fr; } }
+
+/* ════════════════════════════════════════
+   S07 — 2030 雙語政策 + 108課綱
+════════════════════════════════════════ */
+#s07 {
+  background: radial-gradient(ellipse at 70% 50%, #001a2e 0%, #0d0d0d 70%);
+}
+.policy-card {
+  background: rgba(255,255,255,0.04); border-radius: 16px; padding: 24px;
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: border-color 0.3s, transform 0.3s;
+}
+.policy-card:hover { border-color: rgba(74,144,226,0.4); transform: translateY(-4px); }
+.policy-icon {
+  width: 56px; height: 56px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; margin-bottom: 16px;
+}
+.stat-pill {
+  display: inline-block; padding: 4px 12px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1px;
+}
+
+/* ════════════════════════════════════════
+   S08 — 葉子綺案例
+════════════════════════════════════════ */
+#s08 {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(212,175,55,0.15);
+}
+.yezi-frame {
+  background: rgba(212,175,55,0.05);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: 24px; padding: 40px; position: relative; overflow: hidden;
+}
+.yezi-frame::before {
+  content: '★ STAR CASE ★';
+  position: absolute; top: 20px; right: -40px;
+  background: var(--gold); color: #000;
+  padding: 6px 60px; transform: rotate(45deg);
+  font-size: 11px; font-weight: 700; letter-spacing: 2px;
+}
+.timeline-quote {
+  display: flex; gap: 16px; padding: 16px 0;
+  border-left: 2px solid rgba(212,175,55,0.3); padding-left: 20px;
+  margin-left: 8px; position: relative;
+}
+.timeline-quote::before {
+  content: attr(data-age);
+  position: absolute; left: -16px; top: 16px;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(212,175,55,0.15); border: 2px solid var(--gold);
+  color: var(--gold); font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ════════════════════════════════════════
+   S09 — CTA 行動呼籲
+════════════════════════════════════════ */
+#s09 {
+  background: radial-gradient(ellipse at center, #1a0a00 0%, #0d0d0d 60%);
+  text-align: center; padding: 100px 0;
+}
+.cta-big {
+  display: inline-block; padding: 20px 60px; border-radius: 60px; border: none;
+  font-size: 20px; font-weight: 700; font-family: var(--serif);
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  color: #0d0d0d; cursor: pointer;
+  box-shadow: 0 8px 40px rgba(212,175,55,0.4);
+  transition: transform 0.2s, box-shadow 0.2s; letter-spacing: 1px;
+}
+.cta-big:hover { transform: translateY(-3px); box-shadow: 0 14px 50px rgba(212,175,55,0.6); }
+.cta-sub {
+  display: inline-block; padding: 14px 40px; border-radius: 60px;
+  font-size: 16px; font-weight: 600; font-family: var(--sans);
+  background: transparent; border: 1px solid rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.7); cursor: pointer; margin-left: 16px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.cta-sub:hover { border-color: rgba(255,255,255,0.5); color: #fff; }
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+footer {
+  background: #080808; padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  text-align: center; color: rgba(255,255,255,0.25); font-size: 13px;
+}
+
+/* ════════════════════════════════════════
+   SCROLL REVEAL
+════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ STICKY NAV ═══════════ -->
+<nav id="topnav">
+  <div class="container d-flex align-items-center justify-content-between gap-3 flex-wrap">
+    <span class="nav-brand"><i class="fa-solid fa-brain me-2" style="color:var(--red);"></i>喬登AI動漫學院</span>
+    <div class="nav-steps d-none d-md-flex">
+      <span class="nav-step" onclick="scrollTo('#s02')">① 評測</span>
+      <span class="nav-step" onclick="scrollTo('#s03')">② 危機</span>
+      <span class="nav-step" onclick="scrollTo('#s04')">③ 黃金期</span>
+      <span class="nav-step" onclick="scrollTo('#s05')">④ 啟蒙</span>
+      <span class="nav-step" onclick="scrollTo('#s06')">⑤ 地基</span>
+      <span class="nav-step" onclick="scrollTo('#s07')">⑥ 雙語</span>
+      <span class="nav-step" onclick="scrollTo('#s08')">⑦ 案例</span>
+      <span class="nav-step" onclick="scrollTo('#s09')">⑧ 預約</span>
+    </div>
+    <button class="cta-big" style="padding:8px 20px; font-size:14px; border-radius:30px;" onclick="scrollTo('#s09')">免費預約諮詢</button>
+  </div>
+</nav>
+
+
+<!-- ═══════════ S01 HERO ═══════════ -->
+<section id="s01">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 reveal">
+        <div class="hero-badge">
+          <i class="fa-solid fa-file-medical"></i>
+          T180 感覺統合評測報告
+        </div>
+        <h1 class="display-title mb-4">
+          您的孩子剛完成了<br>
+          <span style="color:var(--gold);">感統評測</span><br>
+          請用 3 分鐘閱讀這份報告
+        </h1>
+        <p style="color:rgba(255,255,255,0.55); font-size:1.1rem; line-height:1.8; margin-bottom:32px;">
+          這份評測結果將告訴您，孩子大腦目前的發展狀況，以及<strong style="color:#fff;">0–6歲黃金期</strong>您還有多少時間可以行動。請認真閱讀每一項說明。
+        </p>
+        <div class="d-flex gap-3 flex-wrap">
+          <button class="btn-generate" style="width:auto; padding:14px 36px; font-size:16px; border-radius:50px;" onclick="scrollTo('#s02')">
+            <i class="fa-solid fa-arrow-down me-2"></i>查看評測結果
+          </button>
+          <div style="display:flex; align-items:center; gap:10px; color:rgba(255,255,255,0.4); font-size:13px;">
+            <i class="fa-solid fa-shield-halved" style="color:var(--green);"></i>
+            專業評測，資料保密
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 reveal reveal-delay-2">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="brain-stat">
+              <div class="brain-number" style="color:var(--gold);">85%</div>
+              <div style="font-size:13px; color:rgba(255,255,255,0.5); margin-top:4px;">神經突觸<br>在6歲前形成</div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="brain-stat">
+              <div class="brain-number" style="color:var(--red);">1/5</div>
+              <div style="font-size:13px; color:rgba(255,255,255,0.5); margin-top:4px;">孩童有<br>感統失調問題</div>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="brain-stat">
+              <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:8px;">⏳ 您的孩子還有多少時間？</div>
+              <div id="countdown-display" style="font-family:var(--serif); font-size:1.3rem; color:var(--orange);">
+                正在計算…
+              </div>
+              <div style="font-size:12px; color:rgba(255,255,255,0.3); margin-top:6px;">距離6歲黃金期結束（依3歲估算）</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ S02 T180 評測表單 ═══════════ -->
+<section id="s02">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label"><i class="fa-solid fa-clipboard-list me-2"></i>Step 01 — 評測結果確認</span>
+      <h2 class="display-title mb-2">T180 感覺統合<br><span style="color:var(--blue);">互動評測表</span></h2>
+      <p style="color:rgba(255,255,255,0.45); margin-bottom:40px;">請依孩子實際狀況選擇最符合的描述，系統將立即產出分析報告。</p>
+    </div>
+
+    <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:36px;">
+      
+      <!-- 學習功能 -->
+      <div class="form-section-title blue reveal"><i class="fa-solid fa-brain me-2"></i>一、學習功能（神經感官基礎）</div>
+      <div class="assess-row reveal">
+        <div class="assess-item">
+          <label><i class="fa-solid fa-circle me-1" style="color:var(--blue); font-size:8px;"></i>前庭覺發展</label>
+          <select id="vestibular">
+            <option value="0">✅ 正常穩定</option>
+            <option value="1">⚠️ 輕度：注意力短暫</option>
+            <option value="2">🔶 中度：坐不住、好動</option>
+            <option value="3">🚨 嚴重：極度好動、平衡差</option>
+          </select>
+        </div>
+        <div class="assess-item">
+          <label><i class="fa-solid fa-circle me-1" style="color:var(--blue); font-size:8px;"></i>重力不安感</label>
+          <select id="gravity">
+            <option value="0">✅ 正常穩定</option>
+            <option value="1">⚠️ 輕度：膽小怕高</option>
+            <option value="2">🔶 中度：不愛離地遊戲</option>
+            <option value="3">🚨 嚴重：極度缺乏安全感</option>
+          </select>
+        </div>
+        <div class="assess-item">
+          <label><i class="fa-solid fa-circle me-1" style="color:var(--blue); font-size:8px;"></i>視知覺辨識</label>
+          <select id="visual">
+            <option value="0">✅ 正常穩定</option>
+            <option value="1">⚠️ 輕度：寫字慢、易疲勞</option>
+            <option value="2">🔶 中度：閱讀跳行漏字</option>
+            <option value="3">🚨 嚴重：空間感、符號混亂</option>
+          </select>
+        </div>
+        <div class="assess-item">
+          <label><i class="fa-solid fa-circle me-1" style="color:var(--blue); font-size:8px;"></i>聽知覺過濾</label>
+          <select id="auditory">
+            <option value="0">✅ 正常穩定</option>
+            <option value="1">⚠️ 輕度：理解指令慢</option>
+            <option value="2">🔶 中度：易受噪音干擾</option>
+            <option value="3">🚨 嚴重：聽而不聞</option>
+          </select>
+        </div>
+        <div class="assess-item">
+          <label><i class="fa-solid fa-circle me-1" style="color:var(--blue); font-size:8px;"></i>觸覺防禦</label>
+          <select id="tactile">
+            <option value="0">✅ 正常穩定</option>
+            <option value="1">⚠️ 輕度：環境適應慢</option>
+            <option value="2">🔶 中度：情緒易波動</option>
+            <option value="3">🚨 嚴重：人際退縮、極端固執</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- 學習態度 -->
+      <div class="form-section-title orange reveal"><i class="fa-solid fa-graduation-cap me-2"></i>二、學習態度（動作與情緒整合）</div>
+      <div class="assess-row reveal">
+        <div class="assess-item">
+          <label><i class="fa-solid fa-circle me-1" style="color:var(--orange); font-size:8px;"></i>觸覺區辨能力</label>
+          <select id="tactile_disc">
+            <option value="0">✅ 正常</option>
+            <option value="1">⚠️ 輕度：不愛動手嘗試</option>
+            <option value="2">🔶 中度：精細動作笨拙</option>
+            <option value="3">🚨 嚴重：手眼配合極差</option>
+          </select>
+        </div>
+        <div class="assess-item">
+          <label><i class="fa-solid fa-circle me-1" style="color:var(--orange); font-size:8px;"></i>本體覺計畫</label>
+          <select id="proprioception">
+            <option value="0">✅ 正常</option>
+            <option value="1">⚠️ 輕度：力道控制不佳</option>
+            <option value="2">🔶 中度：動作協調吃力</option>
+            <option value="3">🚨 嚴重：手腳不協調影響自信</option>
+          </select>
+        </div>
+        <div class="assess-item">
+          <label><i class="fa-solid fa-circle me-1" style="color:var(--orange); font-size:8px;"></i>情緒感覺調適</label>
+          <select id="regulation">
+            <option value="0">✅ 穩定</option>
+            <option value="1">⚠️ 耐性稍嫌不足</option>
+            <option value="2">🔶 挫折容忍度低</option>
+            <option value="3">🚨 易爆發衝動衝突</option>
+          </select>
+        </div>
+        <div class="assess-item">
+          <label><i class="fa-solid fa-circle me-1" style="color:var(--orange); font-size:8px;"></i>整體發展評估</label>
+          <select id="overall">
+            <option value="0">✅ 符合年齡</option>
+            <option value="1">⚠️ 稍緩，需警覺</option>
+            <option value="2">🔶 明顯落後，需介入</option>
+            <option value="3">🚨 急需黃金期搶救</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="btn-generate" onclick="generateReport()">
+        <i class="fa-solid fa-magnifying-glass-chart me-2"></i>產出我孩子的專業評測報告
+      </button>
+
+      <!-- 報告區 -->
+      <div id="report-zone">
+        <div class="score-summary" id="score-summary"></div>
+        <div class="report-card" id="report-content"></div>
+        <div class="rx-card">
+          <div style="font-size:13px; color:var(--blue); font-weight:700; margin-bottom:12px; letter-spacing:1px;">
+            <i class="fa-solid fa-house-medical me-2"></i>居家感統訓練處方
+          </div>
+          <div id="home-advice"></div>
+        </div>
+        <button class="scroll-cta" onclick="scrollTo('#s03')">
+          <i class="fa-solid fa-triangle-exclamation me-2" style="color:var(--red);"></i>
+          了解感統失調的真實影響 → 繼續閱讀
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ S03 恐怖故事 / 危機案例 ═══════════ -->
+<section id="s03">
+  <div class="container">
+    <div class="reveal text-center mb-5">
+      <span class="section-label"><i class="fa-solid fa-triangle-exclamation me-2"></i>Step 02 — 真實案例警示</span>
+      <h2 class="display-title">感統失調，<br><span style="color:var(--red);">孩子的一生都在付代價</span></h2>
+      <p style="color:rgba(255,255,255,0.45); max-width:600px; margin:16px auto 0;">這些不是誇大的故事，是每天在台灣課堂裡真實發生的事。</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal reveal-delay-1">
+        <div class="horror-card">
+          <div class="case-tag">前庭覺失調 ▸ 7歲</div>
+          <div class="quote-mark">"</div>
+          <p style="font-size:15px; color:rgba(255,255,255,0.75); line-height:1.8;">
+            小明上小學後，老師每天反映「他完全坐不住，上課一直站起來走動，影響全班」。媽媽帶去看醫生，被診斷疑似過動症，開始服藥。
+          </p>
+          <div style="margin-top:16px; padding:12px; background:rgba(230,57,70,0.08); border-radius:10px; font-size:13px; color:rgba(255,255,255,0.5);">
+            <strong style="color:var(--red);">真相：</strong>這其實是前庭覺未發展完全。若在3歲前介入感統訓練，根本不需要藥物。
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal reveal-delay-2">
+        <div class="horror-card">
+          <div class="case-tag">聽知覺失調 ▸ 8歲</div>
+          <div class="quote-mark">"</div>
+          <p style="font-size:15px; color:rgba(255,255,255,0.75); line-height:1.8;">
+            阿花考試都不及格。她不是不努力，只是老師講的話她聽到了，卻無法轉化成理解。她開始覺得自己「很笨」，對學習產生恐懼和排斥。
+          </p>
+          <div style="margin-top:16px; padding:12px; background:rgba(230,57,70,0.08); border-radius:10px; font-size:13px; color:rgba(255,255,255,0.5);">
+            <strong style="color:var(--red);">真相：</strong>聽知覺過濾能力低落。0–6歲是修復這條神經路徑的最後機會。
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal reveal-delay-3">
+        <div class="horror-card">
+          <div class="case-tag">觸覺防禦 ▸ 10歲</div>
+          <div class="quote-mark">"</div>
+          <p style="font-size:15px; color:rgba(255,255,255,0.75); line-height:1.8;">
+            小傑無法交到朋友。他無法忍受別人碰觸他，連排隊時被輕碰都會崩潰大哭。同學開始排擠他，他從活潑的孩子變成不敢出門。
+          </p>
+          <div style="margin-top:16px; padding:12px; background:rgba(230,57,70,0.08); border-radius:10px; font-size:13px; color:rgba(255,255,255,0.5);">
+            <strong style="color:var(--red);">真相：</strong>觸覺防禦失調影響社交發展。這種心理創傷，補習班永遠無法彌補。
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal reveal-delay-1">
+        <div class="horror-card">
+          <div class="case-tag">視知覺失調 ▸ 9歲</div>
+          <div class="quote-mark">"</div>
+          <p style="font-size:15px; color:rgba(255,255,255,0.75); line-height:1.8;">
+            小晴寫作業需要花別人3倍的時間，因為她閱讀時每讀完一行就跳行，抄寫時常漏字。老師批評她不用心，她卻從來不知道自己為什麼做不到。
+          </p>
+          <div style="margin-top:16px; padding:12px; background:rgba(230,57,70,0.08); border-radius:10px; font-size:13px; color:rgba(255,255,255,0.5);">
+            <strong style="color:var(--red);">真相：</strong>視知覺辨識能力不足。透過早期視覺追蹤訓練完全可以預防。
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal reveal-delay-2">
+        <div class="horror-card">
+          <div class="case-tag">本體覺失調 ▸ 11歲</div>
+          <div class="quote-mark">"</div>
+          <p style="font-size:15px; color:rgba(255,255,255,0.75); line-height:1.8;">
+            阿宏被同學嘲笑「手殘」。他拿筷子、剪刀都很吃力，體育課更是全班最後一名。漸漸地，他拒絕參加任何需要動手的活動，自信完全崩潰。
+          </p>
+          <div style="margin-top:16px; padding:12px; background:rgba(230,57,70,0.08); border-radius:10px; font-size:13px; color:rgba(255,255,255,0.5);">
+            <strong style="color:var(--red);">真相：</strong>本體覺計畫失調。精細動作需要在學齡前大量練習才能建立神經連結。
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal reveal-delay-3">
+        <div class="horror-card" style="border-color:rgba(212,175,55,0.3); background:rgba(212,175,55,0.04);">
+          <div class="case-tag" style="background:rgba(212,175,55,0.15); color:var(--gold);">這些孩子的共同點</div>
+          <div class="quote-mark" style="color:rgba(212,175,55,0.3);">"</div>
+          <p style="font-size:15px; color:rgba(255,255,255,0.75); line-height:1.8;">
+            他們的父母都說：<strong style="color:var(--gold);">「如果當初有人告訴我，我早就做了。」</strong>感統失調不會自己好，只會隨著年齡增長，讓學習的代價越來越高。
+          </p>
+          <div style="margin-top:20px;">
+            <button class="scroll-cta" style="margin:0;" onclick="scrollTo('#s04')">
+              還有多少時間可以行動？→
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ S04 黃金期倒數 ═══════════ -->
+<section id="s04">
+  <div class="container">
+    <div class="reveal text-center">
+      <span class="section-label"><i class="fa-solid fa-hourglass-half me-2"></i>Step 03 — 大腦發展黃金期</span>
+      <h2 class="display-title mb-4">
+        0–6歲，<br><span style="color:var(--gold);">大腦連線的黃金時窗</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.5); max-width:620px; margin:0 auto 48px; font-size:1.05rem; line-height:1.8;">
+        科學研究證實，人類大腦 <strong style="color:#fff;">85% 的神經突觸</strong>在 6 歲前形成。這段時間裡，每一個感官刺激都在鋪設孩子一生學習能力的基礎電路。
+      </p>
+    </div>
+
+    <!-- 年齡時間軸 -->
+    <div class="golden-timeline reveal">
+      <div class="age-node">
+        <div class="age-circle g">0歲</div>
+        <div class="age-label">神經元<br>爆發期</div>
+      </div>
+      <div class="age-node">
+        <div class="age-circle g">1歲</div>
+        <div class="age-label">動作<br>整合</div>
+      </div>
+      <div class="age-node">
+        <div class="age-circle g">2歲</div>
+        <div class="age-label">語言<br>爆發</div>
+      </div>
+      <div class="age-node">
+        <div class="age-circle y">3歲</div>
+        <div class="age-label">社交<br>發展</div>
+      </div>
+      <div class="age-node">
+        <div class="age-circle y">4歲</div>
+        <div class="age-label">邏輯<br>萌芽</div>
+      </div>
+      <div class="age-node">
+        <div class="age-circle o">5歲</div>
+        <div class="age-label">學習<br>準備期</div>
+      </div>
+      <div class="age-node">
+        <div class="age-circle r">6歲</div>
+        <div class="age-label" style="color:var(--red); font-weight:700;">⚠️ 黃金期<br>結束</div>
+      </div>
+      <div class="age-node">
+        <div class="age-circle r" style="border-style:dashed; opacity:0.5;">7歲+</div>
+        <div class="age-label" style="color:rgba(230,57,70,0.6);">修復<br>困難</div>
+      </div>
+    </div>
+
+    <!-- 三大數據 -->
+    <div class="row g-4 mt-2 reveal">
+      <div class="col-md-4">
+        <div class="brain-stat">
+          <div class="brain-number" style="color:var(--green);">1000</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:14px; margin-top:6px;">每秒形成的<br>神經突觸連結數量</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="brain-stat">
+          <div class="brain-number" style="color:var(--gold);">3倍</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:14px; margin-top:6px;">感統失調孩子<br>完成作業所需時間</div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="brain-stat">
+          <div class="brain-number" style="color:var(--red);">90%</div>
+          <div style="color:rgba(255,255,255,0.5); font-size:14px; margin-top:6px;">學習困難的孩子<br>有感統失調問題</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 reveal">
+      <div style="background:rgba(230,57,70,0.08); border:1px solid rgba(230,57,70,0.25); border-radius:16px; padding:28px; max-width:700px; margin:0 auto;">
+        <div style="font-size:1.15rem; font-family:var(--serif); color:#fff; line-height:1.8; margin-bottom:16px;">
+          「感統失調不會隨年齡自動痊癒。<br>
+          6歲以後，修復同樣的問題需要<strong style="color:var(--red);">10倍以上的努力</strong>，<br>
+          而且效果會大打折扣。」
+        </div>
+        <div style="font-size:13px; color:rgba(255,255,255,0.35);">— 引自國際感覺統合治療協會研究報告</div>
+      </div>
+      <button class="scroll-cta" style="margin-top:24px;" onclick="scrollTo('#s05')">
+        那麼，什麼是最正確的介入方式？→
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ S05 好奇心 / 遊戲 / 卡通 ═══════════ -->
+<section id="s05">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label"><i class="fa-solid fa-gamepad me-2"></i>Step 04 — 自發學習的秘密</span>
+      <h2 class="display-title mb-4">
+        孩子天生愛學習，<br><span style="color:var(--green);">只是需要對的入口</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.5); font-size:1.05rem; line-height:1.8; max-width:680px; margin-bottom:40px;">
+        自動自發不是天生性格，是被正確的<strong style="color:#fff;">好奇心</strong>所啟動的。當孩子從他最喜歡的遊戲和卡通出發，學習就不再是負擔，而是一種享受。
+      </p>
+    </div>
+
+    <!-- 遊戲/卡通入口 -->
+    <div class="reveal mb-5">
+      <div style="color:rgba(255,255,255,0.4); font-size:13px; margin-bottom:16px; letter-spacing:2px; text-transform:uppercase;">孩子喜歡的，就是最好的學習媒介</div>
+      <div>
+        <span class="game-pill pill-green"><i class="fa-solid fa-puzzle-piece"></i> 拼圖遊戲 → 強化視知覺</span>
+        <span class="game-pill pill-blue"><i class="fa-solid fa-tv"></i> 動畫卡通 → 聽說整合</span>
+        <span class="game-pill pill-gold"><i class="fa-solid fa-building-columns"></i> 積木搭建 → 本體覺計畫</span>
+        <span class="game-pill pill-teal"><i class="fa-solid fa-water"></i> 沙水遊戲 → 觸覺整合</span>
+        <span class="game-pill pill-green"><i class="fa-solid fa-music"></i> 音樂律動 → 前庭覺訓練</span>
+        <span class="game-pill pill-blue"><i class="fa-solid fa-book-open"></i> 繪本故事 → 語言爆發</span>
+        <span class="game-pill pill-gold"><i class="fa-solid fa-paintbrush"></i> 塗鴉創作 → 精細動作</span>
+        <span class="game-pill pill-teal"><i class="fa-solid fa-running"></i> 追跑遊戲 → 平衡協調</span>
+      </div>
+    </div>
+
+    <!-- 好奇心培養路徑 -->
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 reveal">
+        <div class="confidence-path">
+          <div class="path-step">
+            <div class="path-icon" style="background:rgba(82,183,136,0.12);">🎮</div>
+            <div>
+              <div style="font-weight:700; margin-bottom:4px;">從孩子喜歡的遊戲出發</div>
+              <div style="font-size:14px; color:rgba(255,255,255,0.5);">不強迫、不填鴨。讓孩子在「想玩」的狀態下自然接受感官刺激，大腦在喜悅中學習效率最高。</div>
+            </div>
+          </div>
+          <div class="path-step">
+            <div class="path-icon" style="background:rgba(74,144,226,0.12);">🤝</div>
+            <div>
+              <div style="font-weight:700; margin-bottom:4px;">家長陪伴與即時鼓勵</div>
+              <div style="font-size:14px; color:rgba(255,255,255,0.5);">研究顯示，有家長陪伴的學習，孩子的神經突觸連結速度是獨自玩耍的 <strong style="color:var(--blue);">2.3 倍</strong>。您的笑容就是孩子最強的學習燃料。</div>
+            </div>
+          </div>
+          <div class="path-step">
+            <div class="path-icon" style="background:rgba(212,175,55,0.12);">✨</div>
+            <div>
+              <div style="font-weight:700; margin-bottom:4px;">好奇心自然萌發</div>
+              <div style="font-size:14px; color:rgba(255,255,255,0.5);">當孩子的大腦得到適當刺激，他會開始主動問「為什麼」、主動想探索。這才是真正「自動自發」的起點。</div>
+            </div>
+          </div>
+          <div class="path-step">
+            <div class="path-icon" style="background:rgba(46,196,182,0.12);">🚀</div>
+            <div>
+              <div style="font-weight:700; margin-bottom:4px;">自信心建立，學習無懼</div>
+              <div style="font-size:14px; color:rgba(255,255,255,0.5);">每一次「我做到了！」的瞬間，都是大腦分泌多巴胺的時刻。孩子會把學習和「成就感」連結，形成正向循環。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal reveal-delay-2">
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:20px; padding:32px;">
+          <div style="font-size:13px; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;">一年級以前，是最關鍵的時刻</div>
+          <h3 style="font-family:var(--serif); font-size:1.6rem; margin-bottom:16px; color:var(--gold);">地基打穩，<br>未來遇到任何挑戰<br>都不怕</h3>
+          <p style="font-size:14px; color:rgba(255,255,255,0.55); line-height:1.8;">
+            一年級前是感統訓練的最後衝刺期。這時候建立的學習習慣、感官整合能力、自信心基礎，將陪伴孩子面對小學、國中、高中所有的學習挑戰。
+          </p>
+          <div style="margin-top:20px; padding:16px; background:rgba(82,183,136,0.08); border-radius:12px; border-left:3px solid var(--green);">
+            <div style="font-size:14px; color:var(--green); font-weight:700; margin-bottom:8px;">地基穩固的孩子，面對新科目時…</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.6); line-height:1.8;">✓ 不需要花三倍時間才能理解<br>✓ 面對難題不逃跑，願意嘗試<br>✓ 自然養成專注力和閱讀習慣<br>✓ 學雙語事半功倍</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ S06 對比：有地基 vs 沒地基 ═══════════ -->
+<section id="s06">
+  <div class="container">
+    <div class="reveal text-center mb-5">
+      <span class="section-label"><i class="fa-solid fa-scale-balanced me-2"></i>Step 05 — 兩條路的差距</span>
+      <h2 class="display-title">同樣的孩子，<br><span style="color:var(--gold);">完全不同的未來</span></h2>
+    </div>
+    <div class="compare-split reveal">
+      <div class="compare-panel bad">
+        <div style="font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--red); margin-bottom:20px;">
+          <i class="fa-solid fa-circle-xmark me-2"></i>感統地基未打穩
+        </div>
+        <ul class="compare-list list-unstyled">
+          <li><span style="color:var(--red); font-size:18px; flex-shrink:0;">✕</span> 上課坐不住，老師不斷投訴</li>
+          <li><span style="color:var(--red); font-size:18px; flex-shrink:0;">✕</span> 抄寫漏字、閱讀跳行，學習效率低</li>
+          <li><span style="color:var(--red); font-size:18px; flex-shrink:0;">✕</span> 每次考試都要補習、重複練習</li>
+          <li><span style="color:var(--red); font-size:18px; flex-shrink:0;">✕</span> 學英文困難，跟不上學校進度</li>
+          <li><span style="color:var(--red); font-size:18px; flex-shrink:0;">✕</span> 害怕失敗，不敢嘗試新事物</li>
+          <li><span style="color:var(--red); font-size:18px; flex-shrink:0;">✕</span> 社交困難，容易被孤立</li>
+          <li><span style="color:var(--red); font-size:18px; flex-shrink:0;">✕</span> 家長年年花大錢補習，心力交瘁</li>
+        </ul>
+        <div style="margin-top:20px; padding:14px; background:rgba(230,57,70,0.08); border-radius:10px; font-size:13px; color:rgba(255,255,255,0.45);">
+          補習只能治標，感統失調的神經根本沒有被修復。每一年，差距只會越來越大。
+        </div>
+      </div>
+      <div class="compare-panel good">
+        <div style="font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green); margin-bottom:20px;">
+          <i class="fa-solid fa-circle-check me-2"></i>感統地基打穩了
+        </div>
+        <ul class="compare-list list-unstyled">
+          <li><span style="color:var(--green); font-size:18px; flex-shrink:0;">✓</span> 專注力強，老師反映認真有禮貌</li>
+          <li><span style="color:var(--green); font-size:18px; flex-shrink:0;">✓</span> 閱讀流暢，學習效率是同齡2倍</li>
+          <li><span style="color:var(--green); font-size:18px; flex-shrink:0;">✓</span> 遇到難題先嘗試，不怕挫折</li>
+          <li><span style="color:var(--green); font-size:18px; flex-shrink:0;">✓</span> 雙語學習自然流暢，接受新語言快</li>
+          <li><span style="color:var(--green); font-size:18px; flex-shrink:0;">✓</span> 主動探索，好奇心旺盛</li>
+          <li><span style="color:var(--green); font-size:18px; flex-shrink:0;">✓</span> 社交自然，朋友多，情緒穩定</li>
+          <li><span style="color:var(--green); font-size:18px; flex-shrink:0;">✓</span> 家長省心省力，親子關係更好</li>
+        </ul>
+        <div style="margin-top:20px; padding:14px; background:rgba(82,183,136,0.08); border-radius:10px; font-size:13px; color:rgba(255,255,255,0.55);">
+          這不是天才，這是每個孩子都應該擁有的學習狀態。差別只在於有沒有人幫他打好地基。
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4 reveal">
+      <button class="scroll-cta" onclick="scrollTo('#s07')">
+        接下來：2030雙語時代，地基更重要 →
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ S07 2030 雙語政策 + 108課綱 ═══════════ -->
+<section id="s07">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label"><i class="fa-solid fa-globe me-2"></i>Step 06 — 2030 雙語國家政策</span>
+      <h2 class="display-title mb-4">
+        2030年，<br><span style="color:var(--blue);">不會英文的孩子<br>將面對什麼？</span>
+      </h2>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-3 reveal reveal-delay-1">
+        <div class="policy-card">
+          <div class="policy-icon" style="background:rgba(74,144,226,0.12);">🏛️</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:var(--blue); margin-bottom:8px;">政府政策</div>
+          <h5 style="font-family:var(--serif); margin-bottom:10px;">2030 雙語國家計畫</h5>
+          <p style="font-size:13px; color:rgba(255,255,255,0.5);">行政院明定 2030 年台灣成為雙語國家，英文將成為第二官方語言，政府公文、公共服務全面雙語化。</p>
+          <div class="stat-pill" style="background:rgba(74,144,226,0.1); color:var(--blue); margin-top:12px;">已全面啟動</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal reveal-delay-2">
+        <div class="policy-card">
+          <div class="policy-icon" style="background:rgba(82,183,136,0.12);">📱</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:var(--green); margin-bottom:8px;">108課綱</div>
+          <h5 style="font-family:var(--serif); margin-bottom:10px;">班班有網路<br>生生有平板</h5>
+          <p style="font-size:13px; color:rgba(255,255,255,0.5);">教育部推動數位教學，全台中小學已配發平板電腦。您的孩子進小學後，第一件事就是用平板學習，包含英文。</p>
+          <div class="stat-pill" style="background:rgba(82,183,136,0.1); color:var(--green); margin-top:12px;">全台學校同步</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal reveal-delay-3">
+        <div class="policy-card">
+          <div class="policy-icon" style="background:rgba(212,175,55,0.12);">🌏</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:var(--gold); margin-bottom:8px;">國際競爭</div>
+          <h5 style="font-family:var(--serif); margin-bottom:10px;">雙語能力<br>決定職涯起跑線</h5>
+          <p style="font-size:13px; color:rgba(255,255,255,0.5);">台灣主要企業已將英語能力列為升遷必要條件。這一代孩子的職場，英文不是加分，而是基本門票。</p>
+          <div class="stat-pill" style="background:rgba(212,175,55,0.1); color:var(--gold); margin-top:12px;">影響未來薪資</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal reveal-delay-4">
+        <div class="policy-card">
+          <div class="policy-icon" style="background:rgba(230,57,70,0.12);">⚠️</div>
+          <div style="font-size:11px; font-weight:700; letter-spacing:2px; color:var(--red); margin-bottom:8px;">現實警示</div>
+          <h5 style="font-family:var(--serif); margin-bottom:10px;">感統地基不穩<br>雙語學習更難</h5>
+          <p style="font-size:13px; color:rgba(255,255,255,0.5);">聽知覺、視知覺未整合好的孩子，學一種語言就已經困難，要同時接受雙語教學，壓力是普通孩子的好幾倍。</p>
+          <div class="stat-pill" style="background:rgba(230,57,70,0.1); color:var(--red); margin-top:12px;">及早介入</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 108課綱平板補充 -->
+    <div class="reveal" style="background:rgba(74,144,226,0.06); border:1px solid rgba(74,144,226,0.2); border-radius:16px; padding:28px;">
+      <div class="row align-items-center g-4">
+        <div class="col-md-2 text-center">
+          <div style="font-size:64px;">📲</div>
+        </div>
+        <div class="col-md-10">
+          <h4 style="font-family:var(--serif); color:var(--blue); margin-bottom:12px;">108課綱：學校已是數位+雙語課堂</h4>
+          <p style="font-size:14px; color:rgba(255,255,255,0.6); line-height:1.8; margin-bottom:12px;">
+            您的孩子一進小學，就要面對：<strong style="color:#fff;">平板自學、線上測驗、英語課用英文上、自然課雙語授課</strong>。這不是未來，這是現在正在發生的事。
+          </p>
+          <p style="font-size:14px; color:rgba(255,255,255,0.6); line-height:1.8;">
+            視知覺強的孩子→平板學習事半功倍 ｜ 聽知覺好的孩子→雙語課程如魚得水 ｜ 專注力佳的孩子→線上學習不分心。
+            <strong style="color:var(--blue);">感統基礎，決定孩子能不能跟上108課綱的節奏。</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ S08 葉子綺案例 ═══════════ -->
+<section id="s08">
+  <div class="container">
+    <div class="reveal text-center mb-5">
+      <span class="section-label"><i class="fa-solid fa-star me-2"></i>Step 07 — 成功案例見證</span>
+      <h2 class="display-title">環境，才是<br><span style="color:var(--gold);">最好的老師</span></h2>
+    </div>
+
+    <div class="yezi-frame reveal">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-7">
+          <div style="font-size:13px; color:var(--gold); font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px;">
+            金馬獎入圍童星 — 葉子綺的故事
+          </div>
+          <h3 style="font-family:var(--serif); font-size:1.8rem; margin-bottom:20px; line-height:1.4;">
+            從9個月大開始，媽媽為她打造的「天才環境」
+          </h3>
+
+          <div style="display:flex; flex-direction:column; gap:0; margin-bottom:24px;">
+            <div class="timeline-quote" data-age="9m">
+              <div>
+                <div style="font-weight:700; font-size:14px; color:var(--gold); margin-bottom:4px;">9個月大</div>
+                <div style="font-size:14px; color:rgba(255,255,255,0.65);">媽媽開始在家全天播放英文音頻。子綺的大腦在最敏感的語言窗口期，開始大量接收英文聲音刺激。</div>
+              </div>
+            </div>
+            <div class="timeline-quote" data-age="2歲">
+              <div>
+                <div style="font-weight:700; font-size:14px; color:var(--gold); margin-bottom:4px;">2歲</div>
+                <div style="font-size:14px; color:rgba(255,255,255,0.65);">加入英文繪本點讀，視覺+聽覺同步刺激。子綺開始能辨別英文單字，語言神經路徑已悄悄建立。</div>
+              </div>
+            </div>
+            <div class="timeline-quote" data-age="4歲">
+              <div>
+                <div style="font-weight:700; font-size:14px; color:var(--gold); margin-bottom:4px;">4歲</div>
+                <div style="font-size:14px; color:rgba(255,255,255,0.65);">開始看英文卡通，自然跟著說。英語對她不是「外語」，而是跟中文一樣自然的語言。</div>
+              </div>
+            </div>
+            <div class="timeline-quote" data-age="6歲">
+              <div>
+                <div style="font-weight:700; font-size:14px; color:var(--gold); margin-bottom:4px;">6歲</div>
+                <div style="font-size:14px; color:rgba(255,255,255,0.65);">全英文對話流暢。後來入圍金馬獎，在記者會上的全英文對答令外媒驚艷，被稱為「天才童星」。</div>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:20px; background:rgba(212,175,55,0.07); border-radius:12px; border-left:4px solid var(--gold);">
+            <div style="font-weight:700; color:var(--gold); margin-bottom:8px;">老師的話</div>
+            <div style="font-size:14px; color:rgba(255,255,255,0.65); line-height:1.8;">
+              葉子綺的成功，根本原因是<strong style="color:#fff;">感統基礎良好</strong>——聽知覺敏銳、視知覺整合佳、情緒穩定——加上媽媽用對方法打造的環境。她不是天才，她只是得到了每個孩子都應該得到的起點。<strong style="color:var(--gold);">您的孩子也可以。</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div style="background:rgba(255,255,255,0.03); border-radius:16px; padding:28px; border:1px solid rgba(255,255,255,0.06);">
+            <div style="font-size:13px; font-weight:700; letter-spacing:2px; color:rgba(255,255,255,0.4); text-transform:uppercase; margin-bottom:20px;">喬登系統如何複製這個環境</div>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(74,144,226,0.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px;">🎨</div>
+                <div>
+                  <div style="font-weight:700; font-size:14px; margin-bottom:4px;">AI 動漫視覺引導</div>
+                  <div style="font-size:13px; color:rgba(255,255,255,0.45);">像看電影一樣學習，強化視知覺與專注力神經連結</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(82,183,136,0.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px;">🎧</div>
+                <div>
+                  <div style="font-weight:700; font-size:14px; margin-bottom:4px;">點讀點視雙核心</div>
+                  <div style="font-size:13px; color:rgba(255,255,255,0.45);">音頻+視頻雙重刺激，複製葉子綺式的語言神經建立</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(212,175,55,0.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px;">📅</div>
+                <div>
+                  <div style="font-weight:700; font-size:14px; margin-bottom:4px;">12年學習規劃</div>
+                  <div style="font-size:13px; color:rgba(255,255,255,0.45);">從感統訓練到雙語教育，一套系統陪伴孩子到國中</div>
+                </div>
+              </div>
+              <div style="display:flex; gap:14px; align-items:flex-start;">
+                <div style="width:40px; height:40px; border-radius:10px; background:rgba(46,196,182,0.12); display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:18px;">🏠</div>
+                <div>
+                  <div style="font-weight:700; font-size:14px; margin-bottom:4px;">居家環境建置</div>
+                  <div style="font-size:13px; color:rgba(255,255,255,0.45);">把天才環境搬回家，讓孩子每天在家就能接受完整刺激</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ S09 CTA 行動呼籲 ═══════════ -->
+<section id="s09">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-label" style="display:block; text-align:center;"><i class="fa-solid fa-calendar-check me-2"></i>Step 08 — 立即行動</span>
+      <h2 class="display-title text-center mb-4" style="font-size:clamp(2.2rem,5vw,4rem);">
+        您已經閱讀了<br>
+        孩子的報告。<br>
+        <span style="color:var(--gold);">下一步由您決定。</span>
+      </h2>
+      <p style="color:rgba(255,255,255,0.45); font-size:1.1rem; text-align:center; max-width:560px; margin:0 auto 40px; line-height:1.8;">
+        黃金期不等人。今天預約的諮詢，可能是您送給孩子一生最重要的禮物。
+      </p>
+      <div class="text-center mb-5">
+        <button class="cta-big" onclick="consult()">
+          <i class="fa-solid fa-phone me-2"></i>免費預約感統顧問諮詢
+        </button>
+        <br><br>
+        <button class="cta-sub" onclick="scrollTo('#s02')">
+          <i class="fa-solid fa-rotate-left me-2"></i>重新填寫評測
+        </button>
+      </div>
+
+      <!-- 信任元素 -->
+      <div class="row g-3 justify-content-center reveal">
+        <div class="col-md-3 col-6">
+          <div style="text-align:center; padding:20px; background:rgba(255,255,255,0.03); border-radius:12px;">
+            <div style="font-size:28px; font-weight:900; font-family:var(--serif); color:var(--gold);">5,000+</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:4px;">服務孩童數</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div style="text-align:center; padding:20px; background:rgba(255,255,255,0.03); border-radius:12px;">
+            <div style="font-size:28px; font-weight:900; font-family:var(--serif); color:var(--green);">94%</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:4px;">感統改善率</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div style="text-align:center; padding:20px; background:rgba(255,255,255,0.03); border-radius:12px;">
+            <div style="font-size:28px; font-weight:900; font-family:var(--serif); color:var(--blue);">30+</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:4px;">專業認證</div>
+          </div>
+        </div>
+        <div class="col-md-3 col-6">
+          <div style="text-align:center; padding:20px; background:rgba(255,255,255,0.03); border-radius:12px;">
+            <div style="font-size:28px; font-weight:900; font-family:var(--serif); color:var(--orange);">2020</div>
+            <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-top:4px;">全台第一家</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="container">
+    <p>© 2026 喬登AI動漫學院｜專業兒童感統全腦開發</p>
+    <p style="margin-top:4px; font-size:11px;">隱私政策｜服務條款｜聯絡我們</p>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+/* ── 平滑捲動 ── */
+function scrollTo(id) {
+  document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+}
+
+/* ── 倒數計時器（假設孩子3歲） ── */
+(function() {
+  const birthAge = 3;
+  const goldenEnd = new Date();
+  goldenEnd.setFullYear(goldenEnd.getFullYear() + (6 - birthAge));
+  function tick() {
+    const now = new Date();
+    const diff = goldenEnd - now;
+    if (diff <= 0) { document.getElementById('countdown-display').textContent = '黃金期已結束'; return; }
+    const days   = Math.floor(diff / 86400000);
+    const hours  = Math.floor((diff % 86400000) / 3600000);
+    const mins   = Math.floor((diff % 3600000) / 60000);
+    const secs   = Math.floor((diff % 60000) / 1000);
+    document.getElementById('countdown-display').textContent =
+      `${days} 天 ${hours} 時 ${mins} 分 ${secs} 秒`;
+  }
+  tick(); setInterval(tick, 1000);
+})();
+
+/* ── Scroll Reveal ── */
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+/* ── Nav step highlight ── */
+const sections = ['s02','s03','s04','s05','s06','s07','s08','s09'];
+const navSteps = document.querySelectorAll('.nav-step');
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const idx = sections.indexOf(e.target.id);
+      navSteps.forEach((s,i) => s.classList.toggle('active', i === idx));
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(id => { const el = document.getElementById(id); if(el) sectionObserver.observe(el); });
+
+/* ── 評測報告產生器 ── */
+const FIELDS = {
+  vestibular:     { name:"前庭覺",   msgs:["穩定","注意力稍散漫","坐不住、好動","嚴重影響行為規範"],
+    advice:"多盪鞦韆、溜滑梯，或抱著孩子原地轉圈（左右各5圈）以給大腦高速前庭刺激。" },
+  gravity:        { name:"重力感",   msgs:["穩定","膽小、怕高","不愛腳離地活動","極度缺乏安全感"],
+    advice:"練習從低階梯跳下，多玩攀爬架或在軟墊上翻筋斗，增強重力感知信心。" },
+  visual:         { name:"視知覺",   msgs:["良好","寫字易疲勞","閱讀易跳行漏字","符號空間理解混亂"],
+    advice:"每天玩找不同或迷宮遊戲5分鐘，用手電筒在暗室移動讓孩子眼球追蹤光點，訓練視覺掃視力。" },
+  auditory:       { name:"聽知覺",   msgs:["敏銳","理解指令慢","易受背景噪音干擾","聽而不聞、接收極差"],
+    advice:"玩聽音辨位遊戲（閉眼猜聲音來源），在輕音樂背景下下指令，強化聽覺過濾與分辨能力。" },
+  tactile:        { name:"觸覺防禦", msgs:["穩定","環境適應較慢","情緒易波動愛哭","人際退縮、極端固執"],
+    advice:"洗澡時用不同質地毛巾搓揉全身肌膚，多玩捏黏土、觸摸沙水等多材質遊戲降低觸覺防禦。" },
+  tactile_disc:   { name:"觸覺區辨", msgs:["正常","不愛動手嘗試","精細動作笨拙","手眼配合極差"],
+    advice:"每天閉眼摸不同形狀物品猜名稱，多做拼圖、串珠、扣釦子等精細動作練習。" },
+  proprioception: { name:"本體覺",   msgs:["協調","力道控制不佳","動作協調吃力","手腳不協調影響自信"],
+    advice:"讓孩子練習爬樓梯、推重椅、提水桶，增加關節擠壓感，幫助大腦建立正確的肢體位置感。" },
+  regulation:     { name:"情緒調適", msgs:["穩定","耐性稍不足","挫折容忍度低","易爆發衝動情緒"],
+    advice:"建立活動轉換前的預告習慣（『再5分鐘就換活動了』），搭配深呼吸練習降低感官過載焦慮。" },
+  overall:        { name:"整體發展", msgs:["符合年齡","略有落後趨勢","差距已明顯拉開","急需黃金期介入"],
+    advice:"每日安排60分鐘以上大肌肉活動，並結合AI動漫系統進行系統性多感官刺激訓練。" }
+};
+
+function generateReport() {
+  let totalScore = 0;
+  let items = [];
+  let adviceList = [];
+
+  for (const [key, field] of Object.entries(FIELDS)) {
+    const val = parseInt(document.getElementById(key).value);
+    totalScore += val;
+    if (val > 0) {
+      const color = val===3 ? '#e63946' : val===2 ? '#f4801a' : '#d4af37';
+      items.push({ name: field.name, msg: field.msgs[val], val, color });
+      adviceList.push(field.advice);
+    }
+  }
+
+  const maxScore = 9 * 3;
+  const pct = Math.round((totalScore / maxScore) * 100);
+
+  // 分數等級
+  let level, levelColor, levelClass, levelMsg;
+  if (totalScore === 0) {
+    level='優異'; levelColor=FIELDS.vestibular.msgs[0]; levelClass='good';
+    levelMsg='孩子目前各項感統指標均正常！建議持續多元感官刺激，讓發展保持領先。';
+  } else if (pct <= 20) {
+    level='輕度'; levelColor='var(--gold)'; levelClass='mild';
+    levelMsg='孩子有輕微感統失調跡象，目前尚在可控範圍，但應盡早介入以避免進入中度。';
+  } else if (pct <= 50) {
+    level='中度'; levelColor='var(--orange)'; levelClass='moderate';
+    levelMsg='孩子有明顯感統失調，若不及時介入，小學後學習困難將逐漸顯現，請認真對待。';
+  } else {
+    level='需立即介入'; levelColor='var(--red)'; levelClass='';
+    levelMsg='孩子感統失調程度較重，黃金期時間緊迫，強烈建議立即安排專業感統師評估與課程介入。';
+  }
+
+  // 分數概覽
+  document.getElementById('score-summary').innerHTML = `
+    <div class="score-circle" style="border-color:${levelColor};">
+      <div style="font-size:24px; font-weight:900; color:${levelColor};">${pct}%</div>
+      <div style="font-size:11px; color:rgba(255,255,255,0.4);">失調指數</div>
+    </div>
+    <div>
+      <div style="font-size:13px; color:rgba(255,255,255,0.4); margin-bottom:4px;">評估結果</div>
+      <div style="font-size:20px; font-weight:700; color:${levelColor}; font-family:var(--serif);">${level}</div>
+      <div style="font-size:14px; color:rgba(255,255,255,0.55); margin-top:6px; line-height:1.6;">${levelMsg}</div>
+    </div>`;
+
+  // 項目報告
+  let reportHTML = '<div style="font-size:13px; color:rgba(255,255,255,0.4); letter-spacing:2px; text-transform:uppercase; margin-bottom:16px;">需要關注的指標</div>';
+  if (items.length === 0) {
+    reportHTML += '<div style="color:var(--green); font-size:16px; font-weight:700;">🎉 所有指標均在正常範圍內！</div>';
+  } else {
+    items.forEach(item => {
+      reportHTML += `
+        <div class="report-item">
+          <div class="report-dot" style="background:${item.color};"></div>
+          <div>
+            <span style="font-weight:700; color:#fff;">${item.name}：</span>
+            <span style="color:${item.color};">${item.msg}</span>
+          </div>
+        </div>`;
+    });
+  }
+  document.getElementById('report-content').innerHTML = reportHTML;
+
+  // 居家處方
+  let adviceHTML = '';
+  if (adviceList.length === 0) {
+    adviceHTML = '<div class="rx-item">持續給予多元感官刺激，維持良好的感統發展狀態。</div>';
+  } else {
+    adviceList.forEach(a => { adviceHTML += `<div class="rx-item">✦ ${a}</div>`; });
+  }
+  document.getElementById('home-advice').innerHTML = adviceHTML;
+
+  document.getElementById('report-zone').style.display = 'block';
+  setTimeout(() => document.getElementById('report-zone').scrollIntoView({ behavior:'smooth' }), 100);
+}
+
+/* ── 預約諮詢 ── */
+function consult() {
+  const phone = prompt('為了安排專業感統顧問與您聯繫，請留下您的電話：');
+  if (phone && phone.trim()) alert(`感謝您的信任！我們的老師將在 24 小時內與您聯繫，為孩子安排最適合的感統課程體驗。`);
+}
+</script>
+</body>
+</html>

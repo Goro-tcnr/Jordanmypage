@@ -316,45 +316,24 @@
       border: 8px solid white;
     }
     .cert-badge {
-      display:flex;
-      flex-direction: column;
-      padding:16px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 20px;
       background:white;
-      border-radius:20px;
+      border-radius:15px;
       margin-bottom:15px;
-      border:1px solid rgba(244, 128, 26, 0.15);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-      height: 100%;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .cert-badge:hover {
-      transform: translateY(-5px);
-      border-color: var(--orange);
-      box-shadow: 0 12px 30px rgba(244, 128, 26, 0.15);
+      border:1px solid rgba(244, 128, 26, 0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      width: 100%;
     }
     .cert-icon {
-      width:36px; height:36px;
+      width:40px; height:40px;
       background:var(--orange);
       color:white;
       border-radius:10px;
       display:flex; align-items:center; justify-content:center;
       flex-shrink:0;
-      margin-bottom: 12px;
-    }
-    .cert-img-thumb {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-top: 12px;
-      border: 1px solid #f0f0f0;
-    }
-    .cert-hint {
-      font-size: 0.75rem;
-      color: var(--orange);
-      margin-top: 8px;
-      font-weight: bold;
     }
 
     /* yezi area */
@@ -364,36 +343,61 @@
       padding:10px 16px;
       border-radius:999px;
       background:white;
-      border:1px solid #eee;
-      font-size:.9rem;
+      color:#555;
       box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      border: 1px solid #eee;
     }
     .yezi-frame {
-      background:white;
-      border-radius:32px;
-      padding:42px;
-      border:1px solid rgba(0,0,0,.05);
-      box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+      padding:34px;
+      border-radius:28px;
+      background:linear-gradient(135deg,rgba(244, 128, 26, 0.05),rgba(255,255,255,0.8));
+      border:1px solid rgba(244, 128, 26, 0.15);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.03);
     }
     .timeline-quote {
-      padding-left:24px;
-      border-left:3px solid var(--orange);
-      margin-bottom:24px;
+      padding:18px 20px;
+      border-left:4px solid var(--orange);
+      background:white;
+      border-radius:0 14px 14px 0;
+      margin-bottom:16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.02);
     }
 
     /* footer */
-    footer { background:#f8f9fa; padding:48px 0; border-top:1px solid #eee; }
-    .scroll-top {
-      position:fixed; bottom:30px; right:30px;
-      width:50px; height:50px; border-radius:50%;
-      background:var(--orange); color:white;
-      border:none; display:none; z-index:999;
-      box-shadow: 0 10px 20px rgba(244, 128, 26, 0.3);
+    footer {
+      background:#f8f9fa;
+      border-top:1px solid #eee;
+      color:#777;
+      padding:28px 0;
     }
 
-    @media (max-width:991px) {
-      .diag-image { display:none; }
-      .diag-content { width:100%; margin:0; }
+    .scroll-top {
+      position:fixed;
+      right:22px;
+      bottom:22px;
+      width:52px;
+      height:52px;
+      border:none;
+      border-radius:50%;
+      background:linear-gradient(135deg,var(--orange),var(--red));
+      color:#fff;
+      font-size:1.2rem;
+      box-shadow:0 10px 24px rgba(230,57,70,.3);
+      display:none;
+      z-index:999;
+    }
+
+    .modal-content { border-radius: 25px; border: none; }
+    .modal-header { border-bottom: 1px solid #eee; }
+    .form-control { border-radius: 12px; padding: 12px; border: 1px solid #ddd; }
+
+    @media (max-width: 991px) {
+      .story-timeline::before, .timeline-item::before { display:none; }
+      .diag-image { position:relative; width:100%; min-height:280px; }
+      .diag-content { width:100%; margin-top:-24px; }
+    }
+
+    @media (max-width: 768px) {
       .hero-slide { min-height:78vh; }
       .hero-caption { margin:20px; }
       .section-block { padding:72px 0; }
@@ -406,10 +410,10 @@
       <div class="d-flex justify-content-between align-items-center py-2 flex-wrap gap-2">
         <div class="fw-bold">小吳老師專業感統評測</div>
         <div class="text-end">
-          <a href="https://www.facebook.com/profile.php?id=61579408700330" target="_blank" class="me-2 text-decoration-none"><i class="fa-brands fa-facebook fa-xl"></i></a>
-          <a href="https://line.me/ti/p/4zOPUuuyFc" target="_blank" class="me-2 text-decoration-none"><i class="fa-brands fa-line fa-xl"></i></a>
-          <a href="https://www.instagram.com/kidzblueprint" target="_blank" class="me-2 text-decoration-none"><i class="fa-brands fa-instagram fa-xl"></i></a>
-          <a href="https://www.youtube.com/@shigeno54wish/videos" target="_blank" class="text-decoration-none"><i class="fa-brands fa-youtube fa-xl"></i></a>
+          <a href="#" class="me-2 text-decoration-none"><i class="fa-brands fa-facebook fa-xl"></i></a>
+          <a href="#" class="me-2 text-decoration-none"><i class="fa-brands fa-line fa-xl"></i></a>
+          <a href="#" class="me-2 text-decoration-none"><i class="fa-brands fa-instagram fa-xl"></i></a>
+          <a href="#" class="text-decoration-none"><i class="fa-brands fa-youtube fa-xl"></i></a>
         </div>
       </div>
     </div>
@@ -530,23 +534,23 @@
           </p>
           
           <div class="row g-3">
-            <div class="col-md-6">
-              <a href="https://ppt.cc/fdGLSx@.jpg" target="_blank" class="cert-badge">
+            <div class="col-md-12">
+              <div class="cert-badge hover-lift">
                 <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-                <div class="fw-bold" style="color:var(--dark);">全智統合發展評量師</div>
-                <div class="small text-muted">專業感統評估與發展分析</div>
-                <img src="https://ppt.cc/fdGLSx@.jpg" alt="全智統合發展評量師資格證書" class="cert-img-thumb">
-                <div class="cert-hint"><i class="fa-solid fa-magnifying-glass-plus me-1"></i>點擊查看證書大圖</div>
-              </a>
+                <div>
+                  <div class="fw-bold" style="color:var(--dark);">全智統合發展評量師資格證書</div>
+                  <div class="small text-muted">專業感統評估與發展分析</div>
+                </div>
+              </div>
             </div>
-            <div class="col-md-6">
-              <a href="https://ppt.cc/fBYnhx@.png" target="_blank" class="cert-badge">
+            <div class="col-md-12">
+              <div class="cert-badge hover-lift">
                 <div class="cert-icon"><i class="fa-solid fa-fingerprint"></i></div>
-                <div class="fw-bold" style="color:var(--dark);">天賦皮紋評測分析師</div>
-                <div class="small text-muted">先天潛能與學習風格解讀</div>
-                <img src="https://ppt.cc/fBYnhx@.png" alt="天賦皮紋評測分析師證書" class="cert-img-thumb">
-                <div class="cert-hint"><i class="fa-solid fa-magnifying-glass-plus me-1"></i>點擊查看證書大圖</div>
-              </a>
+                <div>
+                  <div class="fw-bold" style="color:var(--dark);">天賦皮紋評測分析師證書</div>
+                  <div class="small text-muted">先天潛能與學習風格解讀</div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -691,8 +695,8 @@
         <div class="col-md-6 col-xl-4"><div class="horror-card hover-lift"><div class="case-tag">聽知覺失調｜8歲</div><h5 class="mb-3">「她聽得到，卻聽不懂」</h5><p class="section-text">阿花不是不努力，而是老師講的話進到耳朵後，無法順利轉成理解，久了開始覺得自己很笨。</p><div class="mt-3 p-3 rounded-3" style="background:rgba(230,57,70,.05); color:#555;"><strong style="color:var(--red);">真相：</strong>聽知覺過濾與處理能力不足，會直接影響上課理解、考試表現與自我評價。</div></div></div>
         <div class="col-md-6 col-xl-4"><div class="horror-card hover-lift"><div class="case-tag">觸覺防禦｜10歲</div><h5 class="mb-3">「他不是脾氣差，是碰一下就崩潰」</h5><p class="section-text">排隊時被碰到就爆哭，久而久之同學不願靠近，小傑從外向孩子慢慢變得不敢出門。</p><div class="mt-3 p-3 rounded-3" style="background:rgba(230,57,70,.05); color:#555;"><strong style="color:var(--red);">真相：</strong>觸覺防禦未被看懂時，社交、人際與自我保護常一起失衡。</div></div></div>
         <div class="col-md-6 col-xl-4"><div class="horror-card hover-lift"><div class="case-tag">視知覺失調｜9歲</div><h5 class="mb-3">「她明明很認真，作業卻總做不好」</h5><p class="section-text">閱讀跳行、抄寫漏字、寫作業比別人多花三倍時間，卻一直被誤會成不用心。</p><div class="mt-3 p-3 rounded-3" style="background:rgba(230,57,70,.05); color:#555;"><strong style="color:var(--red);">真相：</strong>視知覺問題會一路拉低學習效率，並侵蝕孩子的成就感。</div></div></div>
-        <div class="col-md-6 col-xl-4"><div class="horror-card hover-lift"><div class="case-tag">本體覺失調｜11歲</div><h5 class="mb-3">「手很笨，其實不是懶」</h5><p class="section-text">阿宏拿筷子、用剪刀、上體育課都特別吃力，被笑久了之後，連參與活動的意願都消失了。</p><div class="mt-3 p-3 rounded-3" style="background:rgba(230,57,70,.05); color:#555;"><strong style="color:var(--red);">真相：</strong>本體覺計畫與精細動作基礎穩，會一路影響表現與自信。</div></div></div>
-        <div class="col-md-6 col-xl-4"><div class="horror-card hover-lift" style="border-color:rgba(212,175,55,.3);"><div class="case-tag" style="background:rgba(212,175,55,.15); color:var(--gold);">共同結論</div><h5 class="mb-3" style="color:var(--gold);">「如果早點知道，我一定會早點做」</h5><p class="section-text">這不是少數家庭的遺憾，而是很多家長在孩子上小學後才突然明白的事。感統問題通常不會自己消失，只會在年齡增長後，用更高成本補回來。</p></div></div>
+        <div class="col-md-6 col-xl-4"><div class="horror-card hover-lift"><div class="case-tag">本體覺失調｜11歲</div><h5 class="mb-3">「手很笨，其實不是懶」</h5><p class="section-text">阿宏拿筷子、用剪刀、上體育課都特別吃力，被笑久了之後，連參與活動的意願都消失了。</p><div class="mt-3 p-3 rounded-3" style="background:rgba(230,57,70,.05); color:#555;"><strong style="color:var(--red);">真相：</strong>本體覺計畫與精細動作基礎不穩，會一路影響表現與自信。</div></div></div>
+        <div class="col-md-6 col-xl-4"><div class="horror-card hover-lift" style="border-color:rgba(212,175,55,.3);"><div class="case-tag" style="background:rgba(212,175,55,.15); color:var(--gold);">共同結論</div><h5 class="mb-3" style="color:var(--gold);">「如果早點知道，我一定會早點做」</h5><p class="section-text">這不是少數家庭的遺憾，而是很多家長在孩子上小學後才突然明白的事。感統問題通常不會自己消失，只會在年齡增長後，用更高成本補回來。</p><div class="mt-4"><a href="#golden" class="btn btn-outline-warning rounded-pill px-4">還有多少時間可以行動？</a></div></div></div>
       </div>
     </div>
   </section>

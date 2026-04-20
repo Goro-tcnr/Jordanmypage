@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>喬登AI動漫學院｜感統評測故事型官網 (活潑淺色版)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #ff7e5f; /* 溫暖橘 */
+      --secondary: #feb47b; /* 柔和黃 */
+      --accent: #4facfe; /* 活潑藍 */
+      --success: #00f2fe; /* 青綠 */
+      --danger: #ff5858; /* 警示紅 */
+      --bg-light: #fdfbfb; /* 淺米白底 */
+      --text-main: #444;
+      --text-muted: #777;
+      --white: #ffffff;
+      --card-bg: rgba(255, 255, 255, 0.9);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-main);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    a { text-decoration: none; transition: 0.3s; }
+    .fw-900 { font-weight: 900; }
+    .bg-cover { background-size: cover; background-position: center center; }
+    .section-block { padding: 100px 0; position: relative; }
+    
+    /* 標題與標籤 */
+    .section-label {
+      display: inline-block;
+      color: var(--primary);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.15rem;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+      padding: 4px 12px;
+      background: rgba(255, 126, 95, 0.1);
+      border-radius: 8px;
+    }
+    .display-title {
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      line-height: 1.3;
+      font-weight: 900;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .section-text {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 800px;
+    }
+
+    /* 頂部社群列 */
+    #top-social {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: white;
+      font-size: 0.9rem;
+    }
+    #top-social a i { color: white; transition: 0.3s; }
+    #top-social a i:hover { transform: scale(1.2); }
+
+    /* 導覽列 */
+    .navbar-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    }
+    .navbar-brand { color: var(--primary) !important; font-size: 1.5rem; }
+    .nav-link { color: #555 !important; font-weight: 500; margin: 0 5px; }
+    .nav-link:hover, .nav-link.active { color: var(--primary) !important; }
+
+    /* 輪播區 */
+    .hero-slide {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+    .hero-slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(255,255,255,0.9), rgba(255,255,255,0.2));
+    }
+    .hero-caption {
+      position: relative;
+      z-index: 10;
+      max-width: 650px;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+    .hero-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 10px rgba(255, 126, 95, 0.3);
+    }
+
+    /* 卡片設計 */
+    .lively-card {
+      background: var(--white);
+      border-radius: 25px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+      border: 1px solid #f0f0f0;
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .lively-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      border-color: var(--secondary);
+    }
+
+    /* 評測區 */
+    #assessment { background: #fff9f5; }
+    .assess-box { padding: 40px; background: white; border-radius: 30px; box-shadow: 0 15px 45px rgba(255, 126, 95, 0.1); }
+    .assess-item label { font-weight: 700; color: #555; margin-bottom: 10px; display: block; }
+    .assess-item select {
+      width: 100%;
+      padding: 12px 15px;
+      border-radius: 15px;
+      border: 2px solid #eee;
+      background: #fdfdfd;
+      transition: 0.3s;
+    }
+    .assess-item select:focus { border-color: var(--primary); outline: none; }
+    .btn-main {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      box-shadow: 0 10px 25px rgba(255, 126, 95, 0.3);
+      transition: 0.3s;
+    }
+    .btn-main:hover { transform: scale(1.05); box-shadow: 0 15px 35px rgba(255, 126, 95, 0.4); color: white; }
+
+    /* 報告結果 */
+    #report-zone { display: none; margin-top: 30px; }
+    .report-card { background: #fff; border-left: 6px solid var(--danger); padding: 25px; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+    .rx-card { background: #f0f9ff; border: 1px solid #bae6fd; padding: 25px; border-radius: 20px; }
+    .score-circle {
+      width: 100px; height: 100px; border-radius: 50%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      border: 5px solid var(--primary); background: white;
+    }
+
+    /* 案例警示 */
+    .horror-card {
+      background: white;
+      border-radius: 25px;
+      padding: 35px;
+      border-top: 8px solid var(--danger);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      height: 100%;
+    }
+    .case-tag {
+      background: rgba(255, 88, 88, 0.1);
+      color: var(--danger);
+      padding: 5px 15px;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    /* 統計數字 */
+    .metric-box {
+      text-align: center;
+      padding: 30px;
+      background: white;
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+    }
+    .metric-num { font-size: 3rem; font-weight: 900; color: var(--primary); margin-bottom: 5px; }
+
+    /* 時間軸 */
+    .lively-timeline { position: relative; padding: 20px 0; }
+    .lively-timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 4px; background: #eee;
+      transform: translateX(-50%);
+    }
+    .timeline-node {
+      position: relative;
+      margin-bottom: 50px;
+      width: 100%;
+    }
+    .timeline-content {
+      width: 45%;
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .timeline-node:nth-child(even) .timeline-content { margin-left: auto; }
+    .timeline-dot {
+      position: absolute;
+      left: 50%; top: 20px;
+      width: 24px; height: 24px;
+      background: var(--primary);
+      border: 4px solid white;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+    }
+
+    /* 對角線區塊 */
+    .diag-wrap {
+      background: linear-gradient(135deg, #fff5f0 0%, #fff 100%);
+      overflow: hidden;
+    }
+    .diag-img-box {
+      min-height: 500px;
+      border-radius: 40px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+    }
+
+    /* 標籤雲 */
+    .pill-cloud span {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background: white;
+      border-radius: 50px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      color: #666;
+      font-weight: 500;
+    }
+
+    /* 團隊 */
+    .mentor-img {
+      width: 120px; height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    /* 頁尾 */
+    footer {
+      background: #333;
+      color: #ccc;
+      padding: 50px 0;
+    }
+    footer a { color: #aaa; }
+    footer a:hover { color: white; }
+
+    /* 彈窗 */
+    .modal-content { border-radius: 30px; border: none; overflow: hidden; }
+    .modal-header { background: var(--primary); color: white; border: none; }
+    .form-control { border-radius: 12px; padding: 12px; border: 2px solid #eee; }
+
+    @media (max-width: 991px) {
+      .lively-timeline::before, .timeline-dot { display: none; }
+      .timeline-content { width: 100%; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部社群 -->
+  <section id="top-social">
+    <div class="container py-2 d-flex justify-content-between align-items-center flex-wrap">
+      <div class="fw-bold"><i class="fa-solid fa-child-reaching me-2"></i>陪伴孩子走過大腦發展的黃金六年</div>
+      <div class="d-flex gap-3">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-line"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 導覽列 -->
+  <div class="navbar-wrap">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg py-3">
+        <a class="navbar-brand fw-900" href="#"><i class="fa-solid fa-palette me-2"></i>喬登AI動漫學院</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="#hero">首頁</a></li>
+            <li class="nav-item"><a class="nav-link" href="#assessment">感統評測</a></li>
+            <li class="nav-item"><a class="nav-link" href="#cases">真實案例</a></li>
+            <li class="nav-item"><a class="nav-link" href="#golden">黃金期</a></li>
+            <li class="nav-item"><a class="nav-link" href="#method">學習入口</a></li>
+            <li class="nav-item"><a class="nav-link" href="#team">專家團隊</a></li>
+          </ul>
+          <div class="ms-lg-4">
+            <button class="btn btn-main" data-bs-toggle="modal" data-bs-target="#consultModal">免費諮詢</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- 輪播首頁 -->
+  <section id="hero">
+    <div id="mainCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="hero-slide bg-cover" style="background-image: url('https://images.unsplash.com/photo-1484981138541-3d074aa97716?auto=format&fit=crop&w=1600&q=80');">
+            <div class="container">
+              <div class="hero-caption">
+                <span class="hero-badge">專業感統評測</span>
+                <h1 class="display-title">讀懂孩子的<br><span style="color:var(--primary);">「求救訊號」</span></h1>
+                <p class="section-text mb-4">孩子坐不住、寫字慢、愛發脾氣？這可能不是個性問題，而是大腦感官整合需要幫忙。讓我們陪您一起，用故事與遊戲找回孩子的自信。</p>
+                <div class="d-flex gap-3">
+                  <a href="#assessment" class="btn btn-main">開始 3 分鐘評測</a>
+                  <a href="#cases" class="btn btn-outline-secondary rounded-pill px-4 py-3 fw-bold">了解更多案例</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="hero-slide bg-cover" style="background-image: url('https://images.unsplash.com/photo-1502086223501-7ea24c3d4e64?auto=format&fit=crop&w=1600&q=80');">
+            <div class="container">
+              <div class="hero-caption">
+                <span class="hero-badge" style="background:var(--accent);">AI 動漫引導學習</span>
+                <h1 class="display-title">讓學習像<br><span style="color:var(--accent);">看動漫一樣有趣</span></h1>
+                <p class="section-text mb-4">喬登獨家 AI 動漫系統，將感統訓練融入精采故事，讓孩子在快樂中建立神經連結，打好未來雙語與數位學習的地基。</p>
+                <div class="d-flex gap-3">
+                  <button class="btn btn-main" style="background:var(--accent); box-shadow: 0 10px 25px rgba(79, 172, 254, 0.3);" data-bs-toggle="modal" data-bs-target="#consultModal">預約體驗課程</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- 評測區塊 -->
+  <section id="assessment" class="section-block">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-5">
+          <span class="section-label">Step 01｜互動評測</span>
+          <h2 class="display-title">這不是考試，<br>是給家長的<span style="color:var(--primary);">翻譯機</span></h2>
+          <p class="section-text mb-4">透過 9 個簡單的觀察指標，系統將為您分析孩子目前的感統狀態，並提供專屬的居家訓練處方。了解孩子，是改變的起點。</p>
+          <div class="lively-card p-4">
+            <div class="d-flex gap-3 mb-3">
+              <div class="fs-2 text-primary"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+              <div>
+                <h5 class="fw-bold">即時產出報告</h5>
+                <p class="small text-muted mb-0">填寫完畢立即獲得失調指數分析與專家建議。</p>
+              </div>
+            </div>
+            <div class="d-flex gap-3">
+              <div class="fs-2 text-warning"><i class="fa-solid fa-house-user"></i></div>
+              <div>
+                <h5 class="fw-bold">居家訓練處方</h5>
+                <p class="small text-muted mb-0">針對弱項提供在家就能做的簡單小遊戲。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7">
+          <div class="assess-box">
+            <div class="row g-3 mb-4">
+              <div class="col-md-6 col-xl-4 assess-item"><label>前庭覺</label><select id="vestibular"><option value="0">✅ 穩定</option><option value="1">⚠️ 注意力稍散漫</option><option value="2">🔶 坐不住、好動</option><option value="3">🚨 嚴重影響規範</option></select></div>
+              <div class="col-md-6 col-xl-4 assess-item"><label>重力感</label><select id="gravity"><option value="0">✅ 穩定</option><option value="1">⚠️ 膽小、怕高</option><option value="2">🔶 不愛腳離地</option><option value="3">🚨 極度缺乏安全感</option></select></div>
+              <div class="col-md-6 col-xl-4 assess-item"><label>視知覺</label><select id="visual"><option value="0">✅ 良好</option><option value="1">⚠️ 寫字易疲勞</option><option value="2">🔶 閱讀易跳行</option><option value="3">🚨 空間理解混亂</option></select></div>
+              <div class="col-md-6 col-xl-4 assess-item"><label>聽知覺</label><select id="auditory"><option value="0">✅ 敏銳</option><option value="1">⚠️ 理解指令慢</option><option value="2">🔶 易受噪音干擾</option><option value="3">🚨 聽而不聞</option></select></div>
+              <div class="col-md-6 col-xl-4 assess-item"><label>觸覺防禦</label><select id="tactile"><option value="0">✅ 穩定</option><option value="1">⚠️ 適應較慢</option><option value="2">🔶 情緒易波動</option><option value="3">🚨 人際退縮</option></select></div>
+              <div class="col-md-6 col-xl-4 assess-item"><label>觸覺區辨</label><select id="tactile_disc"><option value="0">✅ 正常</option><option value="1">⚠️ 不愛動手</option><option value="2">🔶 精細動作笨拙</option><option value="3">🚨 手眼配合極差</option></select></div>
+              <div class="col-md-6 col-xl-4 assess-item"><label>本體覺</label><select id="proprioception"><option value="0">✅ 協調</option><option value="1">⚠️ 力道控制不佳</option><option value="2">🔶 動作協調吃力</option><option value="3">🚨 手腳不協調</option></select></div>
+              <div class="col-md-6 col-xl-4 assess-item"><label>情緒調適</label><select id="regulation"><option value="0">✅ 穩定</option><option value="1">⚠️ 耐性稍不足</option><option value="2">🔶 挫折容忍度低</option><option value="3">🚨 易爆發衝動</option></select></div>
+              <div class="col-md-6 col-xl-4 assess-item"><label>整體發展</label><select id="overall"><option value="0">✅ 符合年齡</option><option value="1">⚠️ 略有落後</option><option value="2">🔶 差距已拉開</option><option value="3">🚨 急需介入</option></select></div>
+            </div>
+            <button class="btn btn-main w-100" onclick="generateReport()"><i class="fa-solid fa-chart-pie me-2"></i>產出專業評測報告</button>
+
+            <div id="report-zone">
+              <div class="report-card mt-4 mb-3" id="report-summary"></div>
+              <div class="lively-card mb-3" id="report-details"></div>
+              <div class="rx-card mb-3">
+                <h6 class="fw-bold text-primary mb-3"><i class="fa-solid fa-heart-pulse me-2"></i>專家建議處方</h6>
+                <div id="report-advice" class="small"></div>
+              </div>
+              <div class="text-center"><a href="#cases" class="btn btn-outline-primary rounded-pill px-4">接著看真實案例</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 案例警示 -->
+  <section id="cases" class="section-block">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">Step 02｜真實案例</span>
+        <h2 class="display-title">感統失調，<br><span style="color:var(--danger);">不只是「不乖」而已</span></h2>
+        <p class="section-text mx-auto">這些故事每天都在發生。當我們誤解了孩子的行為，孩子也在獨自承受大腦跟不上世界的痛苦。</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="horror-card">
+            <span class="case-tag">前庭覺｜7歲</span>
+            <h4 class="fw-bold mb-3">「他根本坐不住」</h4>
+            <p class="text-muted">老師每天反映小明上課一直站起來走動，媽媽最後帶去看診，差點被貼上過動標籤。其實，他只是大腦需要更多前庭刺激來維持清醒。</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="horror-card">
+            <span class="case-tag">聽知覺｜8歲</span>
+            <h4 class="fw-bold mb-3">「她聽得到，卻聽不懂」</h4>
+            <p class="text-muted">阿花不是不努力，而是老師講的話進到耳朵後，無法順利轉成理解。久了她開始覺得自己很笨，對學習產生恐懼。</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="horror-card">
+            <span class="case-tag">視知覺｜9歲</span>
+            <h4 class="fw-bold mb-3">「寫作業像在打仗」</h4>
+            <p class="text-muted">閱讀跳行、抄寫漏字、寫作業比別人多花三倍時間。家長以為是不用心，其實是視覺追蹤與辨識能力在卡關。</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-5">
+        <div class="lively-card d-inline-block p-4 px-5" style="border-color: var(--primary);">
+          <h5 class="fw-bold mb-3">「如果早點知道，我一定會早點做」</h5>
+          <p class="text-muted mb-4">感統問題不會隨年齡消失，只會轉化成學習與社交的障礙。現在行動，還來得及。</p>
+          <a href="#golden" class="btn btn-main">了解黃金期倒數</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 黃金期與統計 -->
+  <section id="golden" class="section-block" style="background: linear-gradient(to bottom, #fff, #fff5f0);">
+    <div class="container">
+      <div class="row g-5 align-items-center mb-5">
+        <div class="col-lg-6">
+          <span class="section-label">Step 03｜黃金期</span>
+          <h2 class="display-title">0–6 歲，<br><span style="color:var(--primary);">大腦連線的關鍵時窗</span></h2>
+          <p class="section-text mb-4">科學研究證實，人類大腦 85% 的神經突觸在 6 歲前形成。這段時間的感官刺激，決定了孩子一生學習能力的基礎電路。</p>
+          <div class="row g-3">
+            <div class="col-6"><div class="metric-box"><div class="metric-num">1000</div><div class="small text-muted">每秒形成神經突觸</div></div></div>
+            <div class="col-6"><div class="metric-box"><div class="metric-num">85%</div><div class="small text-muted">6歲前大腦完成度</div></div></div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="lively-timeline">
+            <div class="timeline-node">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <h6 class="fw-bold text-primary">0–2 歲｜神經爆發期</h6>
+                <p class="small text-muted mb-0">感官刺激高速建立路徑，影響未來專注力與安全感。</p>
+              </div>
+            </div>
+            <div class="timeline-node">
+              <div class="timeline-dot" style="background:var(--secondary);"></div>
+              <div class="timeline-content">
+                <h6 class="fw-bold" style="color:var(--secondary);">3–4 歲｜整合成形期</h6>
+                <p class="small text-muted mb-0">社交、語言與動作協調加速，是觀察失衡的關鍵點。</p>
+              </div>
+            </div>
+            <div class="timeline-node">
+              <div class="timeline-dot" style="background:var(--danger);"></div>
+              <div class="timeline-content">
+                <h6 class="fw-bold text-danger">5–6 歲｜最後修正期</h6>
+                <p class="small text-muted mb-0">進小學前的最後衝刺，決定孩子能否跟上數位與雙語課堂。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 學習入口 -->
+  <section id="method" class="section-block diag-wrap">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <div class="diag-img-box bg-cover" style="background-image: url('https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=1200&q=80');"></div>
+        </div>
+        <div class="col-lg-6">
+          <span class="section-label">Step 04｜學習入口</span>
+          <h2 class="display-title">孩子天生愛學習，<br><span style="color:var(--accent);">只是需要對的入口</span></h2>
+          <p class="section-text mb-4">自動自發不是天生性格，是被正確的好奇心啟動的。當孩子從他最喜歡的遊戲和動漫出發，學習就不再是負擔。</p>
+          <div class="pill-cloud mb-4">
+            <span>🧩 拼圖遊戲 → 視知覺</span>
+            <span>📺 動漫卡通 → 聽說整合</span>
+            <span>🧱 積木搭建 → 本體覺</span>
+            <span>💧 沙水遊戲 → 觸覺整合</span>
+            <span>🎵 音樂律動 → 前庭刺激</span>
+          </div>
+          <div class="lively-card p-4" style="background: rgba(79, 172, 254, 0.05); border-color: var(--accent);">
+            <h5 class="fw-bold" style="color:var(--accent);">喬登 AI 動漫系統</h5>
+            <p class="small text-muted">我們把專業的感統訓練，變成了精采的冒險故事。孩子在追劇、玩遊戲的過程中，大腦神經正在悄悄地完成最重要的連線。</p>
+            <button class="btn btn-main" style="background:var(--accent);" data-bs-toggle="modal" data-bs-target="#consultModal">了解教學方法</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 團隊展示 -->
+  <section id="team" class="section-block">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-label">專家團隊</span>
+        <h2 class="display-title">環境，才是<br><span style="color:var(--primary);">最好的老師</span></h2>
+        <p class="section-text mx-auto">由感統專家、教學設計師與 AI 工程師共同打造，為您的孩子量身訂製成長路徑。</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3 text-center">
+          <div class="lively-card">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" class="mentor-img" alt="mentor">
+            <h5 class="fw-bold">王語晴 顧問</h5>
+            <p class="small text-muted">兒童感統評估專家</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 text-center">
+          <div class="lively-card">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" class="mentor-img" alt="mentor">
+            <h5 class="fw-bold">陳宇辰 老師</h5>
+            <p class="small text-muted">遊戲化教學設計師</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 text-center">
+          <div class="lively-card">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=300&q=80" class="mentor-img" alt="mentor">
+            <h5 class="fw-bold">李安庭 治療師</h5>
+            <p class="small text-muted">情緒調節與感統專家</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 text-center">
+          <div class="lively-card">
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80" class="mentor-img" alt="mentor">
+            <h5 class="fw-bold">黃致遠 顧問</h5>
+            <p class="small text-muted">雙語環境建置專家</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁尾 -->
+  <footer>
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <h4 class="fw-900 text-white mb-4"><i class="fa-solid fa-palette me-2"></i>喬登AI動漫學院</h4>
+          <p class="small">我們致力於結合 AI 技術與感統專業，為 0-12 歲的孩子打造最適合的學習環境，讓每個孩子都能發揮天賦，自信成長。</p>
+        </div>
+        <div class="col-lg-2 ms-lg-auto">
+          <h6 class="text-white fw-bold mb-3">快速連結</h6>
+          <ul class="list-unstyled small">
+            <li><a href="#assessment">感統評測</a></li>
+            <li><a href="#cases">真實案例</a></li>
+            <li><a href="#golden">黃金期資訊</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h6 class="text-white fw-bold mb-3">聯絡我們</h6>
+          <ul class="list-unstyled small">
+            <li><i class="fa-solid fa-phone me-2"></i>0800-XXX-XXX</li>
+            <li><i class="fa-solid fa-envelope me-2"></i>service@jordan-ai.com</li>
+            <li><i class="fa-solid fa-location-dot me-2"></i>台北市中心區某某路 123 號</li>
+          </ul>
+        </div>
+      </div>
+      <hr class="my-4 border-secondary">
+      <div class="text-center small">© 2026 喬登AI動漫學院｜專業兒童感統全腦開發</div>
+    </div>
+  </footer>
+
+  <!-- 諮詢彈窗 -->
+  <div class="modal fade" id="consultModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">預約免費感統諮詢</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <p class="text-muted small mb-4">留下您的聯絡資訊，專業顧問將在 24 小時內與您聯繫，為孩子安排最適合的體驗。</p>
+          <div class="mb-3"><label class="form-label small fw-bold">家長姓名</label><input type="text" class="form-control" placeholder="請輸入姓名"></div>
+          <div class="mb-3"><label class="form-label small fw-bold">聯絡電話</label><input type="text" class="form-control" placeholder="請輸入手機號碼"></div>
+          <div class="mb-3"><label class="form-label small fw-bold">孩子年齡</label><input type="text" class="form-control" placeholder="例如：4歲"></div>
+          <button class="btn btn-main w-100 mt-3" onclick="alert('預約成功！顧問將盡快與您聯繫。'); location.reload();">立即送出預約</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const FIELDS = {
+      vestibular: { name:'前庭覺', msgs:['穩定','注意力稍散漫','坐不住、好動','嚴重影響規範'], advice:'多盪鞦韆、溜滑梯，或抱著孩子原地轉圈，給予適量前庭刺激。' },
+      gravity: { name:'重力感', msgs:['穩定','膽小、怕高','不愛腳離地','極度缺乏安全感'], advice:'多做低高度跳躍、攀爬與翻滾活動，建立安全感與身體信心。' },
+      visual: { name:'視知覺', msgs:['良好','寫字易疲勞','閱讀易跳行','空間理解混亂'], advice:'每天安排找不同、迷宮與眼球追視遊戲，強化視覺掃描與定位能力。' },
+      auditory: { name:'聽知覺', msgs:['敏銳','理解指令慢','易受噪音干擾','聽而不聞'], advice:'玩聲音辨位與分辨遊戲，練習在簡短指令下完成小任務。' },
+      tactile: { name:'觸覺防禦', msgs:['穩定','適應較慢','情緒易波動','人際退縮'], advice:'透過沙、水、黏土、毛巾等多材質遊戲，降低觸覺防禦反應。' },
+      tactile_disc: { name:'觸覺區辨', msgs:['正常','不愛動手','精細動作笨拙','手眼配合極差'], advice:'多做拼圖、串珠、摸物辨識、扣釦子等精細動作練習。' },
+      proprioception: { name:'本體覺', msgs:['協調','力道控制不佳','動作協調吃力','手腳不協調'], advice:'安排推、拉、搬、爬樓梯等活動，增加關節與肌肉回饋。' },
+      regulation: { name:'情緒調適', msgs:['穩定','耐性稍不足','挫折容忍度低','易爆發衝動'], advice:'建立活動轉換預告、深呼吸與固定節奏，降低感官過載。' },
+      overall: { name:'整體發展', msgs:['符合年齡','略有落後','差距已拉開','急需介入'], advice:'每天安排規律大肌肉活動，並搭配系統化多感官學習設計。' }
+    };
+
+    function generateReport() {
+      let totalScore = 0;
+      let items = [];
+      let adviceList = [];
+
+      for (const [key, field] of Object.entries(FIELDS)) {
+        const val = parseInt(document.getElementById(key).value, 10);
+        totalScore += val;
+        if (val > 0) {
+          const color = val === 3 ? 'var(--danger)' : val === 2 ? 'var(--primary)' : 'var(--secondary)';
+          items.push({ name: field.name, msg: field.msgs[val], color });
+          adviceList.push(field.advice);
+        }
+      }
+
+      const maxScore = Object.keys(FIELDS).length * 3;
+      const pct = Math.round((totalScore / maxScore) * 100);
+      let level = '優異', levelColor = '#2ec4b6', levelMsg = '孩子目前各項感統指標大致穩定，建議持續維持多元刺激。';
+
+      if (pct > 0 && pct <= 20) { level = '輕度'; levelColor = 'var(--secondary)'; levelMsg = '孩子已有輕微感統失調跡象，建議調整日常活動安排。'; }
+      else if (pct > 20 && pct <= 50) { level = '中度'; levelColor = 'var(--primary)'; levelMsg = '孩子已有較明顯的感統失調訊號，建議及早介入。'; }
+      else if (pct > 50) { level = '需立即介入'; levelColor = 'var(--danger)'; levelMsg = '孩子失調指數偏高，建議盡快安排專業評估。'; }
+
+      document.getElementById('report-summary').innerHTML = `
+        <div class="d-flex gap-4 align-items-center flex-wrap">
+          <div class="score-circle" style="border-color:${levelColor}">
+            <div style="font-size:28px; font-weight:900; color:${levelColor}">${pct}%</div>
+            <div style="font-size:11px; color:#999">失調指數</div>
+          </div>
+          <div class="flex-grow-1">
+            <div class="small text-muted mb-1">評估結果</div>
+            <div style="font-size:1.6rem; font-weight:900; color:${levelColor}">${level}</div>
+            <div class="small text-muted mt-1">${levelMsg}</div>
+          </div>
+        </div>`;
+
+      let detailsHTML = '<h6 class="fw-bold mb-3">重點關注指標</h6>';
+      if (items.length === 0) {
+        detailsHTML += '<p class="text-success small mb-0">🎉 目前所有項目皆在正常範圍內！</p>';
+      } else {
+        items.forEach(item => {
+          detailsHTML += `<div class="d-flex align-items-center gap-2 mb-2 small"><div style="width:8px; height:8px; border-radius:50%; background:${item.color}"></div><strong>${item.name}：</strong><span style="color:${item.color}">${item.msg}</span></div>`;
+        });
+      }
+      document.getElementById('report-details').innerHTML = detailsHTML;
+
+      let adviceHTML = '';
+      if (!adviceList.length) {
+        adviceHTML = '持續透過遊戲與陪伴，維持穩定的感官整合發展。';
+      } else {
+        adviceList.forEach(a => { adviceHTML += `<div class="mb-2">✦ ${a}</div>`; });
+      }
+      document.getElementById('report-advice').innerHTML = adviceHTML;
+
+      document.getElementById('report-zone').style.display = 'block';
+      setTimeout(() => document.getElementById('report-zone').scrollIntoView({ behavior:'smooth', block:'start' }), 150);
+    }
+  </script>
+</body>
+</html>

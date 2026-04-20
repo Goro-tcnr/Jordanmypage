@@ -316,46 +316,38 @@
       border: 8px solid white;
     }
     .cert-badge {
-      display:flex;
-      flex-direction: column;
-      padding:16px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 20px;
       background:white;
-      border-radius:20px;
+      border-radius:15px;
       margin-bottom:15px;
-      border:1px solid rgba(244, 128, 26, 0.15);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-      height: 100%;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .cert-badge:hover {
-      transform: translateY(-5px);
-      border-color: var(--orange);
-      box-shadow: 0 12px 30px rgba(244, 128, 26, 0.15);
+      border:1px solid rgba(244, 128, 26, 0.2);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      width: 100%;
     }
     .cert-icon {
-      width:36px; height:36px;
+      width:40px; height:40px;
       background:var(--orange);
       color:white;
       border-radius:10px;
       display:flex; align-items:center; justify-content:center;
       flex-shrink:0;
-      margin-bottom: 12px;
     }
-    .cert-img-thumb {
-      width: 100%;
-      aspect-ratio: 4/3;
-      object-fit: cover;
+    .cert-img-wrap {
+      margin-top: 10px;
       border-radius: 12px;
-      margin-top: 12px;
-      border: 1px solid #f0f0f0;
+      overflow: hidden;
+      border: 1px solid #eee;
     }
-    .cert-hint {
-      font-size: 0.75rem;
-      color: var(--orange);
-      margin-top: 8px;
-      font-weight: bold;
+    .cert-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform .3s ease;
     }
+    .cert-img:hover { transform: scale(1.03); }
 
     /* yezi area */
     .feature-strip span {
@@ -531,22 +523,26 @@
           
           <div class="row g-3">
             <div class="col-md-6">
-              <a href="https://ppt.cc/fdGLSx@.jpg" target="_blank" class="cert-badge">
-                <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
-                <div class="fw-bold" style="color:var(--dark);">全智統合發展評量師</div>
-                <div class="small text-muted">專業感統評估與發展分析</div>
-                <img src="https://ppt.cc/fdGLSx@.jpg" alt="全智統合發展評量師資格證書" class="cert-img-thumb">
-                <div class="cert-hint"><i class="fa-solid fa-magnifying-glass-plus me-1"></i>點擊查看證書大圖</div>
-              </a>
+              <div class="cert-badge hover-lift flex-column align-items-start">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <div class="cert-icon"><i class="fa-solid fa-certificate"></i></div>
+                  <div class="fw-bold" style="color:var(--dark);">全智統合發展評量師</div>
+                </div>
+                <div class="cert-img-wrap">
+                  <img src="https://ppt.cc/fdGLSx@.jpg" alt="全智統合發展評量師資格證書" class="cert-img">
+                </div>
+              </div>
             </div>
             <div class="col-md-6">
-              <a href="https://ppt.cc/fBYnhx@.png" target="_blank" class="cert-badge">
-                <div class="cert-icon"><i class="fa-solid fa-fingerprint"></i></div>
-                <div class="fw-bold" style="color:var(--dark);">天賦皮紋評測分析師</div>
-                <div class="small text-muted">先天潛能與學習風格解讀</div>
-                <img src="https://ppt.cc/fBYnhx@.png" alt="天賦皮紋評測分析師證書" class="cert-img-thumb">
-                <div class="cert-hint"><i class="fa-solid fa-magnifying-glass-plus me-1"></i>點擊查看證書大圖</div>
-              </a>
+              <div class="cert-badge hover-lift flex-column align-items-start">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <div class="cert-icon"><i class="fa-solid fa-fingerprint"></i></div>
+                  <div class="fw-bold" style="color:var(--dark);">天賦皮紋評測分析師</div>
+                </div>
+                <div class="cert-img-wrap">
+                  <img src="https://ppt.cc/fBYnhx@.png" alt="天賦皮紋評測分析師證書" class="cert-img">
+                </div>
+              </div>
             </div>
           </div>
 

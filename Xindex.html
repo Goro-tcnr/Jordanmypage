@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>喬登AI動漫學 | 全智統合發展專家 (0-14歲)</title>
+    <style>
+        /* --- 全域樣式 --- */
+        :root {
+            --primary: #FF5E62;    /* 活潑紅 */
+            --secondary: #00D2FF;  /* 科技藍 */
+            --accent: #FFBE0B;     /* 亮黃點綴 */
+            --dark: #2D3436;
+            --light: #F8F9FA;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Microsoft JhengHei", sans-serif; }
+        body { background-color: #fff; color: var(--dark); line-height: 1.6; overflow-x: hidden; }
+        
+        /* --- Header & Logo --- */
+        header {
+            background: #fff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-container img {
+            height: 50px; /* 這裡請放入喬登AI動漫學LOGO連結 */
+            vertical-align: middle;
+        }
+        nav a { text-decoration: none; color: var(--dark); font-weight: bold; margin-left: 20px; transition: 0.3s; }
+        nav a:hover { color: var(--primary); }
+
+        /* --- Banner 試用區 --- */
+        .hero {
+            background: linear-gradient(135deg, rgba(255,94,98,0.9), rgba(0,210,255,0.8)), url('https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 5%;
+            text-align: center;
+        }
+        .hero h1 { font-size: 2.5rem; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.2rem; margin-bottom: 40px; }
+        
+        .trial-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            display: inline-block;
+        }
+        .trial-btn {
+            background: var(--accent);
+            color: var(--dark);
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: transform 0.2s, background 0.3s;
+        }
+        .trial-btn:hover { transform: scale(1.05); background: #fca311; }
+
+        /* --- 業務說服區塊 --- */
+        .section-title { text-align: center; margin: 60px 0 40px; }
+        .section-title h2 { font-size: 2rem; color: var(--primary); }
+        
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 0 10%; }
+        .feature-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-bottom: 5px solid var(--secondary);
+        }
+        .feature-card h3 { margin-bottom: 15px; color: var(--secondary); }
+
+        /* --- 價格與分期 (核心轉單) --- */
+        .pricing-box {
+            background: var(--light);
+            padding: 80px 5%;
+            margin-top: 80px;
+            text-align: center;
+        }
+        .price-card {
+            background: white;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 30px;
+            border: 3px solid var(--primary);
+            box-shadow: 0 20px 40px rgba(255,94,98,0.2);
+            position: relative;
+        }
+        .badge {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--accent);
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            transform: rotate(15deg);
+        }
+        .price-large { font-size: 3.5rem; color: var(--primary); font-weight: 900; }
+        .price-unit { font-size: 1.2rem; color: #666; }
+        .installment-info {
+            background: #fff5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            font-size: 1.1rem;
+        }
+        .cta-buy {
+            background: var(--primary);
+            color: white;
+            width: 100%;
+            padding: 20px;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255,94,98,0.4);
+        }
+
+        /* --- 客服維護 --- */
+        .service { padding: 80px 10%; display: flex; flex-wrap: wrap; justify-content: space-around; background: #fff; }
+        .service-info { flex: 1; min-width: 300px; padding: 20px; }
+        .service-info h3 { border-left: 5px solid var(--secondary); padding-left: 15px; margin-bottom: 20px; }
+
+        /* --- Footer 跑馬燈 --- */
+        footer { background: var(--dark); color: white; padding: 15px 0; position: fixed; bottom: 0; width: 100%; z-index: 1000; }
+        .marquee-container { overflow: hidden; white-space: nowrap; }
+        .marquee-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 25s linear infinite;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+
+        /* 響應式 */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 1.8rem; }
+            header { flex-direction: column; }
+            nav { margin-top: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div style="font-weight:900; font-size:24px; color:var(--primary)">喬登<span style="color:var(--secondary)">AI動漫學</span></div>
+        </div>
+        <nav>
+            <a href="#features">核心優勢</a>
+            <a href="#pricing">分期方案</a>
+            <a href="#service">售後保障</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>用 AI 啟發大腦，讓動漫成為最好的老師</h1>
+        <p>專為 0-14 歲設計：全智統合發展商品，解決專注力、學習興趣與感覺統合三大難題</p>
+        <div class="trial-box">
+            <h3 style="margin-bottom:15px">立即免費體驗 AI 互動課</h3>
+            <button class="trial-btn" onclick="openTrial('全智感統')">感統遊戲試用</button>
+            <button class="trial-btn" onclick="openTrial('動漫英語')">動漫英語試用</button>
+            <button class="trial-btn" onclick="openTrial('邏輯開發')">邏輯思考試用</button>
+        </div>
+    </section>
+
+    <div class="section-title" id="features">
+        <h2>為什麼 10 萬名家長選擇喬登 AI？</h2>
+    </div>
+    <div class="features">
+        <div class="feature-card">
+            <h3>🤖 AI 定制化學習</h3>
+            <p>透過 AI 偵測孩子反應，自動調整教學難度，確保孩子始終處於「最容易吸收」的學習狀態。</p>
+        </div>
+        <div class="feature-card">
+            <h3>🎨 感覺統合訓練</h3>
+            <p>結合動漫視覺與肢體互動，有效刺激前庭覺、觸覺與本體覺，打造學習力基石。</p>
+        </div>
+        <div class="feature-card">
+            <h3>📈 全程進度追蹤</h3>
+            <p>家長專屬 APP 隨時查看學習報告，大腦發展數據化，讓進步看得見。</p>
+        </div>
+    </div>
+
+    <section class="pricing-box" id="pricing">
+        <div class="section-title">
+            <h2>輕鬆入手的未來教育</h2>
+            <p>每日投資不到一份早餐錢，給孩子帶不走的競爭力</p>
+        </div>
+        <div class="price-card">
+            <div class="badge">🔥 熱銷推薦</div>
+            <h3>【全智統合三年學習計畫】</h3>
+            <div style="margin: 20px 0;">
+                <span class="price-large">2,980</span>
+                <span class="price-unit">NTD / 月</span>
+            </div>
+            <div class="installment-info">
+                <p>✅ <strong>36 期 0 利率</strong> 分期方案</p>
+                <p>✅ 每天平均只需 <strong>$99</strong> 元</p>
+                <p>✅ 包含 AI 主機、感統感應設備與 3 年授權</p>
+            </div>
+            <button class="cta-buy" onclick="purchase()">立即申請分期方案</button>
+            <p style="margin-top:15px; font-size:0.9rem; color:#888;">* 合作銀行：台新、國泰、中信等 12 家銀行</p>
+        </div>
+    </section>
+
+    <section class="service" id="service">
+        <div class="service-info">
+            <h3>🛡️ 三年硬體保固</h3>
+            <p>學習主機與感測設備提供 3 年免費維修與到府收送服務，讓家長買得安心。</p>
+        </div>
+        <div class="service-info">
+            <h3>👨‍🏫 線上真人顧問</h3>
+            <p>每個月一次家長諮詢，由專業感統老師分析孩子數據，提供家庭教育建議。</p>
+        </div>
+        <div class="service-info">
+            <h3>☁️ 雲端內容更新</h3>
+            <p>每季自動更新 AI 動漫教材，內容與時俱進，不必再購買額外教材。</p>
+        </div>
+    </section>
+
+    <div style="height: 100px;"></div> <footer>
+        <div class="marquee-container">
+            <div class="marquee-text">
+                📢 最新消息：歡慶喬登 AI 榮獲國際幼教創新獎！ &nbsp;&nbsp;&nbsp;&nbsp; 
+                🔥 限時優惠：今日前 50 名諮詢者，加碼贈送「兒童全智感統評估」乙次！ &nbsp;&nbsp;&nbsp;&nbsp; 
+                🚀 喬登 AI 動漫學：0-14 歲全方位學習解決方案，讓孩子贏在起跑點！ &nbsp;&nbsp;&nbsp;&nbsp; 
+                📞 客服專線：0800-XXX-XXX | 線上 LINE 諮詢：@JordanAI
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 試用按鈕
+        function openTrial(courseName) {
+            alert(`【喬登AI動漫學】\n\n您即將進入「${courseName}」試用體驗區！\n系統將自動分析您孩子的互動偏好，請點擊確定開始。`);
+        }
+
+        // 購買諮詢
+        function purchase() {
+            const phone = prompt("請輸入您的聯絡電話，我們將有專人為您說明 3 年分期優惠細節：");
+            if(phone) {
+                alert("感謝您的預約！專業教育顧問將於 24 小時內與您聯繫。");
+            }
+        }
+
+        // 滑動至錨點時的平滑效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

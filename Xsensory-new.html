@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>兒童感覺統合發展支持系統 - 專業評估版</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --green: #2ecc71;
+            --yellow: #f1c40f;
+            --red: #e74c3c;
+        }
+        .bg-cover { background-size: cover; background-position: center center; }
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        /* 套入程式碼 2 的功能性樣式：指標報告區塊 */
+        .report-card {
+            background: #2d3436;
+            border-radius: 20px;
+            padding: 30px;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .report-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255,255,255,0.05);
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 5px solid transparent;
+        }
+        .report-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 15px;
+            box-shadow: 0 0 10px rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold" href="#"><i class="fas fa-brain me-2"></i>感覺統合支持系統</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">關於系統</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#report">評估報表</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">專業服務</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero-section bg-cover">
+        <div class="container text-center animate__animated animate__fadeIn">
+            <h1 class="display-3 fw-bold">全方位大腦整合開發</h1>
+            <p class="lead">結合皮紋檢測與感統評估，為孩子量身打造發展藍圖</p>
+            <a href="#report" class="btn btn-primary btn-lg mt-4 px-5 rounded-pill">查看最新評估結果</a>
+        </div>
+    </header>
+
+    <section id="report" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">專業發展報告指標</h2>
+                <p class="text-muted">即時監控各項感統指標，精準掌握成長關鍵</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="report-card animate__animated animate__zoomIn">
+                        <div class="mb-4">
+                            <h4 class="text-amber-500"><i class="fas fa-file-medical-alt me-2"></i> 需要關注的指標</h4>
+                            <hr class="opacity-20">
+                        </div>
+
+                        <div class="report-item" style="border-left-color: var(--red);">
+                            <div class="report-dot" style="background: var(--red);"></div>
+                            <div>
+                                <span class="fw-bold text-white">前庭平衡：</span>
+                                <span style="color: var(--red);">顯著敏感。建議加強搖擺與旋轉活動練習。</span>
+                            </div>
+                        </div>
+
+                        <div class="report-item" style="border-left-color: var(--yellow);">
+                            <div class="report-dot" style="background: var(--yellow);"></div>
+                            <div>
+                                <span class="fw-bold text-white">觸覺反應：</span>
+                                <span style="color: var(--yellow);">輕微遲緩。需增加多樣化材質接觸經驗。</span>
+                            </div>
+                        </div>
+
+                        <div class="report-item" style="border-left-color: var(--green);">
+                            <div class="report-dot" style="background: var(--green);"></div>
+                            <div>
+                                <span class="fw-bold text-white">本體覺：</span>
+                                <span style="color: var(--green);">發展良好。能精確控制肢體力道與方向。</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-3 rounded bg-dark border border-secondary">
+                            <small class="text-white-50">總體評價：</small>
+                            <div class="text-info fw-bold">孩子在空間感知上有極佳潛力，建議持續維持體能訓練。</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 hover-lift">
+                        <i class="fas fa-fingerprint fa-3x text-primary mb-3"></i>
+                        <h5 class="fw-bold">皮紋檢測評估</h5>
+                        <p class="text-muted small">解鎖先天天賦，了解孩子的原始學習風格。</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm text-center p-4 hover-lift">
+                        <i class="fas fa-child fa-3x text-primary mb-3"></i>
+                        <h5 class="fw-bold">感統居家指導</h5>
+                        <p class="text-muted small">將專業訓練帶入家庭，讓成長發生在每一天。</p>
+                    </div>
+                </div>
